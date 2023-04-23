@@ -13,11 +13,11 @@ export default function Sidebar({open}:{open:Boolean}) {
           Home
         </Link>
         <p className="font-light tracking-wider text-sm pt-4">MATERIAL RODANTE</p>
-        <Link href={'/'} className="flex gap-4 text-lg hover:text-gray-300">
+        <Link href={'/Vehiculos'} className="flex gap-4 text-lg hover:text-gray-300">
           <TruckIcon className="w-6 h-6"/>
           Vehículos
         </Link>
-        <Link href={'/'} className="flex gap-4 text-lg hover:text-gray-300">
+        <Link href={'/EAVMs'} className="flex gap-4 text-lg hover:text-gray-300">
           <CogIcon className="w-6 h-6"/>
           Ejes EAVM
         </Link>

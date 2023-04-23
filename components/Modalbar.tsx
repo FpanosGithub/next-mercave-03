@@ -21,11 +21,11 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
             Home
           </Link>
           <p className="font-light tracking-wider text-sm pt-4">MATERIAL RODANTE</p>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/Vehiculos'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
             <TruckIcon className="w-6 h-6"/>
             Vehículos
           </Link>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/EAVMs'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
             <CogIcon className="w-6 h-6"/>
             Ejes EAVM
           </Link>
