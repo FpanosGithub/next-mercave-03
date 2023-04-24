@@ -12,7 +12,7 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
       <div 
         onClick={(e)=>e.stopPropagation()}
         className="bg-gray-700 absolute top-0 left-0 w-60 h-screen overflow-y-scroll text-gray-400 flex flex-col justify-between px-2">
-        <div className="px-4 py-4 space-y-4 border-b border-gray-600">
+        <div className="px-4 py-4 space-y-4">
           <div className="flex justify-end">
             <XMarkIcon className='w-6 h-6' onClick={()=>{setOpen(!open)}}/>
           </div>
@@ -55,7 +55,7 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
         </div>
         <div className="flex space-x-4 text-sm justify-center py-4 border-t border-gray-600">
           <p className="">Creado por </p>
-          <Image src={tria} width = {100} height={20} alt='logo adif' className='h-6 w-auto' priority/>
+          <Image src={tria} width = {100} height={30} alt='logo adif' className='w-auto' priority/>
         </div>
       </div>
     </div>

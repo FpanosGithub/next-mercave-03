@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {Session} from 'next-auth'
 import { Bars3BottomLeftIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-import avatar from '@/public/logos/avatar.png'
 import adif from  '@/public/logos/adif.png'
 import { signIn,signOut } from 'next-auth/react';
 
@@ -16,7 +15,7 @@ export default function Navbar({admin, open, setOpen, session}:{admin?: Boolean,
           className='h-8 ml-4 mt-1 hover:cursor-pointer md:hidden'
           onClick={()=>setOpen(!open)}/>}
         <Link href="/" className="mx-6">
-            <Image src={adif} width = {80} height={40} alt='logo adif' className='h-10 w-auto' priority/>
+            <Image src={adif} width = {80} height={40} alt='logo adif' className='w-auto' priority/>
         </Link>
       </div>
       {session?.user? 
