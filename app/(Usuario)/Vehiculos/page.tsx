@@ -1,7 +1,9 @@
 import { urls_mercave } from '@/lib/mercave';
 import BreadNav from "@/components/BreadNav";
 import PanelFlota from './_componentes/PanelFlota'
+import ListaFlota from './_componentes/ListaFlota';
 
+//export const dynamic = 'force-static'
 export const revalidate = 3600
 
 async function getVehiculos() {
@@ -17,9 +19,13 @@ export default async function page() {
   }
   const vehiculos = await getVehiculos();
   return (
-    <div>
-      <BreadNav segmentos = {segmentos}/>
-      <p className="ml-4 my-4 text-2xl font-semibold">Vehículos</p>
+    <div className='h-full bg-gray-100'>
+      {/* Cabecera */}
+      <div className="pb-2 mb-2 shadow bg-white">
+        <BreadNav segmentos = {segmentos}/>
+        <p className="ml-4 my-4 text-2xl font-semibold">Vehículos</p>
+      </div>
+      {/* Panel Flota */}
       <PanelFlota vehiculos = {vehiculos}/>
     </div>
   )

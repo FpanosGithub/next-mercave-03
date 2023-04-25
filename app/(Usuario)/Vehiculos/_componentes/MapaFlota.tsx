@@ -1,19 +1,20 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import { Map, ZoomControl, Marker, Overlay } from "pigeon-maps";
-import { maptiler } from 'pigeon-maps/providers'
-import { stamenToner } from 'pigeon-maps/providers';
+import { Map, ZoomControl, Marker, Overlay, Point } from "pigeon-maps";
 import { osm } from 'pigeon-maps/providers'
+import { maptiler } from 'pigeon-maps/providers'
 import { WifiIcon, PauseIcon, PlayIcon, WrenchIcon, SignalIcon, XMarkIcon} from '@heroicons/react/24/solid';
 
-export default function MapaFlota ({vehiculos, hover, onHover}) {
-  const router = useRouter()
+export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[], hover:Number, onHover:Function}) {
+  
   const maptilerProvider = maptiler('t3404nTGTEs1Q4VOSvmj', 'basic')
-  function handleClick(id) {
+  
+  const router = useRouter()
+  function handleClick(id: Number) {
     router.push(`/Vehiculos/${id}`)
   }
-  let punto_purple = [0, 0]
+  let punto_purple:Point = [0, 0]
   let codigo = ''
   let imagen = ''
   let keeper = ''
@@ -29,7 +30,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
   let width_marker_overlay = 0
   if (hover !== -1)
         {
-        vehiculos.forEach((vehiculo)=> {
+        vehiculos.forEach((vehiculo: any)=> {
             if (hover === vehiculo.id) {
                 punto_purple = [vehiculo.lat, vehiculo.lng]
                 codigo = vehiculo.num_uic
@@ -49,11 +50,11 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
             })
         }
   return(
-    <div className="rounded-lg border border-slate-500 p-2 h-[38rem] 2xl:basis-2/3 2xl:h-full">
+    <div className="rounded-lg shadow p-2 h-[30rem] m-4 bg-white">
     <Map 
-      provider={osm}
+      provider={maptilerProvider}
       dprs={[1, 2]} 
-      defaultHeight={600} 
+      defaultHeight={160} 
       defaultCenter={[40, -2]}
       defaultZoom={5} 
       attribution = {false}
@@ -74,18 +75,18 @@ export default function MapaFlota ({vehiculos, hover, onHover}) {
         <Marker 
           width={width_marker_overlay} 
           color = 'purple'
-          anchor={punto_purple} 
+          anchor = {punto_purple} 
           onClick={()=>handleClick(id_vehiculo)}/>
-        <Overlay anchor={punto_purple}>
+        <Overlay anchor ={punto_purple}>
             <div className={`${width_overlay} p-1 pb-2 bg-slate-700/90 shadow-xl rounded-md`} onClick = {() => onHover(-1)}>
               <Image src = {`/imagenes/vehiculos/${imagen}`} alt = '' height = {100} width = {160}/>
-              <div className="text-center bg-slate-800/80 mt-1 rounded-lg">
+              <div className="text-center bg-slate-800/80 mt-1 p-1 rounded-lg text-gray-100">
                 {codigo}
               </div>
-              <div className="text-center text-slate-400">
+              <div className="text-center text-gray-100">
                 {keeper}
               </div>
-              <div className="text-center text-sm text-slate-400">
+              <div className="text-center text-sm text-gray-100">
                 {descripcion}
               </div>
               <div className="flex justify-between mt-3 px-2 border border-slate-400 rounded-lg">

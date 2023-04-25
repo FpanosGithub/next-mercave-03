@@ -2,6 +2,7 @@ import { urls_mercave } from '@/lib/mercave';
 import BreadNav from "@/components/BreadNav";
 import PanelEjes from './_componentes/PanelEjes'
 
+//export const dynamic = 'force-static'
 export const revalidate = 3600
 
 async function getEjes() {

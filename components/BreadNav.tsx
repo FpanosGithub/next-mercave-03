@@ -1,4 +1,3 @@
-'use client'
 import { HomeIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import {Segmentos} from '@/types/navegacion'
 import Link from 'next/link'
