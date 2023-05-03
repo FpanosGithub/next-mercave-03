@@ -50,7 +50,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
             })
         }
   return(
-    <div className="rounded-lg shadow p-2 h-[30rem] m-4 bg-white">
+    <div className="rounded-lg shadow p-2 h-[20rem] m-4 bg-white">
     <Map 
       provider={maptilerProvider}
       dprs={[1, 2]} 
