@@ -3,7 +3,7 @@ import BreadNav from "@/components/BreadNav";
 import PanelEjes from './_componentes/PanelEjes'
 
 //export const dynamic = 'force-static'
-export const revalidate = 3600
+export const revalidate = 360
 
 async function getEjes() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.ejes}`)

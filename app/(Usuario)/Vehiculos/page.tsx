@@ -1,7 +1,6 @@
 import { urls_mercave } from '@/lib/mercave';
 import BreadNav from "@/components/BreadNav";
 import PanelFlota from './_componentes/PanelFlota'
-import ListaFlota from './_componentes/ListaFlota';
 
 //export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -18,6 +17,7 @@ export default async function page() {
     activo:{nombre:'Vehículos', link: 'Vehiculos'}
   }
   const vehiculos = await getVehiculos();
+  //console.log(vehiculos)
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}

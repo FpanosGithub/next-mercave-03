@@ -1,9 +1,7 @@
 import GlobalNav from '@/components/GlobalNav'
 import '@/styles/globals.css'
-import {Session} from 'next-auth'
-import { getServerSession } from 'next-auth/next'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import Login from '@/components/Login'
+import { ClerkProvider } from '@clerk/nextjs'
+
 
 export const metadata = {
   title: 'Mercave',
@@ -15,19 +13,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession(authOptions)
   
   return (
+  <ClerkProvider>
     <html lang="en">
       <body>
-        {session?
-          <GlobalNav admin session={session as Session}>
+          <GlobalNav admin>
             {children}
           </GlobalNav>
-        :
-          <Login/>
-        }
       </body>
     </html>
+  </ClerkProvider>
   )
 }

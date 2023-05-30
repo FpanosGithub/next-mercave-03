@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from "next/image"
-import nubes from '@/public/imagenes/clima/nubes.png'
 import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, WifiIcon, RssIcon,  BellAlertIcon, XMarkIcon, CheckIcon, ViewfinderCircleIcon, ArrowTopRightOnSquareIcon} from '@heroicons/react/24/solid';
 
-export default async function FichaVehiculo ({vehiculo}){
+export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
   
   return(
     <>

@@ -1,7 +1,7 @@
 'use client'
 import {useState, useEffect} from "react"
-import MapaCambios from "@/ui/MapaCambios"
-import ListaCambios from "@/ui/ListaCambios"
+import MapaCambios from "@/components/MapaCambios"
+import ListaCambios from "@/components/ListaCambios"
 import GraficasCambios from "./GraficasCambios"
 
 export default function PanelCambios ({cambios}) {

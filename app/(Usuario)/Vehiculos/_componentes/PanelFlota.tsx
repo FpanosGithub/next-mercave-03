@@ -4,7 +4,7 @@ import MapaFlota from "./MapaFlota"
 import ListaFlota from "./ListaFlota"
 
 export default function PanelFlota ({vehiculos}:{vehiculos:any}) {
-  const [hover_vehiculo, setHoverVehiculo] = useState(-1)
+  const [hover_vehiculo, setHoverVehiculo] = useState(vehiculos[0].id)
   return(
     <div className="">
     <MapaFlota

@@ -1,8 +1,8 @@
 'use client'
 import {useState, useEffect} from "react"
-import MapaCirculaciones from "@/ui/MapaCirculaciones"
-import ListaCirculaciones from "@/ui/ListaCirculaciones"
-import MapaCirculacion from "@/ui/MapaCirculacion"
+import MapaCirculaciones from "@/components/MapaCirculaciones"
+import ListaCirculaciones from "@/components/ListaCirculaciones"
+import MapaCirculacion from "@/components/MapaCirculacion"
 
 export default function PanelCirculaciones ({circulaciones}) {
   const [select, setSelect] = useState(-1)
