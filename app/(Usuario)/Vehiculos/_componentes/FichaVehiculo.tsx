@@ -1,135 +1,126 @@
 import Link from 'next/link';
 import Image from "next/image"
 import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, WifiIcon, RssIcon,  BellAlertIcon, XMarkIcon, CheckIcon, ViewfinderCircleIcon, ArrowTopRightOnSquareIcon} from '@heroicons/react/24/solid';
+import Weather from '@/components/Weather';
 
 export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
-  
+  console.log(vehiculo)
   return(
-    <>
-    {/* Título Ficha */}
-    <div className='text-lg text-gray-400 mb-2'>Vehículo: [ {vehiculo.id} ]</div>
-    {/* Div General */} 
-    <div className="bp-2:grid bp-2:gap-1 bp-2:grid-cols-2 bp-3:grid-cols-3 bp-4:grid-cols-4 bp-5:grid-cols-5 bp-6:grid-cols-6 bp-7:grid-cols-7 bp-8:grid-cols-8">
-      {/* Div # 1 - Imagen + estado ocupa 2 cols */}
-      <div className="flex justify-around align-middle col-span-1 rounded-md py-2 px-2 border border-slate-500 h-[12rem] bp-2:col-span-2">
-          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {350} className="rounded-lg h-auto"/>
-
-      </div>
-      
-      {/* Div # 2 - Matrícula y Descripción*/}
-      <div className="rounded-md px-2 py-2 border border-slate-500 h-[12rem] overflow-y-hidden bp-5:col-span-2 bp-7:col-span-1">
-        <div className="rounded-md pt-2 px-1 h-16 text-lg font-extralight overflow-hidden text-center bg-slate-800 ">{vehiculo.num_uic}</div>
-        <div className="mt-2 p-1 font-light text-sm text-slate-400 border border-slate-600 rounded-md">{vehiculo.descripcion_particular}</div>
-      </div>
-
-      {/* Div # 3 - Tipo*/}
-      <div className="rounded-md px-4 border border-slate-500 overflow-hidden h-[12rem]">
-        <div className = 'flex justify-between'>
-          <div className="mt-2 text-slate-300">Tipo:</div>
-          <Link className="mt-2 flex justify-between text-lg font-extralight text-slate-400" 
-            href = {`/Documentacion/Fichas_Tecnicas?material=Vehiculos&id=${vehiculo.id}&tipo=${vehiculo.tipo.descripcion}&id_tipo=${vehiculo.tipo.id}&version=${1000}`}> 
-            <ArrowTopRightOnSquareIcon className="w-6 h-5"/>
+  <div className='w-full flex p-4 gap-3'>
+      <div className='w-full flex flex-col gap-2'>
+        <div className='rounded-md bg-gray-500 text-white flex justify-between items-center flex-wrap gap-4 p-5'>
+          <div className=''>
+            <div className='text-lg font-semibold py-1'>{vehiculo?.tipo?.descripcion}</div>
+            <div className='text-sm text-gray-400 font-medium'>{vehiculo?.descripcion_particular}</div>
+          </div>
+          <Link 
+            href = {`/Documentacion/Fichas_Tecnicas?material=Vehiculos&id=${vehiculo.id}&tipo=${vehiculo.tipo.descripcion}&id_tipo=${vehiculo.tipo.id}&version=${1000}`} 
+            className='rounded-md py-2 px-6 bg-gray-800 text-center hover:bg-slate-600'>
+            Ficha Técnica
           </Link>
         </div>
-        <div className="mt-2 h-12 overflow-hidden text-md font-light text-slate-400">{vehiculo.tipo.descripcion}</div>
-        <div className="mt-1 text-xs text-slate-300">Tipo UIC:</div>
-          <div className="mt-1 text-md font-light text-slate-400">{vehiculo.tipo.tipo_uic}</div>
-          <div className="text-xs text-slate-300 mt-2">Serie UIC:</div>
-          <div className="mt-1 text-md font-light  text-slate-400">{vehiculo.tipo.serie_uic}</div>
-      </div>
-
-      {/* Div # 4 - Owner y Keeper*/}
-      <div className="rounded-md px-4 py-4 border border-slate-500 h-[12rem]">
-          <div className="text-xs text-slate-300">Owner / Keeper:</div>
-          <div className="rounded-md mt-2 p-1 h-16 text-md font-light  text-slate-400">{vehiculo.owner} / {vehiculo.keeper}</div>
-          <div className="text-xs text-slate-300 mt-1">EEM:</div>
-          <div className="mt-2 p-1 h-10 text-md font-light  text-slate-400">{vehiculo.EEM}</div>
-      </div>
-
-    {/* Div # 5 - Clima  
-    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem]">
-        <Image src = {nubes} alt = 'nubes' height = {100} width = {120} className="rounded-lg mx-auto p-2"/>
-        <div className=" text-slate-500 font-extrabold mx-auto text-center">Zaragoza</div>
-        <div className=" text-slate-500 font-extrabold text-5xl mx-auto text-center">7º</div>
-    </div>
-    */}
-    {/* Div # 6 - datos Circulación*/}
-    <div className="rounded-md px-4 py-2 border border-slate-500 h-[12rem] bp-6:col-span-2 bp-7:col-span-1">
-        <div className=" text-slate-300">Circulación:</div>
-        <div className = 'flex justify-evenly mt-2 p-0.5 rounded-full border border-slate-500'>
-        {vehiculo.en_circulacion?
-              (<PlayIcon className="w-6 h-6 mx-auto text-green-500"/>)
-            : (<PauseIcon className="w-6 h-6 mx-auto text-red-500"/>)}
-        {vehiculo.alarma?
-            (<BellAlertIcon className="w-6 h-6 mx-auto text-red-500"/>)
-          : (<BellAlertIcon className="w-6 h-6 mx-auto text-gray-500"/>)}
-        {vehiculo.transmitiendo?
-              (<RssIcon className="w-6 h-6 mx-auto text-green-500"/>)
-            : (<WifiIcon className="w-6 h-6 mx-auto text-red-500"/>)}
+        <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-5'>
+          <div className='px-4 flex-1'>
+            <div className='text-center font-semibold truncate'>{vehiculo?.num_uic}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Matrícula</div>
+          </div>
+          <div className='border-r border-l border-gray-200 px-4 flex-1'>
+            <div className='align-middle text-center font-semibold'>{vehiculo?.tipo.tipo_uic}</div>
+            <div className='text-center text-sm text-gray-400 font-medium truncate'>Tipo UIC</div>
+          </div>
+          <div className='px-4 flex-1'>
+            <div className='text-center font-semibold'>{vehiculo?.tipo.serie_uic}</div>
+            <div className='text-center text-sm text-gray-400 font-medium truncate'>Serie UIC</div>
+          </div>
         </div>
-        <div className="mt-3 text-xs text-slate-300">KM realizados:</div>
-        <div className="py-1 h-10 text-lg font-light  text-slate-400 overflow-hidden">{Math.round(vehiculo.km_totales).toLocaleString('fr')} km</div>
-        <div className="flex justify-between">
-          <div className='text-xs  text-slate-300 pt-1'>Nudo ferroviario:</div>
-          {vehiculo.en_nudo?
-            (<CheckIcon className="mx-auto w-6 h-6 text-green-400"/>)
-          : (<XMarkIcon className="mx-auto w-6 h-6 text-gray-400"/>)
-          }
+        <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-4'>
+          <div className='px-4 flex-1'>
+            <div className='text-center font-semibold'>{vehiculo?.owner}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Owner</div>
+          </div>
+          <div className='border-r border-l border-gray-200 px-4 flex-1'>
+            <div className='align-middle text-center font-semibold'>{vehiculo?.keeper}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Keeper</div>
+          </div>
+          <div className='px-4 flex-1'>
+            <div className='text-center font-semibold'>{vehiculo?.EEM}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>E.E.M.</div>
+          </div>
         </div>
-    </div>
+        <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-4'>
+          <div className='px-4 flex-1'>
+            {/* Semaforo circulación del vehiculo */}
+            <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
+            {vehiculo.transmitiendo ? 
+              (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
+            : (<WifiIcon className="w-6 h-6 mr-1 text-red-400"/>)}
+            {vehiculo.en_circulacion ? 
+              (<PlayIcon className = "w-6 h-6 mr-1 text-green-400"/>)
+            : (<PauseIcon className="w-6 h-6 mr-1 text-red-400"/>)}
+            {vehiculo.alarma_circulacion ? 
+              (<BellAlertIcon className = "w-6 h-6 mr-1 text-red-400"/>)
+            : (<BellAlertIcon className="w-6 h-6 mr-1 text-gray-400"/>)}
+            </div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Circulación</div>
+          </div>
+          <div className='border-r border-l border-gray-200 px-4 flex-1'>
+            <div className='align-middle text-center font-semibold'>{vehiculo.km_totales.toLocaleString('es-ES')}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Km Realizados</div>
+          </div>
+          <div className='px-4 flex-1'>
+            <div className='flex justify-center items-baseline'>
+              <span className='font-semibold'>{vehiculo.vel.toLocaleString('es-ES')}</span>
+              <span className='text-xs ml-2'>Km/h</span> 
+            </div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Velocidad</div>
+          </div>
+        </div>
+        <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-4'>
+          <div className='px-4 flex-1'>
+            {/* Semaforo mantenimiento del vehiculo */}
+            <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
+            {vehiculo.en_servicio ? 
+              (<BoltIcon className="w-6 h-6 mr-1 text-green-400"/>)
+            : (<BoltSlashIcon className="w-6 h-6 mr-1 text-red-400"/>)}
+            {vehiculo.en_mantenimiento ? 
+              (<WrenchIcon className = "w-6 h-6 mr-1 text-green-400"/>)
+            : (<WrenchIcon className="w-6 h-6 mr-1 text-gray-400"/>)}
+            {vehiculo.alarma_mantenimiento ? 
+              (<BellAlertIcon className = "w-6 h-6 mr-1 text-red-400"/>)
+            : (<BellAlertIcon className="w-6 h-6 mr-1 text-gray-400"/>)}
+            </div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Mantenimiento</div>
+          </div>
+          <div className='border-r border-l border-gray-200 px-4 flex-1'>
+            <div className='align-middle text-center font-semibold truncate'>{vehiculo.fecha_ultimo_mantenimiento}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Último Mto</div>
+          </div>
+          <div className='px-4 flex-1'>
+            <div className='text-center font-semibold text-red-500 truncate'>{vehiculo.fecha_proximo_mantenimiento}</div>
+            <div className='text-center text-sm text-gray-400 font-medium'>Próximo Mto.</div>
+          </div>
+        </div>
 
-    {/* Div # 7 - datos Mantenimiento*/}
-    <div className="rounded-md px-4 border border-slate-500 h-[12rem] bp-6:col-span-2 bp-7:col-span-1">
-      <div className = 'flex justify-between'>
-        <div className="mt-2 text-slate-300">Mantenim.:</div>
-        <Link className="mt-2 flex justify-between text-lg font-extralight text-slate-400" href = '/Vehiculos'> 
-          <ArrowTopRightOnSquareIcon className="w-6 h-5"/>
-        </Link>
       </div>
-      <div className = 'flex justify-evenly mt-2 p-1 rounded-full border border-slate-500'>
-        {vehiculo.en_servicio?
-          (<BoltIcon className="w-6 h-6 mx-auto text-green-500"/>)
-        : (<BoltSlashIcon className="w-6 h-6 mx-auto text-red-500"/>)}
-        {vehiculo.en_mantenimiento?
-          (<WrenchIcon className="w-6 h-6 mx-auto text-green-500"/>)
-        : (<WrenchIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
-        {vehiculo.alarma_mantenimiento?
-          (<BellAlertIcon className="w-6 h-6 mx-auto text-red-500"/>)
-        : (<BellAlertIcon className="w-6 h-6 mx-auto text-slate-500"/>)}
-      </div>
-      {vehiculo.en_servicio?
-      (
-        <>
-        <div className="mt-3 text-xs text-slate-300">Último Mto:</div>
-        <div className="py-1 h-10 overflow-hidden text-md font-light  text-slate-400 ">{vehiculo.fecha_ultimo_mantenimiento}</div> 
-        <div className="text-xs text-slate-300">Próximo Mto:</div>
-        <div className="py-1 h-10 overflow-hidden text-md font-light  text-red-700">{vehiculo.fecha_proximo_mantenimiento}</div> 
-        </>
-      )
-      :
-      (
-        <>
-        <div className="mt-3 text-xs text-slate-300">Observaciones:</div>
-        <div className="mt-2 h-20 overflow-hidden text-md font-light  text-slate-400">{vehiculo.observaciones_servicio}</div>  
-        </>
-      )
-      }
-      </div>
-    
-    {/* Div # 8 - Ejes */}
-    <div className="rounded-md px-2 py-2  border border-slate-500 h-[12rem] bp-3:col-span-2 bp-4:col-span-1 bp-5:col-span-2 bp-8:col-span-1">
-        <div className=" text-slate-300 mb-1">Ejes:</div>
-        <div className="rounded-m py-1 px-1 h-36 bg-slate-900 overflow-y-scroll">
-          {vehiculo.ejes.map((eje)=>{return(
-              <Link key={eje.id} className="mt-1 flex justify-between text-md font-light text-slate-400 overflow-hidden" href = {`/Ejes_EAVM/${eje.id}`}> 
-                {eje.codigo} 
-                <ArrowTopRightOnSquareIcon className="w-6 h-5 ml-4"/>
-              </Link>
-            )
-            })}
+      <div className='flex flex-col gap-2 w-[400px]'>
+        <div className='rounded-lg shadow bg-white'>
+          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-t-lg h-auto"/>
+          <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Imagen Vehículo</div>
+        </div>
+        <div className='rounded-lg shadow bg-white p-1 h-[197px]'>
+          <div className='h-[155px] flex flex-col p-1 gap-1'>
+          {vehiculo.ejes.map((eje:any)=>{return(
+            <Link key={eje.id} href='/' className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
+          )})}
+          </div>
+          <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Ejes</div>
+        </div>
+        <div className='rounded-lg shadow bg-white flex flex-col p-1 h-[70px]'>
+          <Weather 
+            lat={vehiculo.lat}
+            long={vehiculo.lng} />
         </div>
       </div>
   </div>
-  </>
   )
 }

@@ -101,9 +101,10 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
               (<SignalIcon className = "w-6 h-6 mr-1 text-red-400"/>)
             : (<SignalIcon className = "w-6 h-6 mr-1 text-slate-400"/>)}
           </div>
-          <Weather 
-            lat={lat}
-            long={long} />
+          <div className='mt-3 border-t border-gray-200'>
+            <Weather lat={lat} long={long} />
+          </div>
+          
         </div>
       </div>
   )

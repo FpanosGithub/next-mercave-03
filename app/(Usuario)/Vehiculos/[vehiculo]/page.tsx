@@ -2,11 +2,11 @@ import { urls_mercave } from '@/lib/mercave';
 import FichaVehiculo from '../_componentes/FichaVehiculo';
 import CirculacionesVehiculo from '../_componentes/CirculacionesVehiculo';
 
-export const revalidate = 600
+export const dynamic = 'force-static' 
 
 async function getVehiculo(id:string) {
-  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}/${id}`)
-  // Recommendation: handle errors
+  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}/${id}/`,{
+    next: { revalidate: 300 }})
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error(`Failed to fetch data for vehicle: ${id}`);
@@ -32,11 +32,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({params}:{params:any}) {
-  //const vehiculo = await getVehiculo(params.vehiculo);
+  const vehiculo = await getVehiculo(params.vehiculo);
   return (
     <>
-    {/*<FichaVehiculo vehiculo = {vehiculo}/>
-    <CirculacionesVehiculo id_vehiculo = {vehiculo.id}/>*/}
+    <FichaVehiculo vehiculo = {vehiculo}/>
+    {/* <CirculacionesVehiculo id_vehiculo = {vehiculo.id}/> */}
     </>
   )
 }

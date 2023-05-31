@@ -27,7 +27,7 @@ export default function Weather({lat, long}:weatherParams) {
   },[lat,long])
   console.log(weather?.icono)
   return (
-    <div className='mx-3 mt-3 py-2 border-t border-gray-200 flex justify-between'>
+    <div className='mx-3 py-2 flex justify-between'>
       <div className='px-2 w-36 text-base'>{weather?.ciudad}</div>
       <div className='flex flex-col justify-center'>
         <div className='flex justify-center px-3 pt-1'>
