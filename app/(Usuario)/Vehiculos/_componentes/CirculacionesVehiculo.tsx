@@ -2,8 +2,8 @@ import { urls_mercave } from "@/lib/mercave";
 import PanelCirculaciones from "@/app/(Usuario)/Vehiculos/_componentes/PanelCirculaciones";
 
 
-async function getCirculaciones(id_vehiculo:number) {
-  //const res = await fetch(`https://trams-server.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id_vehiculo}`)
+async function getCirculaciones(id_vehiculo:number):Promise<JSX.Element> {
+  //`https://drf-server.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id_vehiculo}`
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_vehiculo}${id_vehiculo}`)
   // Recommendation: handle errors
   if (!res.ok) {
@@ -14,8 +14,9 @@ async function getCirculaciones(id_vehiculo:number) {
 }
 
 
-export default function CirculacionesVehiculo ({id_vehiculo}:{id_vehiculo:number}){
-  const circulaciones = getCirculaciones(id_vehiculo);
+export default async function CirculacionesVehiculo ({id_vehiculo}:{id_vehiculo:number}){
+  const circulaciones = await getCirculaciones(id_vehiculo);
+  console.log('CIRCULACIONES: ',circulaciones)
   return(
       <PanelCirculaciones circulaciones = {circulaciones}/>
   )

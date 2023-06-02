@@ -57,7 +57,7 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
             : (<SignalIcon className="w-6 h-6 ml-1 mr-2 my-1 text-slate-400"/>)}
           </td>
           <td className="py-4 pl-3 pr-4 text-sm sm:pr-0">
-            <Link href = {`/Vehiculos/${vehiculo.id}`} className = 'mx-auto flex justify-center gap-2'>
+            <Link href = {`/Vehiculos/${vehiculo.id}/Datos`} className = 'mx-auto flex justify-center gap-2'>
               <EyeIcon className='text-green-600 w-4 h-4 mx-1'/>
               <span className='text-green-600 font-medium text-base -mt-1'>Detalle</span>
             </Link>

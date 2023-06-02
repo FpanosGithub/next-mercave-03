@@ -78,7 +78,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
       </div>
       <div className='rounded-lg shadow h-[20rem] w-56 mx-auto'>
         <div className=''>
-          <Image src = {`/imagenes/vehiculos/${imagen}`} alt = '' height = {100} width = {180} className='rounded-t-l-lg sm:rounded-t-lg object-fill w-56'/>
+          <Image src = {`/imagenes/vehiculos/${imagen}`} alt = '' height = {100} width = {180} className='rounded-t-lg object-fill w-56'/>
           <div className='flex flex-col justify-between mb-2'>
             <div className="text-center p-1 text-gray-800 truncate">{codigo}</div>
             <div className="text-center text-base text-gray-500 truncate">{keeper}</div>

@@ -11,42 +11,67 @@ export default function ListaCirculaciones ({circulaciones, select, hover, onSel
     onHover(id_circulacion)
   }
   return(
-    <div className='rounded-lg border border-slate-500 p-2'>
-    <div className="table w-full 2xl:h-fit 2xl:max-h-full">
-      <div className="table-header-group bg-slate-900">
-          <div className="table-cell text-left pl-4">Día Inicio</div>
-          <div className="table-cell text-left">Hora Inic.</div>
-          <div className="table-cell text-left">Día Fin</div>
-          <div className="table-cell text-left">Hora Fin</div>
-          <div className="table-cell text-center">X</div>
-          <div className="table-cell text-center">Alarma</div>
-      </div>
-      <div className="table-row-group">
-      {circulaciones.map((circulacion)=>{
-        return (
-          <div key = {circulacion.id} 
-                className={clsx('table-row hover:cursor-pointer hover:bg-slate-900 hover:text-slate-400', {'bg-slate-900 text-slate-400': (select === circulacion.id || hover === circulacion.id)})}
-                onClick={()=>handleClick(circulacion.id)}
-                onMouseOver={()=>handleHover(circulacion.id)}
-                >
-            <div className="table-cell pl-4 py-1">{circulacion.dt_inicial.slice(0,10)}</div>
-            <div className="table-cell px-1 py-1">{circulacion.dt_inicial.slice(11,19)}</div>
-            <div className="table-cell px-1 py-1">{circulacion.dt_final.slice(0,10)}</div>
-            <div className="table-cell px-1 py-1">{circulacion.dt_final.slice(11,19)}</div>
-            <div className = 'table-cell pt-1 mt-1'>
-              {(circulacion.abierta)?
-                  (<XMarkIcon className="w-6 h-6 mx-auto my-1 text-red-400"/>)
-                : (<CheckIcon className="w-6 h-6 mx-auto my-1 text-green-400"/>)}
-            </div>
-            <div className = 'table-cell pt-1 mt-1'>
-              {(circulacion.alarma)?
-                  (<BellAlertIcon className="w-6 h-6 mx-auto my-1 text-red-400"/>)
-                : (<BellAlertIcon className="w-6 h-6 mx-auto my-1 text-slate-400"/>)}
-            </div>
-          </div>
-          )})}
-      </div>
+    <div className='w-full px-1 mb-2 sm:px-4'>
+      <div className="w-full px-1 py-2 sm:px-2 rounded-xl bg-white border shadow-md">
+      <table className="min-w-full">
+        <thead className='bg-gray-100'>
+          <tr>
+            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-500">
+            INICIO</th>
+            <th scope="col" className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 lg:table-cell">
+            HORA INIC.</th>
+            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-500">
+            FIN</th>
+            <th scope="col" className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 lg:table-cell">
+            HORA FIN</th>
+            <th scope="col" className="hidden px-3 py-3.5 text-center text-sm font-semibold text-gray-500 sm:table-cell">
+            X</th>
+            <th scope="col" className="px-2 py-3.5 text-center text-sm font-semibold text-gray-500">
+            ALARMA</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200 bg-white">
+        {circulaciones.map((circulacion)=>{return (
+        <tr key = {circulacion.id}
+            className={clsx('',{'bg-green-100': (hover === circulacion.id)} )}
+            onClick={()=>handleClick(circulacion.id)}
+            onMouseOver={()=>handleHover(circulacion.id)}> 
+
+          <td className="py-4 pl-4 pr-1 sm:pr-3 text-gray-700 truncate lg:w-auto lg:max-w-none">
+            {circulacion.dt_inicial.slice(0,10)}
+            <dl className="font-normal lg:hidden">
+              <dt className="sr-only">HORA INICIAL</dt>
+                <dd className="mt-1 truncate text-gray-400">{circulacion.dt_inicial.slice(11,19)}</dd>
+            </dl>
+          </td>
+          <td className="hidden px-3 py-4 text-gray-700 lg:table-cell">{circulacion.dt_inicial.slice(11,19)}</td>
+          
+          <td className="py-4 pl-4 pr-3 text-gray-700 truncate lg:w-auto lg:max-w-none">
+            {circulacion.dt_final.slice(0,10)}
+            <dl className="font-normal lg:hidden">
+              <dt className="sr-only">HORA FINAL</dt>
+                <dd className="mt-1 truncate text-gray-400">{circulacion.dt_final.slice(11,19)}</dd>
+            </dl>
+          </td>
+          <td className="hidden px-3 py-4 text-gray-700 lg:table-cell">{circulacion.dt_final.slice(11,19)}</td>
+          
+          <td className="hidden py-4 pl-1 sm:pl-3 text-sm sm:table-cell">
+            {(circulacion.abierta)
+              ? (<XMarkIcon className="w-6 h-6 mx-auto my-1 text-red-400"/>)
+              : (<CheckIcon className="w-6 h-6 mx-auto my-1 text-green-400"/>)
+            }
+          </td>
+          <td className="py-4 pl-2 pr-2 text-sm sm:pr-0">
+            {(circulacion.alarma)
+              ? (<BellAlertIcon className="w-6 h-6 mx-auto my-1 text-red-400"/>)
+              : (<BellAlertIcon className="w-6 h-6 mx-auto my-1 text-slate-400"/>)
+            }
+          </td>
+        </tr>
+        )})}
+      </tbody>
+    </table>
     </div>            
-    </div>
+  </div>
   )
 }

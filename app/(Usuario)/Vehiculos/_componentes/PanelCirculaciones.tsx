@@ -4,7 +4,7 @@ import MapaCirculaciones from "@/components/MapaCirculaciones"
 import ListaCirculaciones from "@/components/ListaCirculaciones"
 import MapaCirculacion from "@/components/MapaCirculacion"
 
-export default function PanelCirculaciones ({circulaciones}) {
+export default function PanelCirculaciones ({circulaciones}:{circulaciones:any}) {
   const [select, setSelect] = useState(-1)
   const [hover, setHover] = useState(-1)
   const [hasMounted, setHasMounted] = useState(false);
@@ -16,10 +16,9 @@ export default function PanelCirculaciones ({circulaciones}) {
   }
   if (select !== -1) {
     let circulacion = circulaciones[0]
-    circulaciones.forEach((obj)=> {if (select === obj.id) {circulacion = obj}})
+    circulaciones.forEach((obj:any)=> {if (select === obj.id) {circulacion = obj}})
     return (
     <>
-    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Vehículo</div>
     <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
       <MapaCirculacion
         circulacion = {circulacion}
@@ -39,23 +38,19 @@ export default function PanelCirculaciones ({circulaciones}) {
   return(
     <>
     {/* Título Ficha */}
-    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Vehículo</div>
-    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
-    
+    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">   
       <MapaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}
         onSelect = {setSelect}
         hover = {hover}
         onHover = {setHover}/> 
-
       <ListaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}
         onSelect = {setSelect}
         hover = {hover}
         onHover = {setHover}/>
-
     </div>
     </>
   )  

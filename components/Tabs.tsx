@@ -10,8 +10,8 @@ type TabItem = {
 
 export default function Tabs({tabs}:{tabs:TabItem[]}) {
   return (
-    <div className="ml-4 mt-2">
-      <div className="sm:hidden">
+    <div className="pl-4 bg-white shadow">
+      <div className="sm:hidden py-3 -mb-2">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
         </label>
@@ -19,8 +19,8 @@ export default function Tabs({tabs}:{tabs:TabItem[]}) {
         <select
           id="tabs"
           name="tabs"
-          className="block rounded-md border border-gray-300 py-2 pr-8 text-base focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-          defaultValue={tabs.find((tab) => tab.current).name || 0}>
+          className="block h-8 w-56 pl-2 rounded-md border border-gray-300 text-base focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
+          defaultValue={(tabs as any).find((tab:any) => tab.current).name || 0}>
           {tabs.map((tab) => (
             <option key={tab.name}>{tab.name}</option>
           ))}
@@ -35,9 +35,9 @@ export default function Tabs({tabs}:{tabs:TabItem[]}) {
                 href={tab.href}
                 className={
                   clsx(
-                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
-                    {'border-green-700 text-green-700':tab.current},
-                    {'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700':!tab.current}
+                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm',
+                    {'border-green-700 text-emerald-700 font-semibold':tab.current},
+                    {'border-transparent text-gray-500 font-medium hover:border-gray-300 hover:text-gray-700':!tab.current}
                   )
                 }
                 aria-current={tab.current ? 'page' : undefined}

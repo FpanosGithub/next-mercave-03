@@ -17,7 +17,7 @@ export default async function page() {
     activo:{nombre:'Vehículos', link: 'Vehiculos'}
   }
   const vehiculos = await getVehiculos();
-  //console.log(vehiculos)
+  console.log(vehiculos)
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}

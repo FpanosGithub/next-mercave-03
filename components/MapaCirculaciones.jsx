@@ -1,9 +1,12 @@
 'use client'
 import { Map, ZoomControl, Marker, Overlay } from "pigeon-maps";
 import { stamenToner } from 'pigeon-maps/providers';
+import { maptiler } from 'pigeon-maps/providers'
 
 export default function MapaCirculaciones ({circulaciones, select, onSelect, hover, onHover}) {
   
+  const maptilerProvider = maptiler('t3404nTGTEs1Q4VOSvmj', 'basic')
+
   const checkDate = (date) => {
     const fecha = new Date(date)
     const yesterday  = new Date();
@@ -127,9 +130,9 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
   const overlay = data_overlay()
 
   return(
-    <div className="rounded-lg border border-slate-500 p-2 h-[38rem]">
+    <div className="rounded-lg shadow mt-4 mb-2 mx-1 sm:mx-4 p-2 bg-white h-[21rem]">
     <Map 
-      provider={stamenToner}
+      provider={maptilerProvider}
       dprs={[1, 2]} 
       defaultHeight={600} 
       defaultCenter={[40, -2]}
@@ -151,10 +154,10 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
         {(hover !== -1)?
           (<Overlay 
             anchor={overlay.anchor}>
-              <div  className='flex flex-col w-36 h-30 p-1 text-xs text-center border rounded-md bg-slate-600/80 border-slate-500 hover:cursor-zoom-out'
+              <div  className='flex flex-col w-44 h-24 p-1 text-sm text-center border rounded-md bg-slate-100/90 border-slate-500 hover:cursor-zoom-out'
                     onClick = {() => onHover(-1)}>
-                <div className='my-1'>Fin circulación:</div>
-                <div className='my-1'>{overlay.texto}</div>
+                <div className='text-base'>Fin circulación:</div>
+                <div>{overlay.texto}</div>
                 <div>{overlay.dia}</div>
                 <div>{overlay.hora}</div>
               </div>
