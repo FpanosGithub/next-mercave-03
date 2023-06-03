@@ -9,7 +9,7 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
   if (!hasMounted) {return null;}
 
   return(
-  <div className='w-full px-4 mb-2'>
+  <div className='w-full px-4 pb-8 mb-2'>
     <div className='w-full p-2 rounded-xl bg-white border shadow-md'>
     <table className="min-w-full">
       <thead className='bg-gray-100'>

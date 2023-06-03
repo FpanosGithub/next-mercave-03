@@ -6,8 +6,12 @@ import Weather from '@/components/Weather';
 export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
   console.log(vehiculo)
   return(
-  <div className='w-full flex p-4 gap-3'>
+  <div className='w-full flex flex-col p-4 gap-3 sm:flex-row'>
       <div className='w-full flex flex-col gap-2'>
+        <div className='rounded-lg shadow bg-white p-1 sm:hidden'>
+          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-lg mx-auto h-auto "/>
+          <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Imagen Vehículo</div>
+        </div>
         <div className='rounded-md bg-gray-500 text-white flex justify-between items-center flex-wrap gap-4 p-5'>
           <div className=''>
             <div className='text-lg font-semibold py-1'>{vehiculo?.tipo?.descripcion}</div>
@@ -18,6 +22,11 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
             className='rounded-md py-2 px-6 bg-gray-800 text-center hover:bg-slate-600'>
             Ficha Técnica
           </Link>
+        </div>
+        <div className='rounded-lg shadow bg-white flex flex-col p-1 h-[70px] sm:hidden'>
+          <Weather 
+            lat={vehiculo.lat}
+            long={vehiculo.lng} />
         </div>
         <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-5'>
           <div className='px-4 flex-1'>
@@ -102,12 +111,12 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
         </div>
 
       </div>
-      <div className='flex flex-col gap-2 w-[400px]'>
-        <div className='rounded-lg shadow bg-white'>
+      <div className='flex flex-col gap-2 sm:w-[400px]'>
+        <div className='hidden rounded-lg shadow bg-white sm:block'>
           <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-t-lg h-auto"/>
           <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Imagen Vehículo</div>
         </div>
-        <div className='rounded-lg shadow bg-white p-1 h-[197px]'>
+        <div className='w-full rounded-lg shadow bg-white p-1 h-[197px]'>
           <div className='h-[155px] flex flex-col p-1 gap-1'>
           {vehiculo.ejes.map((eje:any)=>{return(
             <Link key={eje.id} href='/' className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
@@ -115,7 +124,7 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
           </div>
           <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Ejes</div>
         </div>
-        <div className='rounded-lg shadow bg-white flex flex-col p-1 h-[70px]'>
+        <div className='hidden rounded-lg shadow bg-white sm:flex sm:flex-col p-1 h-[70px]'>
           <Weather 
             lat={vehiculo.lat}
             long={vehiculo.lng} />

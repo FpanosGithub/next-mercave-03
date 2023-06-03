@@ -16,7 +16,6 @@ async function getCirculaciones(id_vehiculo:number):Promise<JSX.Element> {
 
 export default async function CirculacionesVehiculo ({id_vehiculo}:{id_vehiculo:number}){
   const circulaciones = await getCirculaciones(id_vehiculo);
-  console.log('CIRCULACIONES: ',circulaciones)
   return(
       <PanelCirculaciones circulaciones = {circulaciones}/>
   )

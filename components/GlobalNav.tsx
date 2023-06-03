@@ -13,7 +13,7 @@ export default function GlobalNav({admin = false, children}:{admin?:Boolean, chi
       <Navbar admin = {admin} open = {open} setOpen = {setOpen} />
       <div className={clsx('h-screen', {'grid md:grid-cols-sidebar':!admin})}>
         {(!open && !admin) && <Sidebar open = {open}/>}
-        <div className="overflow-y-scroll">
+        <div className="overflow-y-scroll bg-gray-100">
           {children}
         </div>
         {(open && !admin) && <Modalbar open = {open} setOpen = {setOpen}/>}

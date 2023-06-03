@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import clsx from "clsx"
 
@@ -9,9 +10,17 @@ type TabItem = {
 }
 
 export default function Tabs({tabs}:{tabs:TabItem[]}) {
+
+  const router = useRouter()
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(event.target.value);
+    const href = tabs.find((tab)=>(tab.name === event.target.value))?.href
+    router.push(href || '')
+  };
+  
   return (
     <div className="pl-4 bg-white shadow">
-      <div className="sm:hidden py-3 -mb-2">
+      <div className="sm:hidden py-2 -mb-2">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
         </label>
@@ -19,8 +28,9 @@ export default function Tabs({tabs}:{tabs:TabItem[]}) {
         <select
           id="tabs"
           name="tabs"
-          className="block h-8 w-56 pl-2 rounded-md border border-gray-300 text-base focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-          defaultValue={(tabs as any).find((tab:any) => tab.current).name || 0}>
+          className="block h-9 w-56 pl-2 rounded-md border border-gray-300 text-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
+          defaultValue={(tabs as any).find((tab:any) => tab.current).name || 0}
+          onChange={handleChange}>
           {tabs.map((tab) => (
             <option key={tab.name}>{tab.name}</option>
           ))}

@@ -1,20 +1,23 @@
 'use client'
 import {useEffect, useState} from 'react'
-import Image from 'next/image'
-import nublado from  '@/public/imagenes/clima/nublado.png'
-import humedad from  '@/public/imagenes/clima/humedad.png'
-import viento from  '@/public/imagenes/clima/viento.png'
 import IconoTiempo from './IconoTiempo'
-
 
 type weatherParams = {
   lat: number,
   long: number,
 }
+type ValoresWeather = {
+  ciudad: string,
+  icono: string,
+  temperatura: number,
+  humedad?: number,
+  viento?: number,
+}
+
 
 export default function Weather({lat, long}:weatherParams) {
-  const [weather, setWeather] = useState (null)
-  const [loading, setLoading]= useState(false)
+  const [weather, setWeather] = useState <ValoresWeather> ({ciudad:'',icono:'01d', temperatura:20})
+  const [loading, setLoading]= useState <Boolean>(false)
   useEffect(()=>{
     setLoading(true)
     const getWeather = async ()=>{
@@ -25,10 +28,10 @@ export default function Weather({lat, long}:weatherParams) {
     }
     getWeather()
   },[lat,long])
-  console.log(weather?.icono)
+ 
   return (
     <div className='mx-3 py-2 flex justify-between'>
-      <div className='px-2 w-36 text-base'>{weather?.ciudad}</div>
+      <div className='px-2 text-base'>{weather?.ciudad}</div>
       <div className='flex flex-col justify-center'>
         <div className='flex justify-center px-3 pt-1'>
           <IconoTiempo icono = {weather?.icono}/>
