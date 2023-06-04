@@ -22,10 +22,8 @@ export default async function Layout({
   const vehiculo = vehiculos.find(({id}:{id:Number})=> id === parseInt(params.vehiculo))
   
   const segmentos = {
-    previos:[
-      {nombre:'Vehículos', link: 'Vehiculos'}
-    ], 
-    activo:{nombre:vehiculo.num_uic, link: 'Vehiculo'}
+    previos:[{nombre:'Vehículos', link: 'Vehiculos'}], 
+    activo:{nombre:vehiculo.num_uic}
   }
   const tabs = [
     {name:'Datos',href:'/',current:true},
@@ -36,7 +34,7 @@ export default async function Layout({
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
-      <div className="pb-2 bg-white">
+      <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 mt-4 text-2xl font-semibold">{vehiculo.tipo.descripcion}</p>
       </div>

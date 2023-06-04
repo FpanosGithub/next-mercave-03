@@ -10,7 +10,7 @@ export default function BarraNavegacion() {
   if (searchParams.has('material')) {retorno = `/${searchParams.get('material')}/${searchParams.get('id')}`}
 
   return (
-    <div className='flex py-4 pl-16'>
+    <div className='flex py-4 pl-4'>
       <Link href={retorno} className='font-light text-lg flex'>
         <ArrowUturnLeftIcon className = 'h-6 w-6 mr-4'/>
       </Link>

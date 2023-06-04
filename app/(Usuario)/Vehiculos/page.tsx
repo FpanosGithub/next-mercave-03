@@ -14,16 +14,16 @@ async function getVehiculos() {
 export default async function page() {
   const segmentos = {
     previos:[], 
-    activo:{nombre:'Vehículos', link: 'Vehiculos'}
+    activo:{nombre:'Vehículos'}
   }
   const vehiculos = await getVehiculos();
   console.log(vehiculos)
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
-      <div className="pb-2 mb-2 shadow bg-white">
+      <div className="pb-2 shadow-sm bg-white">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 my-4 text-2xl font-semibold">Vehículos</p>
+        <p className="ml-4 my-3 text-2xl font-semibold">Vehículos</p>
       </div>
       {/* Panel Flota */}
       <PanelFlota vehiculos = {vehiculos}/>

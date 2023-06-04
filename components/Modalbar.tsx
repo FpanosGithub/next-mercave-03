@@ -44,7 +44,7 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
             Resumen
           </Link>
             <p className="font-light tracking-wider text-sm pt-4">GESTIÓN ADIF</p>
-          <Link href={'/Documentacion'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/Documentacion/General'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
             <DocumentIcon className="w-6 h-6"/>
             Documentación
           </Link>

@@ -1,6 +1,6 @@
 export type Segmento = {
   nombre: string,
-  link: string,
+  link?: string,
 }
 
 export type Segmentos = {
