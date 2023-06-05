@@ -4,7 +4,7 @@ import MapaEjes from "./MapaEjes"
 import ListaEjes from "./ListaEjes"
 
 export default function PanelEjes ({ejes}) {
-  const [hover, setHover] = useState(-1)
+  const [hover, setHover] = useState(ejes[0].id)
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
     setHasMounted(true);
@@ -13,7 +13,7 @@ export default function PanelEjes ({ejes}) {
     return null;
   }
   return(
-    <div className="space-y-2 2xl:flex 2xl:space-x-4 2xl:h-[62rem]">
+    <div className="">
     <MapaEjes
       ejes = {ejes} 
       hover = {hover}

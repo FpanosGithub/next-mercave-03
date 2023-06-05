@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Image from "next/image"
 import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, WifiIcon, RssIcon,  BellAlertIcon, XMarkIcon, CheckIcon, ViewfinderCircleIcon, ArrowTopRightOnSquareIcon} from '@heroicons/react/24/solid';
+import Weather from '@/components/Weather';
 import clsx from 'clsx';
 
 export default function FichaEje ({eje}){
   return(
     <>
     {/* Título Ficha */}
-    <div className='text-lg text-gray-400 mb-2'>Ficha Eje</div>
+    <div className='text-lg text-gray-500 mb-2'>Ficha Eje</div>
 
     {/* Div general */}
     <div className="bp-2:grid bp-2:gap-1 bp-2:grid-cols-2 bp-3:grid-cols-3 bp-4:grid-cols-4 bp-5:grid-cols-5 bp-6:grid-cols-6 bp-7:grid-cols-7 bp-8:grid-cols-8">

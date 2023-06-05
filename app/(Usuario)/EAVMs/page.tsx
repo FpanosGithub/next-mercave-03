@@ -17,10 +17,15 @@ export default async function page() {
     activo:{nombre:'EAVMs', link: 'EAVMs'}
   }
   const ejes = await getEjes();
+  console.log(ejes)
   return (
-    <div>
-      <BreadNav segmentos = {segmentos}/>
-      <p className="ml-4 my-4 text-2xl font-semibold">Ejes de Ancho Variable de Mercancías</p>
+    <div className='h-full bg-gray-100'>
+      {/* Cabecera */}
+      <div className="pb-2 shadow-sm bg-white">
+        <BreadNav segmentos = {segmentos}/>
+        <p className="ml-4 my-3 text-2xl font-semibold">Ejes de Ancho Variable de Mercancías</p>
+      </div>
+      {/* Panel Ejes */}
       <PanelEjes ejes = {ejes}/>
     </div>
   )

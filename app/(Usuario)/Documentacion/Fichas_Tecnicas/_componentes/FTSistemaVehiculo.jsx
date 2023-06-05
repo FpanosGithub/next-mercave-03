@@ -52,14 +52,15 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
         <div className="min-w-[260px] flex-1 flex justify-between items-center flex-wrap">
             <div className="text-3xl font-light mx-4 md:mx-8 my-2">
               <p>Sistema</p>
-              <p className="text-slate-300 text-xl">{sistema} - {fichas[i].descripcion}</p>
+              <p className="text-slate-300 text-xl mr-4 truncate">{sistema}</p>
+              <p className="text-slate-300 text-xl mr-4 truncate">{fichas[i].descripcion}</p>
             </div>
             <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 hover:cursor-pointer mx-4 md:mx-8 my-4">
               <p className="text-slate-200"> Expediente AESF</p>
             </div>
           </div>
         </div>
-        <div className="p-1 max-w-[200px] bg-gray-700 rounded-md text-white flex-1 shadow-sm">
+        <div className="p-1 sm:max-w-[200px] bg-gray-700 rounded-md text-white flex-1 shadow-sm">
           <div className="m-0.5 p-1 flex justify-between gap-2">
             <span className="text-slate-300">Documento: </span>
             <span>{fichas[i].num_doc}</span>
@@ -128,7 +129,6 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
             width={1000}
             height = {400}/>}
       </div>
-
       {/* CONJUNTOS DEL SISTEMA */}
       <div className="m-2 mt-4 border border-slate-600 rounded">
         <div className="p-2 w-full border border-slate-600">
@@ -154,9 +154,6 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
           )})}
         </div>
       </div>
-
-
-
       {/* DESCRIPCIÓN TÉCNICA */}
       <div className="m-2 mt-4 border border-slate-600">
         <div className="text-2xl font-extralight p-2 w-full border border-slate-600">

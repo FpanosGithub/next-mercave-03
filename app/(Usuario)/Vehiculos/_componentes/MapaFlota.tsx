@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import { Map, ZoomControl, Marker, Overlay, Point } from "pigeon-maps";
+import { Map, ZoomControl, Marker } from "pigeon-maps";
 import { osm } from 'pigeon-maps/providers'
 import { maptiler } from 'pigeon-maps/providers'
 import { WifiIcon, PauseIcon, PlayIcon, WrenchIcon, SignalIcon, XMarkIcon} from '@heroicons/react/24/solid';
@@ -13,7 +13,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
   
   const router = useRouter()
   function handleClick(id: Number) {
-    router.push(`/Vehiculos/${id}`)
+    router.push(`/Vehiculos/${id}/Datos`)
   }
   let codigo = ''
   let lat = 0 as number
@@ -58,22 +58,21 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
         metaWheelZoom = {true}>
           <ZoomControl />
           {vehiculos.map((vehiculo)=>(
-            hover !== vehiculo.id?
-              (<Marker 
+            hover !== vehiculo.id
+            ?(<Marker 
                 key = {vehiculo.id}
                 width={30} 
                 color = '#087314'
                 anchor={[vehiculo.lat, vehiculo.lng]} 
                 onMouseOver={() => onHover(vehiculo.id)}
                 onClick={()=>handleClick(vehiculo.id)}/>)
-            :
-              (<Marker 
-                key = {vehiculo.id}
-                width={40} 
-                color = 'purple'
-                anchor = {[vehiculo.lat, vehiculo.lng]} 
-                onClick={()=>handleClick(vehiculo.id)}/>)
-             ))} 
+            : ('')
+            ))}
+          <Marker 
+            width={40} 
+            color = 'purple'
+            anchor = {[lat,long]} 
+            onClick={()=>handleClick(id_vehiculo)}/>
         </Map>
       </div>
       <div className='rounded-lg shadow h-[20rem] w-56 mx-auto'>
@@ -104,7 +103,6 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
           <div className='mt-3 border-t border-gray-200'>
             <Weather lat={lat} long={long} />
           </div>
-          
         </div>
       </div>
   )

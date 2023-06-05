@@ -5,7 +5,7 @@ import tria from '@/public/logos/tria.png'
 import Image from "next/image";
 import urlFor from '@/lib/urlFor'
 import {PortableText} from '@portabletext/react'
-import { RichTextComponents } from "./RichTextComponents";
+import { RichTextComponents } from "@/components/RichTextComponents";
 import NavegadorVersiones from "./NavegadorVersiones";
 import NavegadorSistema from "./NavegadorSistema";
 
@@ -36,7 +36,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
   const num_versiones = fichas.length
   if (num_versiones===0){
     return 
-    <div className='p-16 border border-slate-500 max-w-8xl w-full text-3xl font-extralight text-purple-500'><h2>¡El Documento no Existe!. Créalo en el Estudio!</h2></div>
+    <div className='p-16 border border-slate-500 max-w-8xl w-full text-3xl font-extralight text-purple-500'><h2>¡La ficha técnica de este tipo de vehículo no Existe!. Créalo en el Estudio!</h2></div>
   }
 
   let i = 0
@@ -71,7 +71,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
             </div>
           </div>
         </div>
-        <div className="p-1 max-w-[200px] bg-gray-700 rounded-md text-white flex-1 shadow-sm">
+        <div className="p-1 sm:max-w-[200px] bg-gray-700 rounded-md text-white flex-1 shadow-sm">
           <div className="m-0.5 p-1 flex justify-between gap-2">
             <span className="text-slate-300">Documento: </span>
             <span>{fichas[i].num_doc}</span>
@@ -226,7 +226,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
           Descripción Técnica del vehículo
         </div>
-        <div className="p-2">
+        <div className="p-4">
           <PortableText
               value={fichas[i].detalle}
               components = {RichTextComponents}/>
@@ -237,7 +237,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
           Mantenimiento
         </div>
-        <div className="p-2">
+        <div className="p-4">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>

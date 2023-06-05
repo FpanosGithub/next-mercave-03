@@ -12,7 +12,7 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
           <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-lg mx-auto h-auto "/>
           <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Imagen Vehículo</div>
         </div>
-        <div className='rounded-md bg-gray-500 text-white flex justify-between items-center flex-wrap gap-4 p-5'>
+        <div className='rounded-md bg-gray-600 text-white flex justify-between items-center flex-wrap gap-4 p-5'>
           <div className=''>
             <div className='text-lg font-semibold py-1'>{vehiculo?.tipo?.descripcion}</div>
             <div className='text-sm text-gray-400 font-medium'>{vehiculo?.descripcion_particular}</div>

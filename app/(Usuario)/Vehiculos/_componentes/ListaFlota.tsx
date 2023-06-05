@@ -1,12 +1,8 @@
 import clsx from 'clsx';
-import {useState, useEffect} from "react"
 import { PauseIcon, PlayIcon, WifiIcon, WrenchIcon, SignalIcon, XMarkIcon, EyeIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
 
 export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[], hover:Number, onHover:Function}) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {setHasMounted(true)}, []);
-  if (!hasMounted) {return null;}
 
   return(
   <div className='w-full px-4 pb-8 mb-2'>

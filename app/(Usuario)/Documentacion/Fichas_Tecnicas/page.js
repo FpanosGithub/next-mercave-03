@@ -13,7 +13,7 @@ const construyeSegmentos = ((searchParams)=>{
   let activo = []
   //Link a Vehiculos o EAVMs y al vehículo o EAVM del que venimos
   previos.push({nombre:searchParams.material, link:`/${searchParams.material}`})
-  previos.push({nombre:searchParams.tipo, link:`/${searchParams.material}/${searchParams.id}`})
+  previos.push({nombre:searchParams.tipo, link:`/${searchParams.material}/${searchParams.id}/Datos`})
   // A partir de aquí vamos viendo la profundidad enla que estamos en el arbol de la Ficha Técnica
   if(!searchParams.id_sistema){activo = {nombre:'Ficha Técnica'}} // si NO HAY SISTEMA
   else { // Si hay sistema
