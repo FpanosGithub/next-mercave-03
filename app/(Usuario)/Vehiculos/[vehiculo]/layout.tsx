@@ -25,11 +25,6 @@ export default async function Layout({
     previos:[{nombre:'Vehículos', link: 'Vehiculos'}], 
     activo:{nombre:vehiculo.num_uic}
   }
-  const tabs = [
-    {name:'Datos',href:'/',current:true},
-    {name:'Circulaciones',href:'/',current:false},
-    {name:'Mantenimiento',href:'/',current:false},
-  ]
 
   return (
     <div className='h-full bg-gray-100'>
@@ -38,8 +33,9 @@ export default async function Layout({
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 mt-4 text-2xl font-semibold">{vehiculo.tipo.descripcion}</p>
       </div>
-      
-      <div>{children}</div>
+      <div>
+        {children}
+      </div>
     </div>
   );
 }

@@ -17,7 +17,6 @@ export default async function page() {
     activo:{nombre:'Vehículos'}
   }
   const vehiculos = await getVehiculos();
-  console.log(vehiculos)
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
