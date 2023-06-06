@@ -84,7 +84,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
             <div className="text-center text-base text-gray-500">{descripcion}</div>
           </div>
         </div>
-          <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
+          <div className="flex justify-between my-2 w-40 mx-auto px-2 py-1 rounded-full bg-gray-100">
             {transmitiendo ? 
               (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
             : (<WifiIcon className="w-6 h-6 mr-1 text-red-400"/>)}

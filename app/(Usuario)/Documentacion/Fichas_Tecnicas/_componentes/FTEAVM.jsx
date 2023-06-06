@@ -18,6 +18,7 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
     realizado ->,
     supervisado ->,
     sistemas[]->{
+        slug,
         num_doc, 
         codigo,
         ccs,
@@ -47,6 +48,9 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
   else if (version < 0) {i=0}
   else {i = version}
   const i_mostrar = parseInt(i)+1
+
+  console.log(fichas[0].descripcion)
+  console.log(fichas[0].sistemas)
 
   return (  
   <div className="">
@@ -257,7 +261,7 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
               <NavegadorSistema 
                 key = {sistema.slug.current}
                 sistema = {sistema}
-                material = {'Ejes_EAVM'}
+                material = {'EAVMs'}
                 id = {id_EAVM}
                 tipo = {tipo}
                 id_tipo = {id_tipo}

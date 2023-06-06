@@ -59,7 +59,7 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
         <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-4'>
           <div className='px-4 flex-1'>
             {/* Semaforo circulación del vehiculo */}
-            <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
+            <div className="flex justify-between w-40 my-2 mx-auto px-2 py-1 rounded-full bg-gray-100">
             {vehiculo.transmitiendo ? 
               (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
             : (<WifiIcon className="w-6 h-6 mr-1 text-red-400"/>)}
@@ -87,7 +87,7 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
         <div className='rounded-md shadow bg-white flex justify-between items-center flex-wrap gap-4 p-4'>
           <div className='px-4 flex-1'>
             {/* Semaforo mantenimiento del vehiculo */}
-            <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
+            <div className="flex justify-between my-2 w-40 mx-auto px-2 py-1 rounded-full bg-gray-100">
             {vehiculo.en_servicio ? 
               (<BoltIcon className="w-6 h-6 mr-1 text-green-400"/>)
             : (<BoltSlashIcon className="w-6 h-6 mr-1 text-red-400"/>)}
@@ -113,16 +113,16 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
       </div>
       <div className='flex flex-col gap-2 sm:w-[400px]'>
         <div className='hidden rounded-lg shadow bg-white sm:block'>
-          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-t-lg h-auto"/>
-          <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Imagen Vehículo</div>
+          <Image src = {`/imagenes/vehiculos/${vehiculo.tipo.imagen}`} alt = 'imagen vehículo' height = {230} width = {400} className="rounded-t-lg object-fill"/>
+          <div className='text-gray-500 text-sm font-medium mx-4 my-1'>Imagen Vehículo</div>
         </div>
-        <div className='w-full rounded-lg shadow bg-white p-1 h-[197px]'>
+        <div className='w-full rounded-lg shadow bg-white p-1 h-[195px]'>
           <div className='h-[155px] flex flex-col p-1 gap-1'>
           {vehiculo.ejes.map((eje:any)=>{return(
-            <Link key={eje.id} href='/' className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
+            <Link key={eje.id} href={`/EAVMs/${eje.id}/Datos`} className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
           )})}
           </div>
-          <div className='text-gray-500 text-sm font-medium mx-4 my-2'>Ejes</div>
+          <div className='text-gray-500 text-sm font-medium mx-4 mt-2 mb-1'>Ejes</div>
         </div>
         <div className='hidden rounded-lg shadow bg-white sm:flex sm:flex-col p-1 h-[70px]'>
           <Weather 

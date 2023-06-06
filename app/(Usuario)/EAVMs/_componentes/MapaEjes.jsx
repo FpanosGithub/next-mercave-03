@@ -14,7 +14,7 @@ export default function MapaEjes ({ejes, hover, onHover}) {
 
   const router = useRouter()
   function handleClick(id) {
-    router.push(`/EAVMs/${id}`)
+    router.push(`/EAVMs/${id}/Datos`)
   }
   let id_eje = -1
   let codigo = ''
@@ -29,7 +29,6 @@ export default function MapaEjes ({ejes, hover, onHover}) {
   let alarma_aceleraciones = false
   let alarma_cambio = false
   let alarma_mantenimiento = false
-  let vehiculo = ''
   let lat = 0
   let long = 0
   ejes.forEach((eje)=> {
@@ -48,7 +47,6 @@ export default function MapaEjes ({ejes, hover, onHover}) {
       if (eje.alarma_aceleraciones){alarma_aceleraciones = true}
       if (eje.alarma_cambio){alarma_cambio = true}
       if (eje.alarma_mantenimiento){alarma_mantenimiento = true}
-      vehiculo = eje.vehiculo.num_uic
     }
   })
   return(
