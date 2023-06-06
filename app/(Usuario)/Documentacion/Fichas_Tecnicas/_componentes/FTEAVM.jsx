@@ -52,16 +52,16 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
   <div className="">
       {/* BANNER */}
       <div className="flex gap-2 mx-2 flex-wrap">
-        <div className="bg-gray-700 text-white rounded-md shadow-sm  min-w-fit flex-1 flex justify-between flex-wrap">
+        <div className="bg-gray-700 text-white rounded-md shadow-sm flex-1 flex justify-between flex-wrap">
           <div className="flex flex-col justify-center">
             <div className="w-[180px] h-[80px] py-2 my-4 mx-4 rounded-lg border-2 bg-white">
               <Image src={tria} width = 'auto' height={60} alt='logo tria' priority/>
             </div>
           </div>
-          <div className="min-w-[260px] flex-1 flex justify-between items-center flex-wrap">
-            <div className="text-3xl font-light mx-4 md:mx-8 my-2">
+          <div className="min-w-[340px] flex-1 flex justify-between items-center flex-wrap">
+            <div className="text-3xl font-light max-w-[500px] mx-4 md:mx-8 my-2">
               <p>{fichas[i].descripcion}</p>
-              <p className="text-slate-500 text-xl">{fichas[i].codigo}</p>
+              {/*<p className="text-slate-500 text-xl">{fichas[i].codigo}</p>*/}
               </div>
             <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 hover:cursor-pointer mx-4 md:mx-8 my-2">
               <p className="text-slate-200"> Expediente AESF</p>
@@ -129,7 +129,7 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
       <div className="mx-2 my-2 p-4 border  border-slate-600 rounded-md">
         {fichas[i].imagen &&
         <Image 
-            className="object-cover object-left h-auto mx-auto rounded-md border shadow-md shadow-slate-600"
+            className="object-cover object-left h-auto mx-auto rounded-md"
             src = {urlFor(fichas[i].imagen).url()}
             alt= 'imagen'
             width={1000}

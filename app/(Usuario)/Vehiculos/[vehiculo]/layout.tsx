@@ -33,8 +33,9 @@ export default async function Layout({
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 mt-4 text-2xl font-semibold">{vehiculo.tipo.descripcion}</p>
       </div>
-      
-      <div>{children}</div>
+      <div>
+        {children}
+      </div>
     </div>
   );
 }
