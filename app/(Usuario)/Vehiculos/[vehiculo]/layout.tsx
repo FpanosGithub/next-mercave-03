@@ -25,11 +25,6 @@ export default async function Layout({
     previos:[{nombre:'Vehículos', link: 'Vehiculos'}], 
     activo:{nombre:vehiculo.num_uic}
   }
-  const tabs = [
-    {name:'Datos',href:'/',current:true},
-    {name:'Circulaciones',href:'/',current:false},
-    {name:'Mantenimiento',href:'/',current:false},
-  ]
 
   return (
     <div className='h-full bg-gray-100'>
