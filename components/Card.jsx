@@ -4,11 +4,13 @@ import Image from "next/image";
 export default function Card({enlace, titulo, descripcion, imagen}) {
 return(
 
-    <div className='border m-2 rounded-lg shadow-lg overflow-hidden flex flex-col'>
+    <div className='border rounded-lg shadow-lg overflow-hidden flex flex-col items-start' style={{width: 600 + 'px'}}>
         <Link href={`/${enlace}`}>
-            <Image width={650} height={650} alt={titulo} src={imagen} className="object-cover rounded-t-xl" />
-            <h1 className='lg:text-xl md:text-md font-bold p-4'>{titulo}</h1>
-            <p className="text-slate-500 lg:text-base md:text-xs pl-4 pb-4 pr-4">{descripcion}</p>
+            <Image width={370} height={160} alt={titulo} src={imagen} className="object-cover h-40 w-full" />
+            <div className="p-5 self-stretch">
+                <h1 className='font-bold pb-2'>{titulo}</h1>
+                <p className="text-sm">{descripcion}</p>
+            </div>
         </Link>
     </div>
 )
