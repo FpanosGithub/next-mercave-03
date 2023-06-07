@@ -1,4 +1,5 @@
 import BreadNav from "@/components/BreadNav";
+import Spinner from "@/components/Spinner"
 
 const segmentos = {
   previos:[], 
@@ -13,7 +14,7 @@ export default function loading() {
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 my-4 text-2xl font-semibold">Vehículos</p>
       </div>
-      <div className="px-8 py-8 text-2xl text-gray-600"> ........ Cargando informacion de vehículos ....</div>
+      <Spinner />
     </div>
   )
 }
