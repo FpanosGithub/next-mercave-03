@@ -2,13 +2,13 @@ import Card from '@/components/Card'
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-start p-5">
+    <div className="flex flex-col lg:items-start md:items-center sm:items-center p-5">
       <h1 className='text-2xl font-semibold'>Herramienta de seguimiento del proyecto Mercave</h1>
       <div className="flex flex-col">
-        <div className='flex flex-row gap-4'>
+        <div className='flex flex-col lg:flex-row md:flex-col sm:flex-col gap-4'>
           <div>
             <h2 className='text-xs font-semibold pt-10 pb-4'>MATERIAL RODANTE</h2>
-            <div className='flex flex-row gap-4'>
+            <div className='flex flex-col lg:flex-row md:flex-col sm:flex-col gap-4'>
               <Card enlace="Vehiculos" titulo="Vehículos" descripcion="Geolocalización. Información y parámetros de servicio de la flota de vehículos (Locomotoras, Vehículos Auxiliares y Vagones). Mantenimientos realizados" imagen="/imagenes/home/vehiculos.png"/>
               <Card enlace="EAVMs" titulo="Ejes EAVM" descripcion="Geolocalización, Alarmas, Telemetría de parámetros de circulación y cambios de los ejes. Mantenimientos realizados" imagen="/imagenes/home/ejes.png"/>
             </div>
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className='text-xs font-semibold pt-10 pb-4'>GESTIÓN ADIF</h2>
-          <div className='flex flex-row gap-4'>
+          <div className='flex flex-col lg:flex-row md:flex-col sm:flex-col gap-4'>
             <Card enlace="Documentacion/General" titulo="Documentación Técnica" descripcion="Memorias técnicas y planos de las distintas versiones de ejes y de los vehículos" imagen="/imagenes/home/documentacion.png"/>
             <Card enlace="gestor_documentacion" titulo="Estudio" descripcion="Herramienta de Gestión Documental" imagen="/imagenes/home/estudio.png"/>
           </div>
