@@ -1,14 +1,15 @@
 'use client'
+import { Circulacion } from '@/types/circulacion'
 import datosCirculacion from './datosCirculacion'
 import CurvaVelocidad from './CurvaVelocidad'
 import CurvaTemperaturas from './CurvaTemperaturas'
 import CurvaAceleraciones from './CurvaAceleraciones'
 
 
-export default function GraficasCirculacion ({circulacion}){
+export default function GraficasCirculacion ({circulacion}:{circulacion:Circulacion}){
   const eventos = datosCirculacion (circulacion.eventos)
   return(
-  <div className='p-2 overflow-y-scroll border border-slate-500 rounded-lg grid gap-1 col-span-2 grid-cols-1 past-md:grid-cols-2 2xl:col-span-1 2xl:grid-cols-1 2xl:h-[38rem]'>
+  <div className='p-1 overflow-y-scroll rounded-lg grid gap-1 col-span-2 grid-cols-1 past-md:grid-cols-2 2xl:col-span-1 2xl:grid-cols-1 2xl:h-[38rem]'>
     <CurvaVelocidad
       datos = {eventos.velocidades}
       height = {200}/>

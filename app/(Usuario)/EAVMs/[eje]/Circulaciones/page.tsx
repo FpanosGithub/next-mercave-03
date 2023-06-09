@@ -1,12 +1,13 @@
 import { urls_mercave } from '@/lib/mercave';
+import {Circulacion} from '@/types/circulacion'
 import PanelCirculaciones from '../../_componentes/PanelCirculaciones';
 import Tabs from '@/components/Tabs';
 
-export const revalidate = 0
+export const revalidate = 60
 
-async function getCirculaciones(id_vehiculo:number):Promise<JSX.Element> {
+async function getCirculaciones(id_eje:number):Promise<Circulacion[]> {
   //`https://drf-server.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id_vehiculo}`
-  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_vehiculo}${id_vehiculo}`)
+  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_eje}${id_eje}`)
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -17,13 +18,14 @@ async function getCirculaciones(id_vehiculo:number):Promise<JSX.Element> {
 
 
 export default async function Page({params}:{params:any}) {
-  const id_vehiculo = parseInt(params.vehiculo)
-  const circulaciones = await getCirculaciones(id_vehiculo);
+  const id_eje = parseInt(params.eje)
+  const circulaciones = await getCirculaciones(id_eje);
 
   const tabs = [
-    {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:false},
-    {name:'Circulaciones',href:`/Vehiculos/${id_vehiculo}/Circulaciones`,current:true},
-    {name:'Mantenimiento',href:`/Vehiculos/${id_vehiculo}/Mantenimiento`,current:false},
+    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
+    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:true},
+    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false},
   ]
   return (
     <>

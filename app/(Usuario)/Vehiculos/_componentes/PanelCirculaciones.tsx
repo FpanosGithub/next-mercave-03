@@ -14,12 +14,13 @@ export default function PanelCirculaciones ({circulaciones}:{circulaciones:any})
   if (!hasMounted) {
     return null;
   }
+  console.log('CIRCULACIÓN: ',circulaciones[0])
   if (select !== -1) {
     let circulacion = circulaciones[0]
     circulaciones.forEach((obj:any)=> {if (select === obj.id) {circulacion = obj}})
     return (
     <>
-    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">
+    <div className="grid gap-1 grid-cols-1">
       <MapaCirculacion
         circulacion = {circulacion}
         onSelect = {setSelect}/>
@@ -38,7 +39,7 @@ export default function PanelCirculaciones ({circulaciones}:{circulaciones:any})
   return(
     <>
     {/* Título Ficha */}
-    <div className="grid gap-1 grid-cols-1 2xl:grid-cols-2">   
+    <div className="grid gap-1 grid-cols-1">   
       <MapaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}

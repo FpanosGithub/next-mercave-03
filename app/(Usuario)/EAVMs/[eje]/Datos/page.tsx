@@ -2,8 +2,6 @@ import { urls_mercave } from '@/lib/mercave';
 import FichaEje from '../../_componentes/FichaEje';
 import Tabs from '@/components/Tabs';
 
-export const dynamic = 'force-static' 
-
 async function getEjes() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.ejes}`)
   if (!res.ok) {throw new Error('Error en fetch de datos de Ejes EAVM')}
@@ -13,6 +11,8 @@ async function getEjes() {
 export default async function Page({params}:{params:any}) {
   const ejes = await getEjes();
   const eje = ejes.find(({id}:{id:Number})=> id === parseInt(params.eje))
+
+  console.log(ejes)
 
   const tabs = [
     {name:'Datos',href:`/EAVMs/${eje.id}/Datos`,current:true},

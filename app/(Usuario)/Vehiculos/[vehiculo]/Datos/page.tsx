@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 
 async function getVehiculos() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}`,{
-    next: { revalidate: 300 }})
+    next: { revalidate: 360 }})
   if (!res.ok) {throw new Error('Failed to fetch data')}
   return await res.json()
 }
@@ -15,6 +15,9 @@ export default async function Page({params}:{params:any}) {
   const vehiculos = await getVehiculos();
   const id_vehiculo = parseInt(params.vehiculo)
   const vehiculo = vehiculos.find(({id}:{id:Number})=> id === id_vehiculo)
+
+  console.log('!!!!!!!!!!!!!!! /Vehiculos/[vehiculo]/Datos/page.tsx !!!!!!!!!!!!!!')
+  console.log(vehiculos)
 
   const tabs = [
     {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:true},

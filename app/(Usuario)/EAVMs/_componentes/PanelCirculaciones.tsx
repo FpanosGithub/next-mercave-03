@@ -1,11 +1,11 @@
 'use client'
 import {useState, useEffect} from "react"
-import MapaCirculaciones from "@/ui/MapaCirculaciones"
-import ListaCirculaciones from "@/ui/ListaCirculaciones"
-import MapaCirculacion from "@/ui/MapaCirculacion"
-import GraficasCirculacion from "./GraficasCirculacion"
+import { Circulacion } from "@/types/circulacion"
+import MapaCirculaciones from "@/components/MapaCirculaciones"
+import ListaCirculaciones from "@/components/ListaCirculaciones"
+import MapaCirculacion from "./MapaCirculacion"
 
-export default function PanelCirculaciones ({circulaciones}) {
+export default function PanelCirculaciones ({circulaciones}:{circulaciones:Circulacion[]}) {
   const [select, setSelect] = useState(-1)
   const [hover, setHover] = useState(-1)
   const [hasMounted, setHasMounted] = useState(false);
@@ -15,25 +15,23 @@ export default function PanelCirculaciones ({circulaciones}) {
   if (!hasMounted) {
     return null;
   }
+  
   if (select !== -1) {
     let circulacion = circulaciones[0]
-    circulaciones.forEach((obj)=> {if (select === obj.id) {circulacion = obj}})
+    circulaciones.forEach((obj:any)=> {if (select === obj.id) {circulacion = obj}})
     return (
     <>
-    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Eje</div>
-    <div className="space-y-1 xl:space-y-0 xl:gap-1 xl:grid xl:grid-cols-2 2xl:grid-cols-3">
+    <div className="grid gap-1 grid-cols-1">
       <MapaCirculacion
         circulacion = {circulacion}
         onSelect = {setSelect}/>
+        
       <ListaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}
         onSelect = {setSelect}
         hover = {hover}
         onHover = {setHover}/>
-      <GraficasCirculacion
-        circulacion = {circulacion}/>
-   
     </div>
     </>
     )
@@ -41,23 +39,20 @@ export default function PanelCirculaciones ({circulaciones}) {
 
   return(
     <>
-    <div className='text-lg text-gray-400 pt-6 pb-3'>Últimas Circulaciones del Eje</div>
-    <div className="grid gap-1 grid-cols-1 xl:grid-cols-2">
-    
+    {/* Título Ficha */}
+    <div className="grid gap-1 grid-cols-1">   
       <MapaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}
         onSelect = {setSelect}
         hover = {hover}
         onHover = {setHover}/> 
-
       <ListaCirculaciones
         circulaciones = {circulaciones} 
         select = {select}
         onSelect = {setSelect}
         hover = {hover}
         onHover = {setHover}/>
-
     </div>
     </>
   )  
