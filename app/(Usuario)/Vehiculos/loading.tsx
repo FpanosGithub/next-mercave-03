@@ -24,8 +24,8 @@ export default function loading() {
             </div>
             <div className='flex flex-col mx-auto w-32'>
               <div className="h-1.5 bg-gray-700 rounded-full mb-4"></div>
-              <div className="h-1 bg-gray-500 rounded-full mb-2.5"></div>
-              <div className="h-1 bg-gray-500 rounded-full mb-2.5"></div>
+              <div className="h-1 bg-gray-500 rounded-full mb-2.5 w-12 mx-auto"></div>
+              <div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20 mx-auto"></div>
             </div>
           </div>
           <div>
@@ -37,10 +37,10 @@ export default function loading() {
         </div>
       </div>
       <div className='w-full px-4 pb-8'>
-        <div className='w-full rounded-xl bg-white border shadow-md h-[390px] overflow-y-auto'>
+        <div className='w-full rounded-xl bg-white border shadow-md h-[100px] overflow-y-auto'>
         <table className="min-w-full">
           <thead className=''>
-            <tr className=''>
+            <tr>
               <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-500">
               VEHÍCULO</th>
               <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 lg:table-cell">
@@ -61,8 +61,8 @@ export default function loading() {
                 <div className="h-1 bg-gray-500 rounded-full mb-2.5 w-32"></div>
               </td>
               <td className="hidden px-3 py-4 text-gray-700 lg:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-32"></div></td>
-              <td className="hidden w-28 mx-auto sm:flex justify-center gap-2 mt-4"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-32"></div></td>
-              <td className="py-4 pl-3 pr-4 text-sm sm:pr-0"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-32 mx-auto"></div></td>
+              <td className="hidden w-28 mx-auto sm:flex justify-center gap-2 mt-4"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-32 ml-3"></div></td>
+              <td className="py-4 pl-3 pr-4 text-sm sm:pr-0"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-24 mx-auto"></div></td>
             </tr>
           </tbody>
         </table>
