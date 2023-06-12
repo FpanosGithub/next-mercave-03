@@ -4,7 +4,7 @@ function CustomTooltip({ payload, label, active }) {
     if (active) {
       try {
         return (
-          <div className="custom-tooltip p-2 space-y-1  text-slate-200 font-light bg-slate-700/80 border border-gray-100">
+          <div className="custom-tooltip p-2 space-y-1 text-white font-light bg-slate-900/50 border border-gray-100">
             <p>{`Rueda A: ${payload[0].value.toFixed(2)} m/s^2`}</p>
             <p>{`Rueda B: ${payload[1].value.toFixed(2)} m/s^2`}</p>
           </div>
@@ -25,8 +25,8 @@ function CustomTooltip({ payload, label, active }) {
 
 function CurvaAceleraciones ({titulo, color_a, color_b, datos, lim_max, height}){
     return(
-      <div className='py-4 bg-slate-900 rounded-xl'>
-        <div className='text-gray-400 pl-4'>{titulo}</div>
+      <div className='py-4 bg-gray-100 rounded-xl'>
+        <div className='text-gray-700 pl-4'>{titulo}</div>
         <ResponsiveContainer height={height} className = 'text-xs text-blue-500'>
           <LineChart 
               data={datos}

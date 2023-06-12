@@ -29,7 +29,8 @@ export default async function Layout({
       {/* Cabecera */}
       <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 mt-4 text-2xl font-semibold">{eje.codigo}</p>
+        {/*<p className="ml-4 mt-4 text-2xl font-semibold">{eje.codigo}</p>*/}
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías - {eje.codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
       </div>
       
       <div>{children}</div>

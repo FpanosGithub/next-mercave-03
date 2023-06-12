@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from "next/image"
-import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, WifiIcon, RssIcon,  BellAlertIcon, XMarkIcon, CheckIcon, ViewfinderCircleIcon, ArrowTopRightOnSquareIcon} from '@heroicons/react/24/solid';
+import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, BellAlertIcon} from '@heroicons/react/24/solid';
 import Weather from '@/components/Weather';
 import clsx from 'clsx';
 
-export default function FichaEje ({eje}){
+export default function FichaEje ({eje}:{eje:any}){
   return(
   <div className='w-full flex flex-col p-4 gap-3 sm:flex-row'>
     <div className='w-full flex flex-col gap-2'>
@@ -14,7 +14,7 @@ export default function FichaEje ({eje}){
       </div>
       <div className='rounded-md bg-gray-600 text-white flex justify-between items-center flex-wrap gap-4 p-5'>
         <div className=''>
-          <div className='text-lg font-semibold py-1'>Eje: {eje.codigo}</div>
+          <div className='text-lg font-semibold py-1'>{eje.codigo}</div>
         </div>
         <Link 
           href = {`/Documentacion/Fichas_Tecnicas?material=EAVMs&id=${eje.id}&tipo=${eje.tipo_EAVM.codigo}&id_tipo=${eje.tipo_EAVM.id}&version=${1000}`} 
@@ -28,7 +28,7 @@ export default function FichaEje ({eje}){
           <div className='text-center text-sm text-gray-400 font-medium'>Versión</div>
         </div>
         <div className='border-l border-r border-gray-200 px-4 flex-1 flex flex-col'>
-          <Link href= {`/Vehiculos/${eje.vehiculo.id}/Datos`} className='text-center text-green-700 font-semibold'>{eje.vehiculo.num_uic}</Link>
+          <Link href= {`/Vehiculos/${eje.vehiculo?.id}/Datos`} className='text-center text-green-700 font-semibold'>{eje.vehiculo?.num_uic}</Link>
           <div className='text-center text-sm text-gray-400 font-medium truncate'>Vehículo</div>
         </div>
       </div>

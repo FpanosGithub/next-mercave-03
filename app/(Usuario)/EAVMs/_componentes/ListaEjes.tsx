@@ -22,7 +22,7 @@ export default function ListaEjes ({ejes, hover, onHover}:{ejes:any, hover:numbe
             CAMBIOS</th>
             <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter  hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 sm:table-cell">
             PROX. MTO.</th>
-            <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter  px-3 py-3.5 text-center text-sm font-semibold text-gray-500">
+            <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter  hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 xm:table-cell">
             ALARMA</th>
             <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter  px-3 py-3.5 text-center text-sm font-semibold text-gray-500">
             ACCIÓN</th>
@@ -45,10 +45,10 @@ export default function ListaEjes ({ejes, hover, onHover}:{ejes:any, hover:numbe
             <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell">{Math.round(eje.km_totales).toLocaleString('es-ES')}</td>
             <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell">{Math.round(eje.num_cambios).toLocaleString('es-ES')}</td>
             <td className="hidden px-3 py-4 text-gray-700 sm:table-cell">{eje.fecha_proximo_mantenimiento}</td>
-            <td className="w-8 mx-auto mt-4">
+            <td className="hidden pl-7 mt-4 xm:table-cell">
             {(eje.alarma_temp || eje.alarma_aceleraciones || eje.alarma_cambio || eje.alarma_mantenimiento)
-            ? <BellAlertIcon className="w-6 h-6 ml-1 mr-2 my-1 text-red-600 animate-pulse"/>
-            : <BellAlertIcon className="w-6 h-6 ml-1 mr-2 my-1 text-gray-500"/>
+            ? <BellAlertIcon className="w-6 h-6 my-1 text-red-600 animate-pulse"/>
+            : <BellAlertIcon className="w-6 h-6 my-1 text-gray-500"/>
             }
             </td>
             <td className="py-4 pl-3 pr-4 text-sm sm:pr-0">

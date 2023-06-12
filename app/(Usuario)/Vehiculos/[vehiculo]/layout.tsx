@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 async function getVehiculos() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}`,{
-    next: { revalidate: 300 }})
+    next: { revalidate: 360 }})
   if (!res.ok) {throw new Error('Failed to fetch data')}
   return await res.json()
 }
@@ -20,7 +20,9 @@ export default async function Layout({
 }) {
   const vehiculos = await getVehiculos();
   const vehiculo = vehiculos.find(({id}:{id:Number})=> id === parseInt(params.vehiculo))
-  
+  console.log('!!!!!!!!!!!!!!! /Vehiculos/[vehiculo]/layout.tsx !!!!!!!!!!!!!!')
+  console.log(vehiculos)
+
   const segmentos = {
     previos:[{nombre:'Vehículos', link: 'Vehiculos'}], 
     activo:{nombre:vehiculo.num_uic}

@@ -3,7 +3,7 @@ import BreadNav from "@/components/BreadNav";
 import PanelFlota from './_componentes/PanelFlota'
 
 //export const dynamic = 'force-static'
-export const revalidate = 3600
+export const revalidate = 360
 
 async function getVehiculos() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}`)
@@ -17,6 +17,10 @@ export default async function page() {
     activo:{nombre:'Vehículos'}
   }
   const vehiculos = await getVehiculos();
+
+  console.log('/Vehiculos/page.tsx')
+  console.log(vehiculos)
+
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
