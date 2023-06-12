@@ -70,7 +70,7 @@ export default function PanelBanco ({datos_banco, totales}:{datos_banco:DatosBan
         </div>
       </div>
     </div>
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap gap-1'>
       <ListaCambiosBanco 
         cambios = {datos_banco.cambios}
         select = {select}
