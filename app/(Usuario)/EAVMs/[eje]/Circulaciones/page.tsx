@@ -23,8 +23,9 @@ export default async function Page({params}:{params:any}) {
 
   const tabs = [
     {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
-    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:true},
+    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:true},
+    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:false},
     {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false},
   ]
   return (

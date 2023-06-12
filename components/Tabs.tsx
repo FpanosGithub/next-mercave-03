@@ -10,7 +10,7 @@ type TabItem = {
 }
 
 export default function Tabs({tabs}:{tabs:TabItem[]}) {
-
+  
   const router = useRouter()
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(event.target.value);
