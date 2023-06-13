@@ -50,7 +50,7 @@ export default async function Page({params}:{params:any}) {
       {/* Cabecera */}
       <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías - {eje.codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías</p>
       </div>
       <div>
         <Tabs tabs = {tabs}/>
