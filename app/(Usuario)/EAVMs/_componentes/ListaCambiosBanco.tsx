@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function ListaCambiosBanco ({cambios, select, onSelect}:{cambios:any, select:number, onSelect:Function}) {
   return(
   <div className='pb-8 flex-1'>
-    <div className='w-full rounded-lg bg-white border shadow-md h-[560px] overflow-y-auto'>
+    <div className='w-full rounded-lg bg-white border shadow-md h-[630px] overflow-y-auto'>
       <table className="min-w-full">
         <thead className=''>
           <tr className=''>
