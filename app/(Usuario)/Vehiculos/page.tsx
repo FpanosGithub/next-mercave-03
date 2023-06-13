@@ -2,7 +2,7 @@ import { urls_mercave } from '@/lib/mercave';
 import BreadNav from "@/components/BreadNav";
 import PanelFlota from './_componentes/PanelFlota'
 
-//export const dynamic = 'force-static'
+export const dynamic = 'force-static'
 export const revalidate = 360
 
 async function getVehiculos() {
