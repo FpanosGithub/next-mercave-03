@@ -4,6 +4,7 @@ import Tabs from '@/components/Tabs';
 
 export const dynamic = 'force-static' 
 
+
 async function getVehiculos() {
   const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.vehiculos}`,{
     next: { revalidate: 360 }})
