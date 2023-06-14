@@ -71,53 +71,15 @@ export default function Loading() {
               <svg className="w-12 h-12 mx-auto text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512"><path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/></svg>
             </div>
           </div>
-          <div className="mx-2 mt-4 border border-slate-600 rounded-md">
+          <div className="animate-pulse mx-2 mt-4 border border-slate-600 rounded-md">
             <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-              Cuadro de Carácterísticas
-            </div>
-            <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Aplicación:</div>
-                
-              </div>
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Rueda:</div>
-                
-              </div>
-
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Fab. Rueda:</div>
-                
-              </div>
-
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Fab. Eje:</div>
-                
-              </div>
-            </div>
-            
-            <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Anchos:</div>
-                
-              </div>
-
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Frenos:</div>
-                
-              </div>
-
-              <div className="my-1 border-r border-slate-300 flex-1">
-                <div className="text-slate-500 p-2">Carga Max.:</div>
-        
-              </div>
+              <div className='rounded-full bg-gray-500 h-2 w-52 mb-2'></div>
             </div>
           </div>
 
           <div className="mx-2 mt-4 border border-slate-600 rounded-md">
             <div className="p-2 w-full border-b border-slate-300">
-              <div className="text-2xl font-extralight">Composición del EAVM</div>
+              <div className='animate-pulse rounded-full bg-gray-500 h-2 w-52 mb-2'></div>
               <div className="text-lg font-extralight flex px-2 pt-2">
                 <div className="border-l border-l-fuchsia-500 px-2">Sistemas</div>
                 <div className="border-l border-l-blue-500 px-2">Conjuntos</div>
@@ -125,15 +87,21 @@ export default function Loading() {
               </div>
             </div>
             <div className="p-8 text-slate-500">
-              
+              <div className='py-2 border-l-2 border-l-fuchsia-500 pl-2'>
+                <div className="flex space-x-5"><div className='animate-pulse rounded-full bg-gray-500 h-2 w-1/2 mb-2'></div></div>
+              </div>
             </div>
           </div>
 
           <div className="mx-2 mt-4 border border-slate-600 rounded-md">
             <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-              Descripción Técnica
+              <div className='animate-pulse rounded-full bg-gray-500 h-2 w-52 mb-2'></div>
             </div>
             <div className="p-2">
+              <div className='animate-pulse rounded-full bg-gray-500 h-2 w-1/2 mb-3'></div>
+              <div className="animate-pulse flex items-center bg-gray-300 mb-4 rounded-t h-[580px]">
+                <svg className="w-12 h-12 mx-auto text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512"><path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/></svg>
+              </div>
             </div>
           </div>
           <div className="mx-2 mt-4 border border-slate-600 rounded-md">
@@ -141,6 +109,7 @@ export default function Loading() {
               Mantenimiento
             </div>
             <div className="p-4">
+              <div className='animate-pulse rounded-full bg-gray-500 h-2 w-1/2 mb-2'></div>
             </div>
           </div>
         </div>
