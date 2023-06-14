@@ -2,7 +2,7 @@ import { urls_mercave } from '@/lib/mercave';
 import BreadNav from "@/components/BreadNav";
 import PanelEjes from './_componentes/PanelEjes'
 
-//export const dynamic = 'force-static'
+export const dynamic = 'force-static'
 export const revalidate = 360
 
 async function getEjes() {
@@ -17,7 +17,6 @@ export default async function page() {
     activo:{nombre:'EAVMs', link: 'EAVMs'}
   }
   const ejes = await getEjes();
-  console.log(ejes)
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}

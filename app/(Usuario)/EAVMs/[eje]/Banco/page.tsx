@@ -1,5 +1,6 @@
 import { urls_mercave } from '@/lib/mercave';
 import { DatosBancoEAVM, TotalesBanco } from '@/types/cambio';
+import BreadNav from "@/components/BreadNav";
 import Tabs from '@/components/Tabs';
 import PanelBanco from '../../_componentes/PanelBanco';
 
@@ -31,6 +32,10 @@ export default async function Page({params}:{params:any}) {
   const datos_banco = await getDatosBancoEAVM(id_eje)
   const datos_totales = await getDatosBancoTotales()
 
+  const segmentos = {
+    previos:[{nombre:'EAVMs', link: 'EAVMs'}], 
+    activo:{nombre:String(id_eje)}
+  }
 
   const tabs = [
     {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
@@ -41,11 +46,18 @@ export default async function Page({params}:{params:any}) {
   ]
 
   return (
-    <>
-    <Tabs tabs = {tabs}/>
-    <PanelBanco 
-      datos_banco = {datos_banco} 
-      totales = {datos_totales}/>
-    </>
+    <div className='h-full bg-gray-100'>
+      {/* Cabecera */}
+      <div className="pb-2 bg-white shadow-sm">
+        <BreadNav segmentos = {segmentos}/>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías</p>
+      </div>
+      <div>
+        <Tabs tabs = {tabs}/>
+        <PanelBanco 
+          datos_banco = {datos_banco} 
+          totales = {datos_totales}/>
+      </div>
+    </div>
   )
 }
