@@ -1,7 +1,11 @@
 import Tabs from "@/components/Tabs";
 
 export default function Loading() {
-  const tabs = [{name: 'Datos', href: '', current: true}, {name: 'Circulaciones', href: '', current: false}, {name: 'Mantenimiento', href: '', current: false}]
+  const tabs = [
+    {name: 'Datos', href: '', current: true}, 
+    {name: 'Circulaciones', href: '', current: false}, 
+    {name: 'Mantenimiento', href: '', current: false}
+  ]
 
   return (
     <>
@@ -87,7 +91,6 @@ export default function Loading() {
         </div>
         <div className='w-full rounded-lg shadow bg-white p-1 h-[195px]'>
           <div className='h-[155px] flex flex-col p-1 gap-1'>
-            <div className='animate-pulse rounded-full bg-gray-500 h-1 w-52 mx-auto mt-5'></div>
           </div>
           <div className='text-gray-500 text-sm font-medium mx-4 mt-2 mb-1'>Ejes</div>
         </div>
