@@ -20,14 +20,14 @@ export default function Error({
                     <div className="absolute">
                         <div className="">
                             <h1 className="my-2 text-gray-800 font-bold text-2xl">Parece que hay un problema con el servidor.</h1>
-                            <p className="my-2 text-gray-800">No se han recibido los vehículos del servidor.</p>
+                            <p className="my-2 text-gray-800">No se ha encontrado la información del eje.</p>
                             <button onClick={reset} className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-gray-600 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-opacity-50">Volver a intentar</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                <img width="350" src="https://img.freepik.com/iconos-gratis/lupa_318-579080.jpg" />
             </div>
         </div>
     )
