@@ -26,15 +26,6 @@ export default function Sidebar({open}:{open:Boolean}) {
           <ClipboardDocumentListIcon className="w-6 h-6"/>
           Operaciones
         </Link>
-        <p className="font-light tracking-wider text-sm pt-4">BANCO ENSAYOS</p>
-        <Link href={'/'} className="flex gap-4 text-lg hover:text-gray-300">
-          <ArrowPathIcon className="w-6 h-6"/>
-          Ensayos x Eje
-        </Link>
-        <Link href={'/'} className="flex gap-4 text-lg hover:text-gray-300">
-          <ArrowTrendingUpIcon className="w-6 h-6"/>
-          Resumen
-        </Link>
         <p className="font-light tracking-wider text-sm pt-4">GESTIÓN ADIF</p>
         <Link href={'/Documentacion/General'} className="flex gap-4 text-lg hover:text-gray-300">
           <DocumentIcon className="w-6 h-6"/>
