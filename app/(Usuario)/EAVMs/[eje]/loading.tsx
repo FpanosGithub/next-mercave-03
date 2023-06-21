@@ -17,7 +17,7 @@ export default function Loading() {
   ]
 
   return (
-    <>
+    <div className='h-full bg-gray-100'>
       <Tabs tabs = {tabs}/>
       <div className='w-full flex flex-col p-4 gap-3 sm:flex-row'>
         <div className='w-full flex flex-col gap-2'>
