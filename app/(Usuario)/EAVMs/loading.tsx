@@ -2,7 +2,7 @@ import BreadNav from "@/components/BreadNav";
 
 const segmentos = {
   previos:[], 
-  activo:{nombre:'EAVMs', link: 'EAVMs'}
+  activo:{nombre:'EAVMs'}
 }
 
 export default function loading() {

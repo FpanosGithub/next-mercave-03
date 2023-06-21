@@ -3,7 +3,6 @@ import { SignalIcon, EyeIcon, BellAlertIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
 
 export default function ListaEjes ({ejes, hover, onHover}:{ejes:any, hover:number, onHover:Function}) {
-  console.log(ejes)
   return(
   <div className='w-full px-4 pb-8'>
     <div className='w-full rounded-xl bg-white border shadow-md h-[390px] overflow-y-auto'>
@@ -52,7 +51,7 @@ export default function ListaEjes ({ejes, hover, onHover}:{ejes:any, hover:numbe
             }
             </td>
             <td className="py-4 pl-3 pr-4 text-sm sm:pr-0">
-            <Link href = {`/EAVMs/${eje.id}/Datos`} className = 'mx-auto flex justify-center gap-2'>
+            <Link href = {`/EAVMs/${eje.codigo}/Datos`} className = 'mx-auto flex justify-center gap-2'>
               <EyeIcon className='text-green-600 w-4 h-4 mx-1'/>
               <span className='text-green-600 font-medium text-base -mt-1'>Detalle</span>
             </Link>

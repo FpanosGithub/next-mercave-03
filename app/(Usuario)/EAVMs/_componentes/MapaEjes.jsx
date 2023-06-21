@@ -7,6 +7,7 @@ import { stamenToner } from 'pigeon-maps/providers';
 import { maptiler } from 'pigeon-maps/providers'
 import { BoltIcon, BoltSlashIcon, PauseIcon, PlayIcon, WrenchIcon, SignalIcon, BellAlertIcon} from '@heroicons/react/24/solid';
 import Weather from '@/components/Weather';
+import EstadoEje from './EstadoEje';
 
 export default function MapaEjes ({ejes, hover, onHover}) {
   
@@ -87,24 +88,11 @@ export default function MapaEjes ({ejes, hover, onHover}) {
             <div className="text-center p-1 text-gray-800 truncate">Fabricante: {fabricante}</div>
           </div>
         </div>
-          <div className="flex justify-between my-2 mx-4 px-2 py-1 rounded-full bg-gray-100">
-            {en_servicio 
-            ? (<BoltIcon className="w-6 h-6 mr-1 text-green-600"/>)
-            : (<BoltSlashIcon className="w-6 h-6 mr-1 text-red-600"/>)}
-            {en_circulacion 
-            ? (<PlayIcon className={clsx("w-6 h-6 mr-1 text-green-600",{"animate-pulse":(alarma_aceleraciones || alarma_temp)})}/>)
-            : (<PauseIcon className={clsx("w-6 h-6 mr-1 text-red-600",{"animate-pulse":(alarma_aceleraciones || alarma_temp)})}/>)}
-            {en_mantenimiento 
-            ? (<WrenchIcon className={clsx("w-6 h-6 mr-1 text-green-600",{"animate-pulse":(alarma_mantenimiento)})}/>)
-            : (<WrenchIcon className={clsx("w-6 h-6 mr-1 text-gray-500",{"animate-pulse":(alarma_mantenimiento)})}/>)}
-            {(alarma_temp || alarma_aceleraciones || alarma_mantenimiento || alarma_cambio)? 
-              (<BellAlertIcon className = "w-6 h-6 mr-1 text-red-400 animate-pulse"/>)
-            : (<BellAlertIcon className = "w-6 h-6 mr-1 text-slate-400"/>)}
-          </div>
-          <div className='mt-3 border-t border-gray-200'>
-            <Weather lat={lat} long={long} />
-          </div>
+        <EstadoEje codigo = {codigo}/>
+        <div className='mt-3 border-t border-gray-200'>
+          <Weather lat={lat} long={long} />
         </div>
+      </div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ async function getEjes() {
 export default async function page() {
   const segmentos = {
     previos:[], 
-    activo:{nombre:'EAVMs', link: 'EAVMs'}
+    activo:{nombre:'EAVMs'}
   }
   const ejes = await getEjes();
   return (
