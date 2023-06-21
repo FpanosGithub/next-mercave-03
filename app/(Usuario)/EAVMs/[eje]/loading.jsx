@@ -1,15 +1,25 @@
 import Tabs from '@/components/Tabs';
+import BreadNav from '@/components/BreadNav'
 
 export default function Loading() {
+  const segmentos = {
+    previos:[], 
+    activo:{nombre:'EAVMs', link: 'EAVMs'}
+  }
   const tabs = [
-    {name:'Datos',href:'',current:true}, 
-    {name:'Circulaciones',href:'',current:false}, 
-    {name:'Mantenimiento',href:'',current:false},
-    {name:'Ensayos Banco',href:'',current:false}
+    {name: 'Datos', href: '', current: true}, 
+    {name: 'Circulaciones', href: '',current: false},
+    {name: 'Cambios', href: '', current: false}, 
+    {name: 'Mantenimiento', href: '', current: false},
+    {name: 'Ensayos Banco', href: '', current: false}
   ]
 
   return (
     <>
+      <div className="pb-2 shadow-sm bg-white">
+        <BreadNav segmentos = {segmentos}/>
+        <p className="ml-4 my-3 text-2xl font-semibold">Ejes de Ancho Variable de Mercancías</p>
+      </div>
       <Tabs tabs = {tabs}/>
       <div className='w-full flex flex-col p-4 gap-3 sm:flex-row'>
         <div className='w-full flex flex-col gap-2'>
