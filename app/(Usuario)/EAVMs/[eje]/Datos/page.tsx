@@ -33,11 +33,11 @@ export default async function Page({params}:{params:any}) {
   }
 
   const tabs = [
-    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:true},
-    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false},
-    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:false},
-    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false},
+    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:true, disabled: false},
+    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false, disabled: false},
+    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false, disabled: false},
+    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:false, disabled: true},
+    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false, disabled: false},
   ]
   return (
     <div className='h-full bg-gray-100'>
