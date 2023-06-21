@@ -6,7 +6,8 @@ import clsx from "clsx"
 type TabItem = {
   name: string,
   href: string,
-  current: boolean
+  current: boolean,
+  disabled: boolean
 }
 
 export default function Tabs({tabs}:{tabs:TabItem[]}) {
@@ -47,7 +48,8 @@ export default function Tabs({tabs}:{tabs:TabItem[]}) {
                   clsx(
                     'whitespace-nowrap border-b-2 py-4 px-1 text-sm',
                     {'border-green-700 text-emerald-700 font-semibold':tab.current},
-                    {'border-transparent text-gray-500 font-medium hover:border-gray-300 hover:text-gray-700':!tab.current}
+                    {'border-transparent text-gray-500 font-medium hover:border-gray-300 hover:text-gray-700':!tab.current},
+                    {'pointer-events-none border-none opacity-50':tab.disabled}
                   )
                 }
                 aria-current={tab.current ? 'page' : undefined}
