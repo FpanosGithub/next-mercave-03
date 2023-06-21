@@ -20,7 +20,7 @@ export type CambioBanco = {
 }
 
 export type DatosBancoEAVM = {
-  id_EAVM:number,
+  EAVM:string,
   num_cambios: number,
   fmaxdes: number,
   posmaxdes: number,

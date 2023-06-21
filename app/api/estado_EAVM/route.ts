@@ -15,5 +15,7 @@ export async function GET(request: Request) {
     alarma_aceleraciones: estado_eje.alarma_aceleraciones,
     alarma_cambio: estado_eje.alarma_cambio,
     alarma_mantenimiento: estado_eje.alarma_mantenimiento,
+    km_totales: estado_eje.km_totales,
+    num_cambios: estado_eje.num_cambios,
   })
 }

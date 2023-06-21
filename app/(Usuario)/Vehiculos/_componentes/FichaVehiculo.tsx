@@ -119,7 +119,7 @@ export default function FichaVehiculo ({vehiculo}:{vehiculo:any}){
         <div className='w-full rounded-lg shadow bg-white p-1 h-[195px]'>
           <div className='h-[155px] flex flex-col p-1 gap-1'>
           {vehiculo.ejes.map((eje:any)=>{return(
-            <Link key={eje.id} href={`/EAVMs/${eje.id}/Datos`} className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
+            <Link key={eje.id} href={`/EAVMs/${eje.codigo}/Datos`} className='border border-green-500 rounded px-2 py-1 text-green-800 hover:bg-gray-100'>{eje.codigo}</Link>
           )})}
           </div>
           <div className='text-gray-500 text-sm font-medium mx-4 mt-2 mb-1'>Ejes</div>

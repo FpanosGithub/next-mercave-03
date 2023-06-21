@@ -6,12 +6,12 @@ import PanelBanco from '../../_componentes/PanelBanco';
 
 export const revalidate = 60
 
-async function getDatosBancoEAVM(id_eje:number):Promise<DatosBancoEAVM>  {
-  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.datos_banco_EAVM}${id_eje}`)
+async function getDatosBancoEAVM(codigo:string):Promise<DatosBancoEAVM>  {
+  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.datos_banco_EAVM}${codigo}`)
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error(`No se pudieron descargar los datos de los ensayos del eje: ${id_eje}`);
+    throw new Error(`No se pudieron descargar los datos de los ensayos del eje: ${codigo}`);
   }
   return res.json();
 }
@@ -28,21 +28,21 @@ async function getDatosBancoTotales():Promise<TotalesBanco>  {
 
 
 export default async function Page({params}:{params:any}) {
-  const id_eje = parseInt(params.eje)
-  const datos_banco = await getDatosBancoEAVM(id_eje)
+  const codigo = params.eje
+  const datos_banco = await getDatosBancoEAVM(codigo)
   const datos_totales = await getDatosBancoTotales()
 
   const segmentos = {
-    previos:[{nombre:'EAVMs', link: 'EAVMs'}], 
-    activo:{nombre:String(id_eje)}
+    previos:[{nombre:'EAVMs', link: '/EAVMs'}], 
+    activo:{nombre:codigo}
   }
 
   const tabs = [
-    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
-    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false},
-    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:false},
-    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:true},
+    {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:false},
+    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:false},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false},
+    {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:true},
   ]
 
   return (
@@ -50,7 +50,7 @@ export default async function Page({params}:{params:any}) {
       {/* Cabecera */}
       <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías</p>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje Ancho Variable - {codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
       </div>
       <div>
         <Tabs tabs = {tabs}/>

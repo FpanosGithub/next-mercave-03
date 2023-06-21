@@ -6,9 +6,9 @@ import PanelCirculaciones from '../../_componentes/PanelCirculaciones';
 
 export const revalidate = 60
 
-async function getCirculaciones(id_eje:number):Promise<Circulacion[]> {
-  //`https://drf-server.azurewebsites.net/eventos/circulaciones_vehiculo_ampliadas/${id_vehiculo}`
-  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_eje}${id_eje}`)
+async function getCirculaciones(codigo:string):Promise<Circulacion[]> {
+  //`https://drf-server.azurewebsites.net/eventos/circulaciones_EAVM_ampliadas/${codigo}`
+  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_eje}${codigo}`)
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -18,27 +18,27 @@ async function getCirculaciones(id_eje:number):Promise<Circulacion[]> {
 }
 
 export default async function Page({params}:{params:any}) {
-  const id_eje = parseInt(params.eje)
-  const circulaciones = await getCirculaciones(id_eje);
+  const codigo = params.eje
+  const circulaciones = await getCirculaciones(codigo);
 
   const segmentos = {
-    previos:[{nombre:'EAVMs', link: 'EAVMs'}], 
-    activo:{nombre:`Eje (id:${id_eje})`}
+    previos:[{nombre:'EAVMs', link: '/EAVMs'}], 
+    activo:{nombre: codigo}
   }
 
   const tabs = [
-    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
-    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:true},
-    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:false},
-    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false},
+    {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:false},
+    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:true},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false},
+    {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false},
   ]
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
       <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable de Mercancías</p>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje de Ancho Variable - {codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
       </div>
       <div>
         <Tabs tabs = {tabs}/>

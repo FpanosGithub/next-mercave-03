@@ -1,20 +1,33 @@
+import { urls_mercave } from '@/lib/mercave';
+import BreadNav from "@/components/BreadNav";
 import Tabs from '@/components/Tabs';
 
 
 export default async function Page({params}:{params:any}) {
-  const id_eje = parseInt(params.eje)
+  const codigo = params.eje
   
+  const segmentos = {
+    previos:[{nombre:'EAVMs', link: '/EAVMs'}], 
+    activo:{nombre:codigo}
+  }
 
   const tabs = [
-    {name:'Datos',href:`/EAVMs/${id_eje}/Datos`,current:false},
-    {name:'Circulaciones',href:`/EAVMs/${id_eje}/Circulaciones`,current:false},
-    {name:'Cambios',href:`/EAVMs/${id_eje}/Cambios`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${id_eje}/Mantenimiento`,current:true},
-    {name:'Ensayos Banco',href:`/EAVMs/${id_eje}/Banco`,current:false},
+    {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:false},
+    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:false},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:true},
+    {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false},
   ]
   return (
-    <>
-    <Tabs tabs = {tabs}/>
-    </>
+    <div className='h-full bg-gray-100'>
+      {/* Cabecera */}
+      <div className="pb-2 bg-white shadow-sm">
+        <BreadNav segmentos = {segmentos}/>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje Ancho Variable - {codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
+      </div>
+      <div>
+        <Tabs tabs = {tabs}/>
+      </div>
+    </div>
   )
 }

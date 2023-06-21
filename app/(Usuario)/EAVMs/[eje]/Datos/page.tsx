@@ -29,17 +29,17 @@ export default async function Page({params}:{params:any}) {
 
   const tabs = [
     {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:true},
-    {name:'Circulaciones',href:`/EAVMs/${eje.id}/Circulaciones`,current:false},
-    {name:'Cambios',href:`/EAVMs/${eje.id}/Cambios`,current:false},
-    {name:'Mantenimiento',href:`/EAVMs/${eje.id}/Mantenimiento`,current:false},
-    {name:'Ensayos Banco',href:`/EAVMs/${eje.id}/Banco`,current:false},
+    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:false},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false},
+    {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false},
+    {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false},
   ]
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
       <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
-        <p className="ml-4 mt-4 text-2xl font-semibold">Eje Ancho Variable - {eje.codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
+        <p className="ml-4 mt-4 text-2xl font-semibold">Eje Ancho Variable - {codigo[2]==='R' ? 'Remolcado' : 'Tractor'}</p>
       </div>
       <div>
         <Tabs tabs = {tabs}/>
