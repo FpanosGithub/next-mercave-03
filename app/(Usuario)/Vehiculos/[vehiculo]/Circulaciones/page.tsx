@@ -21,9 +21,9 @@ export default async function Page({params}:{params:any}) {
   const circulaciones = await getCirculaciones(id_vehiculo);
 
   const tabs = [
-    {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:false},
-    {name:'Circulaciones',href:`/Vehiculos/${id_vehiculo}/Circulaciones`,current:true},
-    {name:'Mantenimiento',href:`/Vehiculos/${id_vehiculo}/Mantenimiento`,current:false},
+    {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:false, disabled: false},
+    {name:'Circulaciones',href:`/Vehiculos/${id_vehiculo}/Circulaciones`,current:true, disabled: false},
+    {name:'Mantenimiento',href:`/Vehiculos/${id_vehiculo}/Mantenimiento`,current:false, disabled: true},
   ]
   return (
     <>

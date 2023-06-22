@@ -2,9 +2,9 @@ import Tabs from "@/components/Tabs";
 
 export default function Loading() {
   const tabs = [
-    {name: 'Datos', href: '', current: true}, 
-    {name: 'Circulaciones', href: '', current: false}, 
-    {name: 'Mantenimiento', href: '', current: false}
+    {name: 'Datos', href: '', current: true, disabled: false}, 
+    {name: 'Circulaciones', href: '', current: false, disabled: false}, 
+    {name: 'Mantenimiento', href: '', current: false, disabled: true}
   ]
 
   return (

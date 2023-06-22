@@ -17,9 +17,9 @@ export default async function Page({params}:{params:any}) {
   const vehiculo = vehiculos.find(({id}:{id:Number})=> id === id_vehiculo)
 
   const tabs = [
-    {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:false},
-    {name:'Circulaciones',href:`/Vehiculos/${id_vehiculo}/Circulaciones`,current:false},
-    {name:'Mantenimiento',href:`/Vehiculos/${id_vehiculo}/Mantenimiento`,current:true},
+    {name:'Datos',href:`/Vehiculos/${id_vehiculo}/Datos`,current:false, disabled: false},
+    {name:'Circulaciones',href:`/Vehiculos/${id_vehiculo}/Circulaciones`,current:false, disabled: false},
+    {name:'Mantenimiento',href:`/Vehiculos/${id_vehiculo}/Mantenimiento`,current:true, disabled: true},
   ]
   return (
     <>
