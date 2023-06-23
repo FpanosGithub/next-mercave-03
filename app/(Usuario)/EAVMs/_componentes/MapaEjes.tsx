@@ -1,9 +1,17 @@
 'use client'
 import { useRouter } from 'next/navigation';
+import {PosicionEAVM} from '@/types/EAVM'
 import { Map, ZoomControl, Marker, Overlay } from "pigeon-maps";
 import { maptiler } from 'pigeon-maps/providers'
 
-export default function MapaEjes ({posiciones, hover, onHover}) { 
+export default function MapaEjes ({
+  posiciones, 
+  hover, 
+  onHover}:{
+  posiciones: PosicionEAVM[], 
+  hover: number, 
+  onHover: Function,
+  }) { 
   const maptilerProvider = maptiler('t3404nTGTEs1Q4VOSvmj', 'basic')
   const router = useRouter()
   function handleClick(codigo) {

@@ -1,8 +1,9 @@
 import clsx from 'clsx';
+import {EAVMBasico} from '@/types/EAVM'
 import { SignalIcon, EyeIcon, BellAlertIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
 
-export default function ListaEjes ({ejes, hover, onHover}:{ejes:any, hover:number, onHover:Function}) {
+export default function ListaEjes ({ejes, hover, onHover}:{ejes:EAVMBasico[], hover:number, onHover:Function}) {
   return(
   <div className='w-full px-4 pb-8'>
     <div className='w-full rounded-xl bg-white border shadow-md h-[390px] overflow-y-auto'>

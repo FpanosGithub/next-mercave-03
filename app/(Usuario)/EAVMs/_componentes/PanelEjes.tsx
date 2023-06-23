@@ -1,10 +1,11 @@
 'use client'
 import {useState, useEffect} from "react"
+import {EAVMBasico, PosicionEAVM} from '@/types/EAVM'
 import MapaEjes from "./MapaEjes"
 import ListaEjes from "./ListaEjes"
 import TarjetaEje from "./TarjetaEje"
 
-export default function PanelEjes ({ejes, posiciones}) {
+export default function PanelEjes ({ejes, posiciones}:{ejes:EAVMBasico[], posiciones:PosicionEAVM[]}) {
   const [hover, setHover] = useState(ejes[0].id)
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function PanelEjes ({ejes, posiciones}) {
 
   return(
     <div className="">
-      <div className="rounded-lg shadow m-4 p-2 bg-white grid gap-2 grid-rows-2 sm:flex sm:h-[21rem]">
+      <div className="rounded-lg shadow mx-8 p-2 bg-white grid gap-2 grid-rows-2 sm:m-4 sm:flex sm:h-[21rem]">
         <MapaEjes
           posiciones = {posiciones} 
           hover = {hover}

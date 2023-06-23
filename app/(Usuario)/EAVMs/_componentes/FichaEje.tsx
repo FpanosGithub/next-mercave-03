@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import Image from "next/image"
+import {EAVMCompleto} from '@/types/EAVM'
 import {BoltIcon, BoltSlashIcon, WrenchIcon,  PauseIcon, PlayIcon, BellAlertIcon} from '@heroicons/react/24/solid';
 import Weather from '@/components/Weather';
 import clsx from 'clsx';
 
-export default function FichaEje ({eje}:{eje:any}){
+export default function FichaEje ({eje}:{eje:EAVMCompleto}){
   return(
   <div className='w-full flex flex-col p-4 gap-3 sm:flex-row'>
     <div className='w-full flex flex-col gap-2'>

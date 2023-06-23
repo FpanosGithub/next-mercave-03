@@ -4,7 +4,16 @@ import Image from "next/image";
 import EstadoEje from './EstadoEje';
 import Weather from '@/components/Weather';
 
-export default function tarjetaEje ({imagen, codigo, lat, lng}) {
+export default function tarjetaEje ({
+  imagen, 
+  codigo, 
+  lat, 
+  lng}:{
+  imagen:string, 
+  codigo:string, 
+  lat:number, 
+  lng:number, 
+  }) {
   
   const router = useRouter()
   function handleClick() {
