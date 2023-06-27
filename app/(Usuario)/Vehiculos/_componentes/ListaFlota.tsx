@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { PauseIcon, PlayIcon, WifiIcon, WrenchIcon, SignalIcon, XMarkIcon, EyeIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
+import Tooltip from '@/components/Tooltip';
 
 export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[], hover:Number, onHover:Function}) {
 
@@ -33,10 +34,11 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
             </dl>
           </td>
           <td className="hidden px-3 py-4 text-gray-700 lg:table-cell">{vehiculo.tipo.descripcion}</td>
-          <td className="hidden w-28 mx-auto sm:flex justify-center gap-2 mt-4">
+          <td className="group hidden w-28 mx-auto sm:flex justify-center gap-2 mt-4">
             {(vehiculo.transmitiendo)?
               (<WifiIcon className="w-6 h-6 ml-2 my-1 text-green-400"/>)
             : (<WifiIcon className="w-6 h-6 ml-2 my-1 text-red-400"/>)}
+            <Tooltip title="Icono wifi" />
             {!vehiculo.en_servicio?
               (<XMarkIcon className="w-6 h-6 ml-1 my-1 text-red-400"/>)
             : 
