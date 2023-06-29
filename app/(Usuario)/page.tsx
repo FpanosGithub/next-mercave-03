@@ -2,7 +2,7 @@ import Card from '@/components/Card'
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center xl:items-start p-5">
+    <div className="bg-gray-100 flex flex-col items-center xl:items-start p-5">
       <h1 className='text-2xl font-semibold text-gray-900'>Herramienta de seguimiento del proyecto Mercave</h1>
       <div className="flex flex-col">
         <div className='flex flex-col lg:flex-row lg:flex-wrap gap-4'>
