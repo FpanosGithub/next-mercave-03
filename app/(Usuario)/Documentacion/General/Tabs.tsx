@@ -42,7 +42,7 @@ export default function Tabs(
             EAVMs
             </p>
             <p 
-            className={clsx("pb-2 px-2 hover:cursor-pointer",
+            className={clsx("pb-2 px-2 pointer-events-none border-none opacity-50",
               { 'border-b-2 border-emerald-700 text-emerald-700':(tab==3),
                 'hover:border-b-2 hover:border-blue-400':(tab!=3)
               })}
@@ -85,7 +85,14 @@ export default function Tabs(
       {tab === 2 && (
         <div className="p-8 h-screen flex gap-4 flex-wrap">
         {fichas_EAVMs.map((ficha:any)=>(
-          <div key = {ficha.slug.current} className="bg-white border rounded-xl shadow w-72 h-60 flex flex-col justify-between">
+          <div key = {ficha.slug.current} className="bg-white border rounded-xl shadow w-72 h-96 flex flex-col justify-between">
+            {ficha.imagen &&
+              <Image 
+                className="object-cover object-left h-auto rounded-t-xl"
+                src = {urlFor(ficha.imagen).url()}
+                alt= 'imagen'
+                width={288}
+                height = {150}/>}
             <div className="my-6 mx-4 text-base font-medium text-gray-900">{ficha.codigo}</div>
             <div className="my-3 mx-4 text-gray-900">{ficha.descripcion}</div>
             <div className="mt-4 mx-4 text-gray-700">Ficha: {ficha.num_doc}</div>
