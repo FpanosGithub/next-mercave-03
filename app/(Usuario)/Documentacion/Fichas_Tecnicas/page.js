@@ -1,4 +1,3 @@
-import BarraNavegacion from "./_componentes/BarraNavegacion";
 import BreadNav from '@/components/BreadNav'
 import FTVehiculo from "./_componentes/FTVehiculo";
 import FTSistema from "./_componentes/FTSistema";
@@ -48,7 +47,7 @@ export default async function Page({searchParams}) {
   // Determinamos si tenemos que mostrar la ficha de un componente, un conjunto, un sistema, un eavm o un vehículo
   // En función de eso llamamos a unos componentes u otros
   return (
-  <div className='h-full bg-gray-100'>
+  <div className='bg-gray-100'>
     {/* Cabecera */}
     <div className="pb-2 bg-white shadow-sm">
         <BreadNav segmentos = {segmentos}/>
