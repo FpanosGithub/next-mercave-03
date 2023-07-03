@@ -99,12 +99,12 @@ export default function Loading() {
                                 </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 bg-white">
-                                <tr className='animate pulse'>
-                                    <td className="py-4 pl-4 pr-3 text-gray-700"></td>
-                                    <td className="px-3 py-4 text-gray-700"></td>
-                                    <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"></td>
-                                    <td className="hidden px-3 py-4 text-gray-700 text-right xl:table-cell"></td>
-                                    <td className="hidden px-3 py-4 text-gray-700 text-right md:table-cell"></td>
+                                <tr className='animate-pulse'>
+                                    <td className="py-4 pl-4 pr-3 text-gray-700"><div className='rounded-full bg-gray-500 h-1 w-3 mb-2'></div></td>
+                                    <td className="px-3 py-4 text-gray-700"><div className='rounded-full bg-gray-500 h-1 w-14 mb-2'></div></td>
+                                    <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"><div className='rounded-full bg-gray-500 h-1 w-3 mb-2'></div></td>
+                                    <td className="hidden px-3 py-4 text-gray-700 text-right xl:table-cell"><div className='rounded-full bg-gray-500 h-1 w-10 ml-auto mb-2'></div></td>
+                                    <td className="hidden px-3 py-4 text-gray-700 text-right md:table-cell"><div className='rounded-full bg-gray-500 h-1 w-10 ml-auto mb-2'></div></td>
                                     <td className="mt-4 mr-8 flex justify-end">
                                         <BellAlertIcon className="w-6 h-6 my-1 text-gray-500"/>
                                     </td>
