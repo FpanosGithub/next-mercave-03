@@ -2,10 +2,10 @@ import Tabs from "@/components/Tabs"
 
 export default function loading() {
   const tabs = [
-    {name: 'Vehículos', href: '', current: true},
-    {name: 'EAVMs', href: '', current: false},
-    {name: 'Inst. Mant.', href: '', current: false},
-    {name: 'Personas', href: '', current: false}
+    {name: 'Vehículos', href: '', current: true, disabled: false},
+    {name: 'EAVMs', href: '', current: false, disabled: false},
+    {name: 'Inst. Mant.', href: '', current: false, disabled: true},
+    {name: 'Personas', href: '', current: false, disabled: false}
   ]
 
   return (

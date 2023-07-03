@@ -8,7 +8,7 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
   return (
     <div 
     onClick={()=>{setOpen(!open)}}
-    className="fixed w-full h-screen left-0 top-0 bg-black/25">
+    className="fixed z-40 w-full h-screen left-0 top-12 bg-black/25">
       <div 
         onClick={(e)=>e.stopPropagation()}
         className="bg-gray-700 absolute top-0 left-0 w-60 h-screen overflow-y-scroll text-gray-400 flex flex-col justify-between px-2">

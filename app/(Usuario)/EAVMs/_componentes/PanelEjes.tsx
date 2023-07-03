@@ -29,7 +29,7 @@ export default function PanelEjes ({ejes, posiciones}:{ejes:EAVMBasico[], posici
   })
 
   return(
-    <div className="">
+    <div className="bg-gray-100">
       <div className="rounded-lg shadow mx-8 p-2 bg-white grid gap-2 grid-rows-2 sm:m-4 sm:flex sm:h-[21rem]">
         <MapaEjes
           posiciones = {posiciones} 

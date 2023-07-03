@@ -1,5 +1,7 @@
 import Tabs from '@/components/Tabs';
 import BreadNav from "@/components/BreadNav";
+import { BellAlertIcon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
 
 
 export default function Loading() {
@@ -130,16 +132,24 @@ export default function Loading() {
           </div>
           <div className='animate-pulse rounded-lg shadow p-4 bg-white sm:flex sm:justify-center sm:flex-wrap sm:gap-4'>
             <div className='shadow rounded p-2 flex flex-col gap-1'>
+              <BellAlertIcon className="w-6 h-6 mx-auto text-gray-500 animate-pulse"/>
               <span className='mx-auto text-sm text-gray-700'>Temperatura</span>
+              <Link href='' className='mx-auto text-center w-24 rounded-md border border-green-700 text-sm font-light text-green-700'>Reset</Link>
             </div>
             <div className='shadow rounded p-2 flex flex-col gap-1'>
+              <BellAlertIcon className="w-6 h-6 mx-auto text-gray-500 animate-pulse"/>
               <span className='mx-auto text-sm text-gray-700'>Aceleraciones</span>
+              <Link href='' className='mx-auto text-center w-24 rounded-md border border-green-700 text-sm font-light text-green-700'>Reset</Link>
             </div>
             <div className='shadow rounded p-2 flex flex-col gap-1'>
+              <BellAlertIcon className="w-6 h-6 mx-auto text-gray-500 animate-pulse"/>
               <span className='mx-auto text-sm text-gray-700'>Mantenimiento</span>
+              <Link href='' className='mx-auto text-center w-24 rounded-md border border-green-700 text-sm font-light text-green-700'>Reset</Link>
             </div>
             <div className='shadow rounded p-2 flex flex-col gap-1'>
+              <BellAlertIcon className="w-6 h-6 mx-auto text-gray-500 animate-pulse"/>
               <span className='mx-auto text-sm'>Cambio</span>
+              <Link href='' className='mx-auto text-center w-24 rounded-md border border-green-700 text-sm font-light text-green-700'>Reset</Link>
             </div>
           </div>
         </div>
