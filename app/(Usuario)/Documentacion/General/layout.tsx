@@ -11,7 +11,7 @@ export default async function Layout({
   }
   
   return (
-    <div>
+    <div className='bg-white shadow'>
       <BreadNav segmentos = {segmentos}/>
       <p className="ml-4 my-4 text-2xl font-semibold">Documentación</p>
       {children}

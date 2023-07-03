@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { PauseIcon, PlayIcon, WifiIcon, WrenchIcon, SignalIcon, XMarkIcon, EyeIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
+import Tooltip from '@/components/Tooltip';
 
 export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[], hover:Number, onHover:Function}) {
 
@@ -34,23 +35,44 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
           </td>
           <td className="hidden px-3 py-4 text-gray-700 lg:table-cell">{vehiculo.tipo.descripcion}</td>
           <td className="hidden w-28 mx-auto sm:flex justify-center gap-2 mt-4">
-            {(vehiculo.transmitiendo)?
-              (<WifiIcon className="w-6 h-6 ml-2 my-1 text-green-400"/>)
-            : (<WifiIcon className="w-6 h-6 ml-2 my-1 text-red-400"/>)}
-            {!vehiculo.en_servicio?
-              (<XMarkIcon className="w-6 h-6 ml-1 my-1 text-red-400"/>)
-            : 
-            (vehiculo.en_mantenimiento?
-            (<WrenchIcon className="w-6 h-6 ml-1 my-1 text-green-600"/>)
-            :
-            (vehiculo.en_circulacion?
-            (<PauseIcon className="w-6 h-6 ml-1 my-1 text-red-400"/>)
-            :
-            (<PlayIcon className="w-6 h-6 ml-1 my-1 text-green-400"/>)
-            ))}
-            {(vehiculo.alarma)?
-              (<SignalIcon className="w-6 h-6 ml-1 mr-2 my-1 text-red-400"/>)
-            : (<SignalIcon className="w-6 h-6 ml-1 mr-2 my-1 text-slate-400"/>)}
+            <div className='group'>
+              {(vehiculo.transmitiendo)?
+                (<WifiIcon className="w-6 h-6 ml-2 my-1 text-green-400"/>)
+              : (<WifiIcon className="w-6 h-6 ml-2 my-1 text-red-400"/>)}
+              <Tooltip title="Transmisión" />
+            </div>
+            <div className='group'>
+              {!vehiculo.en_servicio?
+                (<>
+                  <XMarkIcon className="w-6 h-6 ml-1 my-1 text-red-400"/>
+                  <Tooltip title="Servicio" />
+                </>)
+              : 
+              (vehiculo.en_mantenimiento?
+              (<>
+                <WrenchIcon className="w-6 h-6 ml-1 my-1 text-green-600" />
+                <Tooltip title="Mantenimiento" />
+              </>)
+              :
+              (vehiculo.en_circulacion?
+              (<>
+                <PauseIcon className="w-6 h-6 ml-1 my-1 text-red-400"/>
+                <Tooltip title="Circulación" />
+              </>)
+              :
+              (<>
+                <PlayIcon className="w-6 h-6 ml-1 my-1 text-green-400"/>
+                <Tooltip title="Circulación" />
+              </>)
+              ))}
+            </div>
+            <div className="group">
+              {(vehiculo.alarma)?
+                (<SignalIcon className="w-6 h-6 ml-1 mr-2 my-1 text-red-400"/>)
+              : (<SignalIcon className="w-6 h-6 ml-1 mr-2 my-1 text-slate-400"/>)}
+              <Tooltip title="Señal" />
+            </div>
+            
           </td>
           <td className="py-4 pl-3 pr-4 text-sm sm:pr-0">
             <Link href = {`/Vehiculos/${vehiculo.id}/Datos`} className = 'mx-auto flex justify-center gap-2'>

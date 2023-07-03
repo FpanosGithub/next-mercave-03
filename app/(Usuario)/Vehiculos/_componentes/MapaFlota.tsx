@@ -6,6 +6,7 @@ import { osm } from 'pigeon-maps/providers'
 import { maptiler } from 'pigeon-maps/providers'
 import { WifiIcon, PauseIcon, PlayIcon, WrenchIcon, SignalIcon, XMarkIcon} from '@heroicons/react/24/solid';
 import Weather from '@/components/Weather';
+import Tooltip from '@/components/Tooltip';
 
 export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[], hover:Number, onHover:Function}) {
   
@@ -85,20 +86,47 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
           </div>
         </div>
           <div className="flex justify-between my-2 w-40 mx-auto px-2 py-1 rounded-full bg-gray-100">
-            {transmitiendo ? 
-              (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
-            : (<WifiIcon className="w-6 h-6 mr-1 text-red-400"/>)}
-            {!en_servicio ? 
-              (<XMarkIcon className="w-6 h-6 mr-1 text-slate-200"/>)
-            : (en_mantenimiento ? 
-              (<WrenchIcon className="w-6 h-6 mr-1 text-green-600"/>)
-              : (en_circulacion ? 
-                  (<PlayIcon className = "w-6 h-6 mr-1 text-green-400"/>)
-                  : (<PauseIcon className="w-6 h-6 mr-1 text-red-400"/>)
-                ))}
-            {(alarma)? 
-              (<SignalIcon className = "w-6 h-6 mr-1 text-red-400"/>)
-            : (<SignalIcon className = "w-6 h-6 mr-1 text-slate-400"/>)}
+            <div className='group'>
+              {transmitiendo ? 
+                (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
+              : (<WifiIcon className="w-6 h-6 mr-1 text-red-400"/>)}
+              <Tooltip title="Transmisión" />
+            </div>
+            <div className='group'>
+              {!en_servicio ? 
+                (<>
+                  <XMarkIcon className="w-6 h-6 mr-1 text-slate-200"/>
+                  <Tooltip title="Servicio" />
+                </>
+                )
+              : (en_mantenimiento ? 
+                (
+                  <>
+                    <WrenchIcon className="w-6 h-6 mr-1 text-green-600"/>
+                    <Tooltip title="Mantenimiento" />
+                  </>
+                )
+                : (en_circulacion ? 
+                    (
+                      <>
+                        <PlayIcon className = "w-6 h-6 mr-1 text-green-400"/>
+                        <Tooltip title="Circulación" />
+                      </>
+                    )
+                    : (
+                        <>
+                          <PauseIcon className="w-6 h-6 mr-1 text-red-400"/>
+                          <Tooltip title="Circulación" />
+                        </>
+                      )
+                  ))}
+            </div>
+            <div className='group'>
+              {(alarma)? 
+                (<SignalIcon className = "w-6 h-6 mr-1 text-red-400"/>)
+              : (<SignalIcon className = "w-6 h-6 mr-1 text-slate-400"/>)}
+              <Tooltip title="Señal" />
+            </div>
           </div>
           <div className='mt-3 border-t border-gray-200'>
             <Weather lat={lat} long={long} />

@@ -6,7 +6,7 @@ import tria from  '@/public/logos/tria.png'
 
 export default function Sidebar({open}:{open:Boolean}) {
   return (
-    <div className='hidden md:flex md:flex-col justify-between p-2 bg-gray-700 text-gray-400'>
+    <div className='fixed left-0 z-40 h-screen hidden md:flex md:flex-col justify-between p-2 bg-gray-700 text-gray-400'>
       <div className="px-4 py-8 space-y-4">
         <Link href={'/'} className="flex gap-4 text-base hover:text-gray-300">
           <HomeIcon className="w-6 h-6"/>
