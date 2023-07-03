@@ -30,9 +30,10 @@ export default async function Page({params}:{params:any}) {
   const tabs = [
     {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:true, disabled: false},
     {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:false, disabled: false},
-    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false, disabled: false},
+    //{name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false, disabled: false},
     {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false, disabled: true},
-    {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
+    //{name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
   ]
   return (
     <div className='h-full bg-gray-100'>

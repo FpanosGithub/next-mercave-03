@@ -1,11 +1,11 @@
 'use client'
 import {useState, useEffect} from "react"
-import {EAVMBasico, PosicionEAVM} from '@/types/EAVM'
+import {EAVMBasico, posicionEAVM} from '@/types/EAVM'
 import MapaEjes from "./MapaEjes"
 import ListaEjes from "./ListaEjes"
 import TarjetaEje from "./TarjetaEje"
 
-export default function PanelEjes ({ejes, posiciones}:{ejes:EAVMBasico[], posiciones:PosicionEAVM[]}) {
+export default function PanelEjes ({ejes, posiciones}:{ejes:EAVMBasico[], posiciones:posicionEAVM[]}) {
   const [hover, setHover] = useState(ejes[0].id)
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
