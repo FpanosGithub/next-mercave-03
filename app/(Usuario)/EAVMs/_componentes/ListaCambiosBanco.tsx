@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function ListaCambiosBanco ({cambios, select, onSelect}:{cambios:any, select:number, onSelect:Function}) {
   return(
   <div className='pb-8 flex-1'>
-    <div className='w-full rounded-lg bg-white border shadow-md h-[630px] overflow-y-auto'>
+    <div className='w-full 3xl:h-[61rem] rounded-lg bg-white border shadow-md overflow-y-auto'>
       <table className="min-w-full">
         <thead className=''>
           <tr className=''>
@@ -31,7 +31,7 @@ export default function ListaCambiosBanco ({cambios, select, onSelect}:{cambios:
             <td className="py-4 pl-4 pr-3 text-gray-700">{cambio.id}</td>
             <td className="px-3 py-4 text-gray-700">{cambio.dt.slice(0,10)}</td>
             <td className="hidden px-3 py-4 text-gray-700 xl:table-cell">{Math.round(cambio.V).toLocaleString('es-ES')} Km/h</td>
-            <td className="hidden px-3 py-4 text-gray-700 text-right xl:table-cell">{Math.round(cambio.FV).toLocaleString('es-ES')} N</td>
+            <td className="hidden px-3 py-4 text-gray-700 text-right xl:table-cell">{Math.round(cambio.FV).toLocaleString('es-ES')} dN</td>
             <td className="hidden px-3 py-4 text-gray-700 text-right md:table-cell">{cambio.sentido}</td>
             <td className="mt-4 mr-8 flex justify-end">
             {(cambio.alarma)

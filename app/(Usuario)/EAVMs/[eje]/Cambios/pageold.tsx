@@ -1,25 +1,26 @@
 import { urls_mercave } from '@/lib/mercave';
-import {Circulacion} from '@/types/circulacion'
+import { CambioBanco } from '@/types/cambio';
 import BreadNav from "@/components/BreadNav";
 import Tabs from '@/components/Tabs';
-import PanelCirculaciones from '../../_componentes/PanelCirculaciones';
+import PanelCambios from '../../_componentes/PanelCambios'
 
 export const revalidate = 60
 
-async function getCirculaciones(codigo:string):Promise<Circulacion[]> {
-  //`https://drf-server.azurewebsites.net/eventos/circulaciones_EAVM_ampliadas/${codigo}`
-  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.circulaciones_eje}${codigo}`)
+async function getCambios(codigo:string):Promise<CambioBanco[]> {
+  const res = await fetch(`${urls_mercave.servidor_backend}${urls_mercave.cambios_eje}${codigo}`)
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Fallo en EAVMs/[eje]/Circulaciones');
+    throw new Error(`No se pudieron descargar los cambios del eje: ${codigo}`);
   }
   return res.json();
 }
 
+
+
 export default async function Page({params}:{params:any}) {
   const codigo = params.eje
-  const circulaciones = await getCirculaciones(codigo);
+  const cambios = await getCambios(codigo);
 
   const segmentos = {
     previos:[{nombre:'EAVMs', link: '/EAVMs'}], 
@@ -28,11 +29,10 @@ export default async function Page({params}:{params:any}) {
 
   const tabs = [
     {name:'Datos',href:`/EAVMs/${codigo}/Datos`,current:false, disabled: false},
-    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:true, disabled: false},
-    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false, disabled: false},
+    {name:'Circulaciones',href:`/EAVMs/${codigo}/Circulaciones`,current:false, disabled: false},
+    {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:true, disabled: false},
     {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false, disabled: true},
     {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
-    //{name:'Cambios',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
   ]
   return (
     <div className='h-full bg-gray-100'>
@@ -43,7 +43,7 @@ export default async function Page({params}:{params:any}) {
       </div>
       <div>
         <Tabs tabs = {tabs}/>
-        <PanelCirculaciones circulaciones = {circulaciones}/>
+        <PanelCambios cambios = {cambios}/>
       </div>
     </div>
   )

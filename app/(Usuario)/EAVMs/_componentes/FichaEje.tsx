@@ -179,7 +179,7 @@ export default function FichaEje ({eje}:{eje:EAVMCompleto}){
       </div>
       <div className='rounded-lg shadow p-4 bg-white sm:flex sm:justify-center sm:flex-wrap sm:gap-4'>
         <div className='shadow rounded p-2 flex flex-col gap-1'>
-          {eje.alarma_temperatura
+          {eje.alarma_temp
             ? <BellAlertIcon className="w-6 h-6 mx-auto text-red-400 animate-pulse"/>
             : <BellAlertIcon className="w-6 h-6 mx-auto text-gray-500"/>
             }
