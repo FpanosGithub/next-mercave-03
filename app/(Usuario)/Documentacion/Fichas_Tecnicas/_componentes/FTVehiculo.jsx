@@ -52,7 +52,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
   if (fichas[i].clase==='VAG') {clase= 'Vagón'}
 
   return (  
-  <div className="">
+  <div className="inline-flex flex-col">
       {/* BANNER */}
       <div className="flex gap-2 mx-2 flex-wrap">
         <div className="bg-gray-700 text-white rounded-md shadow-sm  min-w-fit flex-1 flex justify-between flex-wrap">
@@ -100,112 +100,155 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
       </div>
       {/* AUTORES */}
-      <div className=" mx-2 mt-2 flex flex-wrap border border-slate-600 rounded-md">
-        <div className="my-1 flex p-3 space-x-6 ml-1 border-r">
-          <div className="text-slate-500">Elaborado: </div>
-          <div className="">
-            <p>{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].realizado.cargo}</p>
+      <div className="flex items-start gap-5 self-stretch mx-2 mt-3">
+        <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3">
+            <div className="text-slate-500">Elaborado </div>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
+                <div className="flex flex-col justify-center w-20 items-center self-stretch">
+                  <Image 
+                  className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                  src = {urlFor(fichas[i].realizado.imagen).url()}
+                  alt= 'avatar'
+                  width={82}
+                  height = {82}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 self-stretch">
+                  <div className="flex space-x-48 items-center self-stretch">
+                    <div className="flex flex-col items-start gap-2">
+                      <p className="text-xl font-bold">{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
+                      <p className="text-slate-500">{fichas[i].realizado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-1 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].realizado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
+          <div className="flex flex-col items-start gap-3">
+            <div className="text-slate-500">Supervisado </div>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
+                <div className="flex flex-col justify-center w-20 items-center self-stretch">
+                  <Image 
+                  className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                  src = {urlFor(fichas[i].supervisado.imagen).url()}
+                  alt= 'avatar'
+                  width={82}
+                  height = {82}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 self-stretch">
+                  <div className="flex space-x-48 items-center self-stretch">
+                    <div className="flex flex-col items-start gap-2">
+                      <p className="text-xl font-bold">{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
+                      <p className="text-slate-500">{fichas[i].supervisado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-1 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
         </div>
-        <div className="my-1 flex p-3 space-x-6 border-r">
-          <div className="text-slate-500">Supervisado: </div>
-          <div className="">
-            <p>{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].supervisado.cargo}</p>
-          </div>
+        {/* CABECERA */}
+        <div className="flex flex-col items-start gap-3 self-stretch">
+          <div className="text-slate-500">Vehículo</div>
+          {fichas[i].imagen &&
           <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].supervisado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
-        </div> 
-      </div>
-      {/* CABECERA */}
-      <div className="mx-2 my-2 p-4 border  border-slate-600 rounded-md">
-        {fichas[i].imagen &&
-        <Image 
-            className="object-cover object-left h-auto mx-auto rounded-md border shadow-md shadow-slate-600"
-            src = {urlFor(fichas[i].imagen).url()}
-            alt= 'imagen'
-            width={1000}
-            height = {400}/>}
+              className="object-cover h-[310px] rounded-md border shadow-sm shadow-slate-600"
+              src = {urlFor(fichas[i].imagen).url()}
+              alt= 'imagen'
+              width={1000}
+              height = {400}/>}
+        </div>
       </div>
       {/* CARACTERÍSTICAS TÉCNICAS */}
-      <div className=" mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Carácterísticas ferroviarias
-        </div>
-        <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Tipo UIC:</div>
-            <div className="p-2 flex-1">{fichas[i].tipo_uic}</div>
+      <div className="flex flex-col items-start gap-3 self-stretch mx-2 mt-4">
+        <div className="text-slate-500">Carácterísticas ferroviarias</div>
+        <div className="flex flex-col items-start gap-3 self-stretch">
+          <div className="flex flex-col gap-6 self-stretch">
+            <div className="flex items-start justify-around bg-white shadow-sm rounded-lg p-6 gap-4 self-stretch">
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].tipo_uic}</p>
+                <p className="text-slate-500">Tipo UIC</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].serie_uic}</p>
+                <p className="text-slate-500">Serie UIC</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].marca}</p>
+                <p className="text-slate-500">Marca</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].modelo}</p>
+                <p className="text-slate-500">Modelo</p>
+              </div>
+            </div>
           </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Serie UIC:</div>
-            <div className="p-2 flex-1">{fichas[i].serie_uic}</div>
+          <div className="flex flex-col gap-6 self-stretch">
+            <div className="flex items-start justify-around bg-white shadow-sm rounded-lg p-6 gap-4 self-stretch">
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].velocidad} Km/h</p>
+                <p className="text-slate-500">Vel. Máx. (vía)</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].num_bogies}</p>
+                <p className="text-slate-500">Número Bogies</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].num_ejes}</p>
+                <p className="text-slate-500">Número Ejes</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].longitud} mm</p>
+                <p className="text-slate-500">Longitud</p>
+              </div>
+            </div>
           </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Marca:</div>
-            <div className="p-2 flex-1">{fichas[i].marca}</div>
-          </div>
-          <div className="flex flex-1">
-            <div className="text-slate-500 p-2">Modelo:</div>
-            <div className="p-2 flex-1">{fichas[i].modelo}</div>
-          </div>
-        </div>
-        <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Vel. Máx. (vía):</div>
-            <div className="p-2 flex-1">{fichas[i].velocidad} Km/h</div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Número Bogies:</div>
-            <div className="p-2 flex-1">{fichas[i].num_bogies}</div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Número Ejes:</div>
-            <div className="p-2 flex-1">{fichas[i].num_ejes}</div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2 text-lg">Longitud:</div>
-            <div className="p-2 flex-1">{fichas[i].longitud} mm</div>
-          </div>
-        </div>
-        <div className="flex w-full text-lg font-light flex-wrap">
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Carga Máxima:</div>
-            <div className="p-2 flex-1">{fichas[i].carga_maxima.toLocaleString('fr')} Kg</div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2 ">Tara:</div>
-            <div className="p-2 flex-1">{fichas[i].tara.toLocaleString('es-ES')} Kg</div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex flex-1">
-            <div className="text-slate-500 p-2">Peso x Eje:</div>
-            <div className="p-2 flex-1">{fichas[i].peso_x_eje.toLocaleString('es-ES')} Kg</div>
+          <div className="flex flex-col gap-6 self-stretch">
+            <div className="flex items-start justify-around bg-white shadow-sm rounded-lg p-6 gap-4 self-stretch">
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].carga_maxima.toLocaleString('fr')} Kg</p>
+                <p className="text-slate-500">Carga Máxima</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].tara.toLocaleString('es-ES')} Kg</p>
+                <p className="text-slate-500 ">Tara</p>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-semibold">{fichas[i].peso_x_eje.toLocaleString('es-ES')} Kg</p>
+                <p className="text-slate-500">Peso x Eje</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       {/* SISTEMAS VEHÍCULO */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="p-2 w-full border-b border-slate-300">
-          <div className="text-2xl font-extralight">Composición del vehículo</div>
-          <div className="text-lg font-extralight flex px-2 pt-2">
-            <div className="border-l border-l-fuchsia-500 px-2">Sistemas</div>
-            <div className="border-l border-l-blue-500 px-2">Conjuntos</div>
-            <div className="border-l border-l-emerald-500 pl-2">Componentes</div>
+      <div className="flex flex-col items-end gap-4 self-stretch mt-4 mx-2">
+        <div className="flex flex-col items-start gap-4 self-stretch">
+          <div className="flex justify-between items-center self-stretch">
+            <p className="text-slate-500">Composición del vehículo</p>
+            <div className="flex flex-col py-2 px-4 items-start gap-2.5">
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseBlue.svg" alt="elipse" />
+                  <p className="text-sm text-blue-600">Sistemas</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseOrange.svg" alt="elipse" />
+                  <p className="text-sm text-orange-600">Conjuntos</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseTeal.svg" alt="elipse" />
+                  <p className="text-sm text-teal-600">Componentes</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="p-8 text-slate-500">
+        <div className="flex flex-col items-end gap-2">
           {fichas[i].sistemas && fichas[i].sistemas.map((sistema)=>{return(
             (sistema?
               <NavegadorSistema 
@@ -220,7 +263,6 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
           )})}
         </div>
       </div>
-
       {/* DESCRIPCIÓN TÉCNICA */}
       <div className="mx-2 mt-4 border border-slate-600 rounded-md">
         <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
@@ -243,8 +285,6 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
               components = {RichTextComponents}/>
         </div>
       </div>
-      
-
   </div>
   )
 }
