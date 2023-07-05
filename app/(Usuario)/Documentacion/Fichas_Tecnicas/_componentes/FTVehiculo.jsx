@@ -52,7 +52,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
   if (fichas[i].clase==='VAG') {clase= 'Vagón'}
 
   return (  
-  <div className="inline-flex flex-col">
+  <div className="mx-auto max-w-[412px] md:max-w-[810px] lg:max-w-full">
       {/* BANNER */}
       <div className="flex gap-2 mx-2 flex-wrap">
         <div className="bg-gray-700 text-white rounded-md shadow-sm  min-w-fit flex-1 flex justify-between flex-wrap">
@@ -100,13 +100,13 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
       </div>
       {/* AUTORES */}
-      <div className="flex items-start gap-5 self-stretch mx-2 mt-3">
+      <div className="flex flex-col xl:flex-row items-start gap-5 self-stretch mx-2 mt-3">
         <div className="flex flex-col items-start gap-4">
           <div className="flex flex-col items-start gap-3">
-            <div className="text-slate-500">Elaborado </div>
+            <p className="text-slate-500">Elaborado </p>
             <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
               <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
-                <div className="flex flex-col justify-center w-20 items-center self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
                   <Image 
                   className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
                   src = {urlFor(fichas[i].realizado.imagen).url()}
@@ -127,7 +127,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
             </div>
           </div>
           <div className="flex flex-col items-start gap-3">
-            <div className="text-slate-500">Supervisado </div>
+            <p className="text-slate-500">Supervisado </p>
             <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
               <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
                 <div className="flex flex-col justify-center w-20 items-center self-stretch">
@@ -153,7 +153,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
         {/* CABECERA */}
         <div className="flex flex-col items-start gap-3 self-stretch">
-          <div className="text-slate-500">Vehículo</div>
+          <p className="text-slate-500">Vehículo</p>
           {fichas[i].imagen &&
           <Image 
               className="object-cover h-[310px] rounded-md border shadow-sm shadow-slate-600"
@@ -264,22 +264,18 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
       </div>
       {/* DESCRIPCIÓN TÉCNICA */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Descripción Técnica del vehículo
-        </div>
-        <div className="p-4">
+      <div className="flex flex-col w-[1142px] items-start gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Descripción Técnica del vehículo</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].detalle}
               components = {RichTextComponents}/>
         </div>
       </div>
       {/* MANTENIMIENTO */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Mantenimiento
-        </div>
-        <div className="p-4">
+      <div className="flex flex-col w-[570px] items-start gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Mantenimiento</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>
