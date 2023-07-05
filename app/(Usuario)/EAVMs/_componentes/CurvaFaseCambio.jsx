@@ -1,5 +1,5 @@
 'use client';
-import { ResponsiveContainer, YAxis, XAxis, ReferenceLine, LineChart, Line, CartesianGrid, Tooltip} from 'recharts';
+import { ResponsiveContainer, YAxis, XAxis, Label, ReferenceLine, LineChart, Line, CartesianGrid, Tooltip} from 'recharts';
 
 function CustomTooltip({ payload, label, active }) {
     if (active) {
@@ -22,7 +22,7 @@ function CustomTooltip({ payload, label, active }) {
     return null;
   }
 
-  export default function CurvaFaseCambio ({datos, fase, rueda, height, color}){
+  export default function CurvaFaseCambio ({datos, fase, rueda, maximo, height, color}){
 
     return(
           <div className='py-3 bg-gray-100 rounded-xl'>
@@ -31,12 +31,15 @@ function CustomTooltip({ payload, label, active }) {
             <ResponsiveContainer height={height} className = 'text-xs text-blue-500'>
               <LineChart 
                       data={datos}
-                      margin={{ top: 20, right: 20, left: -20, bottom: 0 }}>
+                      margin={{ top: 20, right: 20, left: 0, bottom: 20 }}>
                   <CartesianGrid stroke="#ccc" strokeDasharray="5 5" vertical = {false}/>
-                  <XAxis dataKey="x" />
+                  <XAxis dataKey="x">
+                    <Label value="mm de desplazamiento" offset={-5} position="insideBottom" />
+                  </XAxis>
                   <Line type="monotone" dataKey="f" stroke={color} strokeWidth={3}/>
                   <Tooltip content={<CustomTooltip />}/>
-                  <YAxis/>
+                  <YAxis label={{ value: 'Esfuerzo en dN',offset:14, angle: -90, position: 'insideBottomLeft' }} />
+                  <ReferenceLine y={maximo} label={{ value: `Max esfuerzo admisible: ${maximo} dN`, position: 'top' }}  stroke="red" strokeDasharray="2 2" ifOverflow="extendDomain" wrapperStyle={{ backgroundColor: '#fdfdfd'}}/>
               </LineChart>
             </ResponsiveContainer>
           </div>
