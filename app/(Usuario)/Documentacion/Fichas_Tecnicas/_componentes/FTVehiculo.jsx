@@ -52,7 +52,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
   if (fichas[i].clase==='VAG') {clase= 'Vagón'}
 
   return (  
-  <div className="mx-auto max-w-[412px] md:max-w-[810px] lg:max-w-full">
+  <div className="">
       {/* BANNER */}
       <div className="flex gap-2 mx-2 flex-wrap">
         <div className="bg-gray-700 text-white rounded-md shadow-sm  min-w-fit flex-1 flex justify-between flex-wrap">
@@ -101,11 +101,11 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
       </div>
       {/* AUTORES */}
       <div className="flex flex-col xl:flex-row items-start gap-5 self-stretch mx-2 mt-3">
-        <div className="flex flex-col items-start gap-4">
-          <div className="flex flex-col items-start gap-3">
-            <p className="text-slate-500">Elaborado </p>
+        <div className="flex flex-col items-start gap-4 grow w-[565px]">
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Elaborado </p>
             <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
-              <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
+              <div className="flex justify-center items-start gap-4 self-stretch">
                 <div className="flex flex-col justify-center items-center self-stretch">
                   <Image 
                   className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
@@ -114,23 +114,23 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
                   width={82}
                   height = {82}/>
                 </div>
-                <div className="flex flex-col justify-center items-start gap-4 self-stretch">
-                  <div className="flex space-x-48 items-center self-stretch">
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex justify-between items-center self-stretch">
                     <div className="flex flex-col items-start gap-2">
                       <p className="text-xl font-bold">{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
-                      <p className="text-slate-500">{fichas[i].realizado.cargo}</p>
+                      <p className="text-gray-500">{fichas[i].realizado.cargo}</p>
                     </div>
-                    <button className="rounded-lg text-green-500 border p-1 border-green-500">Curriculum vitae</button>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-3">
-            <p className="text-slate-500">Supervisado </p>
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Supervisado </p>
             <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-6 self-stretch">
-              <div className="flex justify-center items-start gap-4 self-stretch w-[565px]">
-                <div className="flex flex-col justify-center w-20 items-center self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
                   <Image 
                   className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
                   src = {urlFor(fichas[i].supervisado.imagen).url()}
@@ -138,13 +138,13 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
                   width={82}
                   height = {82}/>
                 </div>
-                <div className="flex flex-col justify-center items-start gap-4 self-stretch">
-                  <div className="flex space-x-48 items-center self-stretch">
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex justify-between items-center self-stretch">
                     <div className="flex flex-col items-start gap-2">
                       <p className="text-xl font-bold">{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
-                      <p className="text-slate-500">{fichas[i].supervisado.cargo}</p>
+                      <p className="text-gray-500">{fichas[i].supervisado.cargo}</p>
                     </div>
-                    <button className="rounded-lg text-green-500 border p-1 border-green-500">Curriculum vitae</button>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
                   </div>
                 </div>
               </div>
@@ -152,15 +152,17 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
           </div> 
         </div>
         {/* CABECERA */}
-        <div className="flex flex-col items-start gap-3 self-stretch">
+        <div className="flex flex-col items-start gap-3 grow self-stretch">
           <p className="text-slate-500">Vehículo</p>
-          {fichas[i].imagen &&
-          <Image 
-              className="object-cover h-[310px] rounded-md border shadow-sm shadow-slate-600"
-              src = {urlFor(fichas[i].imagen).url()}
-              alt= 'imagen'
-              width={1000}
-              height = {400}/>}
+          <div className="flex flex-col w-[565px] justify-end items-center gap-[91px] grow">
+            {fichas[i].imagen &&
+            <Image 
+                className="object-cover h-[310px] rounded-md border shadow-sm shadow-slate-600"
+                src = {urlFor(fichas[i].imagen).url()}
+                alt= 'imagen'
+                width={565}
+                height = {400}/>}
+          </div>
         </div>
       </div>
       {/* CARACTERÍSTICAS TÉCNICAS */}
