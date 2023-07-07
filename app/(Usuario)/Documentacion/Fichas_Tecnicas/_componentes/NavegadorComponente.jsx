@@ -7,10 +7,10 @@ export default function NavegadorComponente({componente, conjunto, sistema, mate
   return (
   <div className="flex justify-end items-center gap-3">
     {/* LINEA DE COMPONENTE */}
-    <div className='flex w-[1031px] py-4 px-6 items-start gap-6 bg-teal-100 rounded-lg'>
+    <div className='flex w-[269px] md:w-[450px] lg:w-[1031px] py-3 lg:py-4 px-4 lg:px-6 items-start gap-6 bg-teal-100 rounded-lg'>
       <div className='flex items-center gap-2'>
         <Link key = {componente.num_doc} 
-              className="text-teal-600"
+              className="text-sm lg:text-base text-teal-600"
               href = {`/Documentacion/Fichas_Tecnicas?material=${material}&id=${id}&tipo=${tipo}&id_tipo=${id_tipo}&sistema=${sistema.codigo}&id_sistema=${sistema.num_doc}&conjunto=${conjunto.codigo}&id_conjunto=${conjunto.num_doc}&componente=${componente.codigo}&id_componente=${componente.num_doc}&version=${1000}`}>
           {componente.num_doc} - {componente.codigo} - {componente.descripcion}
         </Link>
