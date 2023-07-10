@@ -168,7 +168,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
       {/* CARACTERÍSTICAS TÉCNICAS */}
       <div className="flex flex-col items-start gap-2 md:gap-3 md:self-stretch mx-2 mt-4">
         <div className="text-gray-500">Carácterísticas ferroviarias</div>
-        <div className="flex flex-row md:flex-col items-start gap-2 md:gap-3 md:self-stretch">
+        <div className="flex flex-row md:flex-col md:items-start gap-2 md:gap-3 md:self-stretch">
           <div className="flex md:flex-col gap-2 md:gap-6 md:self-stretch">
             <div className="flex flex-col md:flex-row items-start md:justify-around bg-white shadow-sm rounded-lg p-4 md:p-6 gap-6 md:gap-4 grow self-stretch">
               <div className="flex flex-col items-start md:items-center gap-6 md:gap-1 self-stretch">
