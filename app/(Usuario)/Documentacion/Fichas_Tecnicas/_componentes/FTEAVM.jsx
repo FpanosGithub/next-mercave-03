@@ -53,7 +53,7 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
   console.log(fichas[0].sistemas)
 
   return (  
-  <div className="">
+  <div className="inline-flex flex-col w-[412px] md:w-[585px] lg:w-full gap-4">
       {/* BANNER */}
       <div className="flex gap-2 mx-2 flex-wrap">
         <div className="bg-gray-700 text-white rounded-md shadow-sm flex-1 flex justify-between flex-wrap">
@@ -101,161 +101,212 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
         </div>
       </div>
       {/* AUTORES */}
-      <div className=" mx-2 mt-2 flex flex-wrap border border-slate-600 rounded-md">
-        <div className="my-1 flex p-3 space-x-6 ml-1 border-r">
-          <div className="text-slate-500">Elaborado: </div>
-          <div className="">
-            <p>{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].realizado.cargo}</p>
+      <div className="flex flex-col lg:flex-row items-start gap-5 self-stretch mx-2 mt-3">
+        <div className="flex flex-col items-start gap-4 grow w-[395px] md:w-[565px]">
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Elaborado</p>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-4 lg:p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
+                  <Image 
+                  className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                  src = {urlFor(fichas[i].realizado.imagen).url()}
+                  alt= 'avatar'
+                  width={82}
+                  height = {88}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex flex-col md:flex-row md:justify-between items-end lg:items-center gap-2 self-stretch">
+                    <div className="flex flex-col items-start lg:gap-2 self-stretch">
+                      <p className="text-lg lg:text-xl font-bold">{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
+                      <p className="text-sm lg:text-base text-gray-500">{fichas[i].realizado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].realizado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Supervisado</p>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-4 lg:p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
+                  <Image 
+                    className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                    src = {urlFor(fichas[i].supervisado.imagen).url()}
+                    alt= 'avatar'
+                    width={82}
+                    height = {88}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex flex-col md:flex-row md:justify-between items-end lg:items-center gap-2 self-stretch">
+                    <div className="flex flex-col items-start lg:gap-2 self-stretch">
+                      <p className="text-lg lg:text-xl font-bold">{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
+                      <p className="text-sm lg:text-base text-gray-500">{fichas[i].supervisado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="my-1 flex p-3 space-x-6 border-r">
-          <div className="text-slate-500">Supervisado: </div>
-          <div className="">
-            <p>{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].supervisado.cargo}</p>
+        {/* CABECERA */}
+        <div className="flex flex-col items-start gap-2 lg:gap-3 lg:grow self-stretch">
+          <p className="text-gray-500">Eje</p>
+          <div className="flex flex-col w-[395px] md:w-[565px] justify-center lg:justify-end items-center lg:gap-[91px] grow">
+            {fichas[i].imagen &&
+            <Image 
+              className="object-cover h-[285px] lg:h-[310px] rounded-md border shadow-sm"
+              src = {urlFor(fichas[i].imagen).url()}
+              alt= 'imagen'
+              width={565}
+              height = {400}/>}
           </div>
-          <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].supervisado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
-        </div> 
-      </div>
-      {/* CABECERA */}
-      <div className="mx-2 my-2 p-4 border  border-slate-600 rounded-md">
-        {fichas[i].imagen &&
-        <Image 
-            className="object-cover object-left h-auto mx-auto rounded-md"
-            src = {urlFor(fichas[i].imagen).url()}
-            alt= 'imagen'
-            width={1000}
-            height = {400}/>}
+        </div>
       </div>
       {/* CARACTERÍSTICAS TÉCNICAS */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Cuadro de Carácterísticas
-        </div>
-        <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Aplicación:</div>
-            <div className="flex px-2 justify-between">
-              <div>Remolcado</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Remolcado'), "text-slate-300":(fichas[i].familia!=='Remolcado')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>Tractor</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Tractor'), "text-slate-300":(fichas[i].familia!=='Tractor')})}/>
-            </div>
-          </div>
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Rueda:</div>
-            <div className="flex px-2 justify-between">
-              <div>920mm</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='920 mm'), "text-slate-300":(fichas[i].diam_rueda!=='920 mm')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>760mm</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='760 mm'), "text-slate-300":(fichas[i].diam_rueda!=='760 mm')})}/>
-            </div>
-          </div>
-
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Fab. Rueda:</div>
-            <div className="flex px-2 justify-between">
-              <div>CAF</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='CAF'), "text-slate-300":(fichas[i].fab_rueda!=='CAF')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>Luchinni</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='LUCHINNI'), "text-slate-300":(fichas[i].fab_rueda!=='LUCHINNI')})}/>
-            </div>
-          </div>
-
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Fab. Eje:</div>
-            <div className="flex px-2 justify-between">
-              <div>CAF</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='CAF'), "text-slate-300":(fichas[i].fab_eje!=='CAF')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>Luchinni</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='LUCHINNI'), "text-slate-300":(fichas[i].fab_eje!=='LUCHINNI')})}/>
-            </div>
-          </div>
-        </div>
-        
-        <div className="flex w-full border-b border-slate-300 text-lg font-light flex-wrap">
-
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Anchos:</div>
-            <div className="flex px-2 justify-between">
-              <div>UIC / Ibérico</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / IBÉRICO(1668 mm)')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>UIC / Ruso</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm)')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>UIC / Ruso / Ibérico</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)')})}/>
+      <div className="flex flex-col items-start gap-2 lg:gap-3 self-stretch">
+        <p className="text-gray-500">Cuadro de Carácterísticas</p>
+        <div className="flex flex-col items-start gap-3 self-stretch">
+          <div className="flex flex-col p-4 lg:p-6 items-start gap-6 self-stretch bg-white rounded-lg shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-2 lg:gap-8 self-stretch">
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Aplicación:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Remolcado</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Remolcado'), "text-slate-300":(fichas[i].familia!=='Remolcado')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Tractor</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Tractor'), "text-slate-300":(fichas[i].familia!=='Tractor')})}/>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Rueda:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">920mm</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='920 mm'), "text-slate-300":(fichas[i].diam_rueda!=='920 mm')})}/>
+                  </div>
+                  <div className="flex justify-between lg:items-start self-stretch">
+                    <p className="font-semibold">760mm</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='760 mm'), "text-slate-300":(fichas[i].diam_rueda!=='760 mm')})}/>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Fab. Rueda:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">CAF</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='CAF'), "text-slate-300":(fichas[i].fab_rueda!=='CAF')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Luchinni</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='LUCHINNI'), "text-slate-300":(fichas[i].fab_rueda!=='LUCHINNI')})}/>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Fab. Eje:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">CAF</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='CAF'), "text-slate-300":(fichas[i].fab_eje!=='CAF')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Luchinni</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='LUCHINNI'), "text-slate-300":(fichas[i].fab_eje!=='LUCHINNI')})}/>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Frenos:</div>
-            <div className="flex px-2 justify-between">
-              <div>Zapata</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Zapata'), "text-slate-300":(fichas[i].freno!=='Zapata')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>Disco Rueda</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos en rueda'), "text-slate-300":(fichas[i].freno!=='Discos en rueda')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>Discos Eje</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos centrales'), "text-slate-300":(fichas[i].freno!=='Discos centrales')})}/>
-            </div>
-          </div>
-
-          <div className="my-1 border-r border-slate-300 flex-1">
-            <div className="text-slate-500 p-2">Carga Max.:</div>
-            <div className="flex px-2 justify-between">
-              <div>16 ton</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='16 ton'), "text-slate-300":(fichas[i].freno!=='16 ton')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>22,5 ton</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='22.5 ton'), "text-slate-300":(fichas[i].freno!=='22.5 ton')})}/>
-            </div>
-            <div className="flex px-2 justify-between">
-              <div>25 ton</div>
-              <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='25 ton'), "text-slate-300":(fichas[i].freno!=='25 ton')})}/>
+          <div className="flex flex-col p-4 lg:p-6 items-start gap-6 self-stretch bg-white rounded-lg shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-2 lg:gap-8 self-stretch">
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Anchos:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">UIC / Ibérico</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / IBÉRICO(1668 mm)')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">UIC / Ruso</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm)')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">UIC / Ruso / Ibérico</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)')})}/>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Frenos:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Zapata</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Zapata'), "text-slate-300":(fichas[i].freno!=='Zapata')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Disco Rueda</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos en rueda'), "text-slate-300":(fichas[i].freno!=='Discos en rueda')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">Discos Eje</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos centrales'), "text-slate-300":(fichas[i].freno!=='Discos centrales')})}/>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start gap-2 grow">
+                <p className="text-sm lg:text-base text-gray-500">Carga Max.:</p>
+                <div className="flex flex-col items-start gap-1 self-stretch">
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">16 ton</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='16 ton'), "text-slate-300":(fichas[i].freno!=='16 ton')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">22,5 ton</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='22.5 ton'), "text-slate-300":(fichas[i].freno!=='22.5 ton')})}/>
+                  </div>
+                  <div className="flex justify-between items-start self-stretch">
+                    <p className="font-semibold">25 ton</p>
+                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='25 ton'), "text-slate-300":(fichas[i].freno!=='25 ton')})}/>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       {/* SISTEMAS EAVM */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="p-2 w-full border-b border-slate-300">
-          <div className="text-2xl font-extralight">Composición del EAVM</div>
-          <div className="text-lg font-extralight flex px-2 pt-2">
-            <div className="border-l border-l-fuchsia-500 px-2">Sistemas</div>
-            <div className="border-l border-l-blue-500 px-2">Conjuntos</div>
-            <div className="border-l border-l-emerald-500 pl-2">Elementos</div>
+      <div className="flex flex-col items-end gap-4 self-stretch mt-4 mx-2">
+        <div className="flex flex-col items-start gap-4 self-stretch">
+          <div className="flex flex-col md:flex-row justify-between md:items-center self-stretch">
+            <p className="mb-2 lg:mb-0 text-gray-500">Composición del EAVM</p>
+            <div className="flex flex-col bg-white rounded-lg shadow-sm py-2 px-4 items-start gap-2.5">
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseBlue.svg" alt="elipse" />
+                  <p className="text-sm text-blue-600">Sistemas</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseOrange.svg" alt="elipse" />
+                  <p className="text-sm text-orange-600">Conjuntos</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseTeal.svg" alt="elipse" />
+                  <p className="text-sm text-teal-600">Componentes</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="p-8 text-slate-500">
+        <div className="flex flex-col items-end gap-2">
           {fichas[i].sistemas && fichas[i].sistemas.map((sistema)=>{return(
             (sistema?
               <NavegadorSistema 
@@ -271,31 +322,24 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
           )})}
         </div>
       </div>
-
       {/* DESCRIPCIÓN TÉCNICA */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Descripción Técnica
-        </div>
-        <div className="p-2">
+      <div className="flex flex-col lg:w-[1142px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Descripción Técnica del vehículo</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].detalle}
               components = {RichTextComponents}/>
         </div>
       </div>
       {/* MANTENIMIENTO */}
-      <div className="mx-2 mt-4 border border-slate-600 rounded-md">
-        <div className="text-2xl font-extralight p-2 w-full border-b border-slate-300">
-          Mantenimiento
-        </div>
-        <div className="p-4">
+      <div className="flex flex-col lg:w-[570px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Mantenimiento</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>
         </div>
       </div>
-      
-
   </div>
   )
 }
