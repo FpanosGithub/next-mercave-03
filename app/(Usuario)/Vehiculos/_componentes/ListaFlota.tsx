@@ -7,17 +7,17 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
 
   return(
   <div className='w-full px-4 pb-8'>
-    <div className='w-full rounded-xl bg-white border shadow-md h-[390px] overflow-y-auto'>
+    <div className='w-full rounded-xl bg-white border shadow-md h-[340px] overflow-y-auto'>
     <table className="min-w-full">
-      <thead className=''>
+      <thead className='bg-gray-100'>
         <tr className=''>
-          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-500">
+          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 backdrop-blur backdrop-filter py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-500">
           VEHÍCULO</th>
-          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 lg:table-cell">
+          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 backdrop-blur backdrop-filter hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-500 lg:table-cell">
           DESCRIPCIÓN</th>
-          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter hidden px-3 py-3.5 text-center text-sm font-semibold text-gray-500 sm:table-cell">
+          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 backdrop-blur backdrop-filter hidden px-3 py-3.5 text-center text-sm font-semibold text-gray-500 sm:table-cell">
           SERVICIO</th>
-          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter px-3 py-3.5 text-center text-sm font-semibold text-gray-500">
+          <th scope="col" className="sticky top-0 z-10 border-b border-gray-300 backdrop-blur backdrop-filter px-3 py-3.5 text-center text-sm font-semibold text-gray-500">
           ACCIÓN</th>
         </tr>
       </thead>
