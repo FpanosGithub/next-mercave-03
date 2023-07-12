@@ -13,12 +13,6 @@ export default function Home() {
               <Card enlace="EAVMs" titulo="Ejes EAVM" descripcion="Geolocalización, Alarmas, Telemetría de parámetros de circulación y cambios de los ejes. Mantenimientos realizados" imagen="/imagenes/home/ejes.png"/>
             </div>
           </div>
-          <div>
-            <h2 className='text-xs font-semibold text-gray-500 pt-10 pb-4'>CAMBIADORES</h2>
-            <div>
-              <Card enlace="#" titulo="Operaciones de cambio" descripcion="Información de operaciones de cambio realizados. Valores de los cambios. Alarmas. Mantenimientos realizados" imagen="/imagenes/home/operaciones.png"/>
-            </div>
-          </div>
         </div>
         <div>
           <h2 className='text-xs font-semibold text-gray-500 pt-10 pb-4'>GESTIÓN ADIF</h2>
