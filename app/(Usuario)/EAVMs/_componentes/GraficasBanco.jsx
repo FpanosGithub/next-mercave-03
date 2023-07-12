@@ -9,14 +9,14 @@ export default function GraficasBanco ({cambios, select}){
     <CurvaFaseCambio 
       datos = {cambio_seleccionado.valoresDA} 
       fase = 'Descerrojamiento'
-      maximo = {2148}
+      maximo = {2548}
       rueda = "A"
       color = 'orange'
       height={190}/>
     <CurvaFaseCambio 
       datos = {cambio_seleccionado.valoresDB} 
       fase = 'Descerrojamiento'
-      maximo = {2148}
+      maximo = {2548}
       rueda = "B"
       color = 'green'
       height={190}/>
