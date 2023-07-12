@@ -39,7 +39,7 @@ function CustomTooltip({ payload, label, active }) {
                   <Line type="monotone" dataKey="f" stroke={color} strokeWidth={3}/>
                   <Tooltip content={<CustomTooltip />}/>
                   <YAxis label={{ value: 'Esfuerzo en dN',offset:14, angle: -90, position: 'insideBottomLeft' }} />
-                  <ReferenceLine y={maximo} label={{ value: `Max esfuerzo admisible: ${maximo} dN`, position: 'top' }}  stroke="red" strokeDasharray="2 2" ifOverflow="extendDomain" wrapperStyle={{ backgroundColor: '#fdfdfd'}}/>
+                  <ReferenceLine y={maximo} label={{ value: `valor de referencia: ${maximo} dN`, position: 'top' }}  stroke="red" strokeDasharray="2 2" ifOverflow="extendDomain" wrapperStyle={{ backgroundColor: '#fdfdfd'}}/>
               </LineChart>
             </ResponsiveContainer>
           </div>
