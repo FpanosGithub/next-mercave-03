@@ -2,7 +2,7 @@
 import { XMarkIcon, HomeIcon, TruckIcon, CogIcon, ClipboardDocumentListIcon, DocumentIcon, ComputerDesktopIcon, ArrowPathIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import Image from "next/image"
-import tria from  '@/public/logos/tria.png'
+import triaWhite from  '@/public/logos/triaWhite.png'
 
 export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Function}) {
   return (
@@ -11,7 +11,7 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
     className="fixed z-40 w-full h-screen left-0 top-12 bg-black/25">
       <div 
         onClick={(e)=>e.stopPropagation()}
-        className="bg-gray-700 absolute top-0 left-0 w-60 h-screen overflow-y-scroll text-gray-400 flex flex-col justify-between px-2">
+        className="bg-gray-800 absolute top-0 left-0 w-60 h-screen overflow-y-scroll text-gray-400 flex flex-col justify-between px-2">
         <div className="px-4 py-4 space-y-4">
           <div className="flex justify-end">
             <XMarkIcon className='w-6 h-6' onClick={()=>{setOpen(!open)}}/>
@@ -53,9 +53,9 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
             Gestor Doc.
           </Link>
         </div>
-        <div className="flex space-x-4 text-sm justify-center py-4 border-t border-gray-600">
+        <div className="flex space-x-4 text-sm justify-center py-16 border-t border-gray-600">
           <p className="">Creado por </p>
-          <Image src={tria} width = {100} height={30} alt='logo adif' className='w-auto' priority/>
+          <Image src={triaWhite} width = {66} height={21} alt='logo adif' priority/>
         </div>
       </div>
     </div>
