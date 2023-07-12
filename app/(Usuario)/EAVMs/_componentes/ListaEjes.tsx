@@ -32,7 +32,7 @@ export default function ListaEjes ({ejes, hover, onHover}:{ejes:EAVMBasico[], ho
           {ejes.map((eje:any)=>{return (
           <tr key = {eje.id}
             className={clsx('',{'bg-green-100': (hover === eje.id)} )}
-            onMouseOver={()=>onHover(eje.id)}>
+            onMouseDown={()=>onHover(eje.id)}>
             <td className="w-full max-w-0 py-4 pl-4 pr-3 text-gray-700 truncate sm:w-auto sm:max-w-none">
               {eje.codigo}
               <dl className="font-normal xl:hidden">

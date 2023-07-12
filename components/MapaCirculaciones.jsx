@@ -130,7 +130,7 @@ export default function MapaCirculaciones ({circulaciones, select, onSelect, hov
   const overlay = data_overlay()
 
   return(
-    <div className="rounded-lg shadow mt-4 mb-2 mx-1 sm:mx-4 p-2 bg-white h-[21rem]">
+    <div className="rounded-lg shadow mt-4 mb-2 mx-4 p-2 bg-white h-[21rem]">
     <Map 
       provider={maptilerProvider}
       dprs={[1, 2]} 

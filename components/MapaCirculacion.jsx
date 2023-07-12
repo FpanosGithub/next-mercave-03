@@ -8,10 +8,14 @@ export default function MapaCirculacion ({circulacion, onSelect}) {
   const maptilerProvider = maptiler('t3404nTGTEs1Q4VOSvmj', 'basic')
   const [posicion, setPosicion] = useState(1)
   let anchor_overlay = [circulacion.lat_final, circulacion.lng_final]
-  let texto_overlay = 'Final'
+  let texto_posicion = 'final'
+  let dia = circulacion.dt_final.slice(0,10)
+  let hora = circulacion.dt_final.slice(11,19)
   if (posicion === 0){
     anchor_overlay = [circulacion.lat_inicial, circulacion.lng_inicial]
-    texto_overlay = 'Inicial'
+    texto_posicion = 'inicio'
+    dia = circulacion.dt_inicial.slice(0,10)
+    hora = circulacion.dt_inicial.slice(11,19)
   }
   function handleHover (valor_posicion){
     setPosicion(valor_posicion)
@@ -22,20 +26,20 @@ export default function MapaCirculacion ({circulacion, onSelect}) {
       provider={maptilerProvider}
       dprs={[1, 2]} 
       defaultHeight={600} 
-      defaultCenter={[circulacion.lat_final, circulacion.lng_final]}
+      defaultCenter={[(circulacion.lat_final+circulacion.lat_inicial)/2, (circulacion.lng_final+circulacion.lng_inicial)/2]}
       defaultZoom={6} 
       attribution = {false}
       metaWheelZoom = {true}>
         <ZoomControl />
         <Marker 
           width={30} 
-          color = {'green'} 
+          color = '#03680f'
           anchor={[circulacion.lat_final, circulacion.lng_final]}
           onMouseOver = {() => handleHover(1)}
           onClick = {() => onSelect(-1)}/>
         <Marker 
           width={30} 
-          color = {'black'} 
+          color = '#11a021'
           anchor={[circulacion.lat_inicial, circulacion.lng_inicial]}
           onMouseOver = {() => handleHover(0)}
           onClick = {() => onSelect(-1)}/>
@@ -45,13 +49,20 @@ export default function MapaCirculacion ({circulacion, onSelect}) {
           <Marker 
           key = {evento.id}
           width={10} 
-          color = {'orange'} 
+          color = '#03680f' 
           anchor={[evento.lat, evento.lng]}/>
         ))}
         <Overlay 
             anchor={anchor_overlay}>
-              <div  className='flex flex-col w-16 h-8  text-center border rounded-md bg-slate-100/80 border-slate-500'>
-                <div className='my-1'>{texto_overlay}</div>
+              <div  className='flex w-56 h-12 py-2 justify-center border rounded-md bg-slate-100/80 border-slate-500'>
+                <div className="flex flex-col justify-center w-full px-4 border-r border-gray-300">
+                  <p className="text-sm text-center">{dia}</p>
+                  <p className="text-gray-500 text-sm text-center">Día {texto_posicion}</p>
+                </div>
+                <div className="flex flex-col justify-center w-full ">
+                  <p className="text-sm text-center">{hora}</p>
+                  <p className="text-gray-500 text-sm text-center">Hora {texto_posicion}</p>
+                </div>
               </div>
           </Overlay>
     </Map>

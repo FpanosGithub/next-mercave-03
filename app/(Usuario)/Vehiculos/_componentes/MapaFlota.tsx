@@ -47,8 +47,8 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
     }
   })
   return(
-    <div className="rounded-lg shadow m-4 p-2 bg-white grid gap-2 grid-rows-2 sm:flex sm:h-[21rem]">
-      <div className='h-[20rem] sm:flex-auto'>
+    <div className=" m-4 grid gap-2 grid-rows-2 sm:flex sm:h-[21rem]">
+      <div className='bg-white p-2 rounded-lg shadow h-[20rem] sm:flex-auto'>
         <Map 
         provider={maptilerProvider}
         dprs={[1, 2]} 
@@ -63,7 +63,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
             ?(<Marker 
                 key = {vehiculo.id}
                 width={30} 
-                color = '#087314'
+                color = '#11a021'
                 anchor={[vehiculo.lat, vehiculo.lng]} 
                 onMouseOver={() => onHover(vehiculo.id)}
                 onClick={()=>handleClick(vehiculo.id)}/>)
@@ -71,21 +71,20 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
             ))}
           <Marker 
             width={40} 
-            color = 'purple'
+            color = '#03680f'
             anchor = {[lat,long]} 
             onClick={()=>handleClick(id_vehiculo)}/>
         </Map>
       </div>
-      <div className='rounded-lg shadow h-[20rem] w-56 mx-auto'>
+      <div className=' bg-white rounded-lg shadow h-[20rem] w-56 mx-auto'>
         <div className=''>
           <Image src = {`/imagenes/vehiculos/${imagen}`} alt = '' height = {100} width = {180} className='rounded-t-lg object-fill w-56'/>
-          <div className='flex flex-col justify-between mb-2'>
+          <div className='flex flex-col justify-between mb-1'>
             <div className="text-center p-1 text-gray-800 truncate">{codigo}</div>
-            <div className="text-center text-base text-gray-500 truncate">{keeper}</div>
             <div className="text-center text-base text-gray-500">{descripcion}</div>
           </div>
         </div>
-          <div className="flex justify-between my-2 w-40 mx-auto px-2 py-1 rounded-full bg-gray-100">
+          <div className="flex justify-between my-1 w-40 mx-auto px-2 py-1 rounded-full bg-gray-100">
             <div className='group'>
               {transmitiendo ? 
                 (<WifiIcon className="w-6 h-6 mr-1 text-green-400"/>)
@@ -128,7 +127,7 @@ export default function MapaFlota ({vehiculos, hover, onHover}:{vehiculos:any[],
               <Tooltip title="Señal" />
             </div>
           </div>
-          <div className='mt-3 border-t border-gray-200'>
+          <div className=''>
             <Weather lat={lat} long={long} />
           </div>
         </div>

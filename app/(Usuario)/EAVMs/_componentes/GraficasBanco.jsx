@@ -5,7 +5,7 @@ export default function GraficasBanco ({cambios, select}){
   const cambio_seleccionado = cambios.find(({id})=> id === select)
   if (!cambio_seleccionado) {return <></>}
   return(
-  <div className='px-2 py-3 w-[390px] xl:w-[530px] 2xl:w-[900px] mx-auto overflow-y-scroll border border-gray-300 bg-white rounded-lg shadow-lg grid grid-cols-1 3xl:grid-cols-2 3xl:w-[800px] 3xl:h-[61rem] gap-3'>
+  <div className=' px-2 py-3 w-[390px] xl:w-[530px] 2xl:w-[900px] mx-auto overflow-y-scroll border border-gray-300 bg-white rounded-lg shadow-lg grid grid-cols-1 3xl:grid-cols-2 3xl:w-[800px] 3xl:h-[61rem] gap-3'>
     <CurvaFaseCambio 
       datos = {cambio_seleccionado.valoresDA} 
       fase = 'Descerrojamiento'

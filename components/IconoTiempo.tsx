@@ -24,7 +24,7 @@ export default function IconoTiempo({icono}:{icono:string}) {
   if(!icono){return(<></>)}
   const width = 80
   const height = 60
-  const classname = '-mt-3 h-10 w-auto'
+  const classname = 'h-10 w-auto'
   let src = null
   switch(icono) {
     case '01d': src = i01d; break;
