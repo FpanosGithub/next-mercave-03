@@ -28,7 +28,7 @@ export default async function page() {
   return (
     <div className='h-full bg-gray-100'>
       {/* Cabecera */}
-      <div className="pb-2 shadow-sm bg-white">
+      <div className="flex flex-col items-start gap-4 self-stretch shadow-sm bg-white">
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 my-3 text-2xl font-semibold">Ejes de Ancho Variable de Mercancías</p>
       </div>

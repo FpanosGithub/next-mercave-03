@@ -12,7 +12,7 @@ export default function GlobalNav({admin = false, children}:{admin?:Boolean, chi
   return (
     <div className='grid grid-rows-header'>
       <Navbar admin = {admin} open = {open} setOpen = {setOpen} />
-      <div className={clsx('h-screen', {'md:ml-56 mt-12':!admin})}>
+      <div className={clsx('h-screen', {'md:ml-56 mt-14':!admin})}>
         {(!open && !admin) && <Sidebar open = {open}/>}
         <div className="h-full bg-gray-100">
           {children}
