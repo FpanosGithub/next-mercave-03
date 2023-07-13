@@ -18,6 +18,7 @@ export default function PanelCirculaciones ({circulaciones}:{circulaciones:any})
   if (select !== -1) {
     let circulacion = circulaciones[0]
     circulaciones.forEach((obj:any)=> {if (select === obj.id) {circulacion = obj}})
+  console.log(circulacion)
     return (
     <>
     <div className="grid gap-1 grid-cols-1">

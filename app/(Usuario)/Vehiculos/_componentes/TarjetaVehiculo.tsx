@@ -1,10 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import EstadoEje from './EstadoEje';
 import Weather from '@/components/Weather';
 
-export default function tarjetaEje ({
+export default function tarjetaVehiculo ({
   imagen, 
   codigo, 
   lat, 
@@ -17,7 +16,7 @@ export default function tarjetaEje ({
   
   const router = useRouter()
   function handleClick() {
-    router.push(`/EAVMs/${codigo}/Datos`)
+    router.push(`/Vehiculos/${codigo}`)
   }
   
   return(

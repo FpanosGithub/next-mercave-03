@@ -32,7 +32,6 @@ export default async function Page({params}:{params:any}) {
     {name:'Cambios',href:`/EAVMs/${codigo}/Cambios`,current:false, disabled: false},
     {name:'Mantenimiento',href:`/EAVMs/${codigo}/Mantenimiento`,current:false, disabled: true},
     {name:'Ensayos Banco',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
-    //{name:'Cambios',href:`/EAVMs/${codigo}/Banco`,current:false, disabled: false},
   ]
   return (
     <div className='h-full bg-gray-100'>

@@ -18,35 +18,40 @@ onSelect: Function
   const [posicion, setPosicion] = useState(1)
   let lat_overlay = circulacion.lat_final
   let lng_overlay = circulacion.lng_final
-  let texto_overlay = 'Final'
+  let texto_posicion = 'final'
+  let dia = circulacion.dt_final.slice(0,10)
+  let hora = circulacion.dt_final.slice(11,19)
   if (posicion === 0){
     lat_overlay = circulacion.lat_inicial
     lng_overlay = circulacion.lng_inicial
-    texto_overlay = 'Inicial'
+    texto_posicion = 'inicio'
+    dia = circulacion.dt_inicial.slice(0,10)
+    hora = circulacion.dt_inicial.slice(11,19)
   }
   function handleHover (valor_posicion:number){
     setPosicion(valor_posicion)
   }
   return(
-  <div className="rounded-lg shadow m-4 p-2 bg-white grid gap-2 grid-rows-2 sm:flex sm:h-[21rem]">
+  <div className="m-4 grid gap-2 grid-rows-2 h-[60rem] sm:flex sm:h-[21rem]">
+    <div className="rounded-lg shadow p-2 bg-white w-full">
     <Map 
       provider={maptilerProvider}
       dprs={[1, 2]} 
       defaultHeight={600} 
-      defaultCenter={[circulacion.lat_final, circulacion.lng_final]}
+      defaultCenter={[(circulacion.lat_final+circulacion.lat_inicial)/2, (circulacion.lng_final+circulacion.lng_inicial)/2]}
       defaultZoom={6} 
       attribution = {false}
       metaWheelZoom = {true}>
         <ZoomControl />
         <Marker 
           width={30} 
-          color = {'green'} 
+          color = '#03680f'
           anchor={[circulacion.lat_final, circulacion.lng_final]}
           onMouseOver = {() => handleHover(1)}
           onClick = {() => onSelect(-1)}/>
         <Marker 
           width={30} 
-          color = {'black'} 
+          color = '#11a021' 
           anchor={[circulacion.lat_inicial, circulacion.lng_inicial]}
           onMouseOver = {() => handleHover(0)}
           onClick = {() => onSelect(-1)}/>
@@ -56,22 +61,27 @@ onSelect: Function
           <Marker 
           key = {evento.id}
           width={10} 
-          color = {'orange'} 
+          color = '#03680f' 
           anchor={[evento.lat, evento.lng]}/>
         ))}
         <Overlay 
             anchor={[lat_overlay, lng_overlay]}>
-            <div  className='flex flex-col w-16 h-8  text-center border rounded-md bg-slate-100/80 border-slate-500'>
-              <div className='my-1'>
-                {texto_overlay}
+            <div  className='flex w-56 h-12 py-2 justify-center border rounded-md bg-slate-100/80 border-slate-500'>
+              <div className="flex flex-col justify-center w-full px-4 border-r border-gray-300">
+                <p className="text-sm text-center">{dia}</p>
+                <p className="text-gray-500 text-sm text-center">Día {texto_posicion}</p>
+              </div>
+              <div className="flex flex-col justify-center w-full ">
+                <p className="text-sm text-center">{hora}</p>
+                <p className="text-gray-500 text-sm text-center">Hora {texto_posicion}</p>
               </div>
             </div>
           </Overlay>
     </Map>
-    <div className='rounded-lg shadow h-[20rem] w-full mx-auto overflow-y-auto'>
+    </div>
+    <div className='rounded-lg shadow w-full mx-auto overflow-y-auto p-1 bg-white'>
       <GraficasCirculacion
         circulacion = {circulacion}/>
-
     </div>
   </div>
   )

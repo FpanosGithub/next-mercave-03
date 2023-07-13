@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import {PosicionEAVM} from '@/types/EAVM'
+import {posicionEAVM} from '@/types/EAVM'
 import { Map, ZoomControl, Marker, Overlay } from "pigeon-maps";
 import { maptiler } from 'pigeon-maps/providers'
 
@@ -8,13 +8,13 @@ export default function MapaEjes ({
   posiciones, 
   hover, 
   onHover}:{
-  posiciones: PosicionEAVM[], 
+  posiciones: posicionEAVM[], 
   hover: number, 
   onHover: Function,
   }) { 
   const maptilerProvider = maptiler('t3404nTGTEs1Q4VOSvmj', 'basic')
   const router = useRouter()
-  function handleClick(codigo) {
+  function handleClick(codigo:string) {
     router.push(`/EAVMs/${codigo}/Datos`)
   }
   let id_eje = -1
@@ -45,7 +45,7 @@ export default function MapaEjes ({
             ? (<Marker 
                 key = {eje.id}
                 width={30} 
-                color = '#087314'
+                color = '#11a021'
                 anchor={[eje.lat, eje.lng]} 
                 onMouseOver={() => onHover(eje.id)}
                 onClick={()=>onHover(eje.id)}/>)
@@ -53,7 +53,7 @@ export default function MapaEjes ({
             <Marker 
               key = {id_eje}
               width={40} 
-              color = 'purple'
+              color = '#03680f'
               anchor={[lat, long]} 
               onClick={()=>handleClick(codigo)}/>
       </Map>
