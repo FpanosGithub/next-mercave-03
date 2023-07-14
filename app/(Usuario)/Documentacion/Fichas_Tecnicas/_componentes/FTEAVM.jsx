@@ -67,7 +67,7 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
               <p>{fichas[i].descripcion}</p>
               {/*<p className="text-slate-500 text-xl">{fichas[i].codigo}</p>*/}
               </div>
-            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 hover:cursor-pointer mx-4 md:mx-8 my-2">
+            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 mx-4 md:mx-8 my-2 opacity-50">
               <p className="text-slate-200"> Expediente AESF</p>
             </div>
           </div>
