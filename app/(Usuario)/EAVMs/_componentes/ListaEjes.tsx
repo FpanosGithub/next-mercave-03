@@ -31,7 +31,7 @@ export default function ListaEjes ({ejes, hover, onHover}:{ejes:EAVMBasico[], ho
         <tbody className="divide-y divide-gray-200 bg-white">
           {ejes.map((eje:any)=>{return (
           <tr key = {eje.id}
-            className={clsx('',{'bg-green-100': (hover === eje.id)} )}
+            className={clsx('',{'bg-emerald-100': (hover === eje.id)} )}
             onMouseDown={()=>onHover(eje.id)}>
             <td className="w-full max-w-0 py-4 pl-4 pr-3 text-gray-700 truncate sm:w-auto sm:max-w-none">
               {eje.codigo}

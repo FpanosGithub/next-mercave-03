@@ -7,7 +7,7 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
 
   return(
   <div className='w-full px-4 pb-8'>
-    <div className='w-full rounded-lg bg-white border shadow-md h-[340px] overflow-y-auto'>
+    <div className='w-full rounded-lg bg-white border shadow-sm h-[335px] overflow-y-auto'>
     <table className="min-w-full">
       <thead className='bg-slate-100 border-b sticky top-0 z-10'>
         <tr className=''>
@@ -24,7 +24,7 @@ export default function ListaFlota ({vehiculos, hover, onHover}:{vehiculos:any[]
       <tbody className="divide-y divide-gray-200 bg-white">
         {vehiculos.map((vehiculo:any)=>{return (
         <tr key = {vehiculo.id}
-            className={clsx('',{'bg-green-100': (hover === vehiculo.id)} )}
+            className={clsx('',{'bg-emerald-100': (hover === vehiculo.id)} )}
             onMouseOver={()=>onHover(vehiculo.id)}>
           <td className="w-full max-w-0 py-4 pl-4 pr-3 text-gray-900 truncate sm:w-auto sm:max-w-none">
             {vehiculo.num_uic}
