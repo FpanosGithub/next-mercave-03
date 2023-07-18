@@ -177,11 +177,11 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Remolcado</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Remolcado'), "text-slate-300":(fichas[i].familia!=='Remolcado')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].familia==='Remolcado'), "text-slate-300":(fichas[i].familia!=='Remolcado')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Tractor</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].familia==='Tractor'), "text-slate-300":(fichas[i].familia!=='Tractor')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].familia==='Tractor'), "text-slate-300":(fichas[i].familia!=='Tractor')})}/>
                   </div>
                 </div>
               </div>
@@ -190,11 +190,11 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">920mm</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='920 mm'), "text-slate-300":(fichas[i].diam_rueda!=='920 mm')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].diam_rueda==='920 mm'), "text-slate-300":(fichas[i].diam_rueda!=='920 mm')})}/>
                   </div>
                   <div className="flex justify-between lg:items-start self-stretch">
                     <p className="font-semibold">760mm</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].diam_rueda==='760 mm'), "text-slate-300":(fichas[i].diam_rueda!=='760 mm')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].diam_rueda==='760 mm'), "text-slate-300":(fichas[i].diam_rueda!=='760 mm')})}/>
                   </div>
                 </div>
               </div>
@@ -203,11 +203,11 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">CAF</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='CAF'), "text-slate-300":(fichas[i].fab_rueda!=='CAF')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].fab_rueda==='CAF'), "text-slate-300":(fichas[i].fab_rueda!=='CAF')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Luchinni</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_rueda==='LUCHINNI'), "text-slate-300":(fichas[i].fab_rueda!=='LUCHINNI')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].fab_rueda==='LUCHINNI'), "text-slate-300":(fichas[i].fab_rueda!=='LUCHINNI')})}/>
                   </div>
                 </div>
               </div>
@@ -216,11 +216,11 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">CAF</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='CAF'), "text-slate-300":(fichas[i].fab_eje!=='CAF')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].fab_eje==='CAF'), "text-slate-300":(fichas[i].fab_eje!=='CAF')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Luchinni</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].fab_eje==='LUCHINNI'), "text-slate-300":(fichas[i].fab_eje!=='LUCHINNI')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].fab_eje==='LUCHINNI'), "text-slate-300":(fichas[i].fab_eje!=='LUCHINNI')})}/>
                   </div>
                 </div>
               </div>
@@ -233,15 +233,15 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">UIC / Ibérico</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / IBÉRICO(1668 mm)')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / IBÉRICO(1668 mm)')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">UIC / Ruso</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm)')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm)')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">UIC / Ruso / Ibérico</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].anchos==='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)'), "text-slate-300":(fichas[i].anchos!=='UIC(1435 mm) / RUSO(1520 mm) / IBÉRICO(1668 mm)')})}/>
                   </div>
                 </div>
               </div>
@@ -250,15 +250,15 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Zapata</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Zapata'), "text-slate-300":(fichas[i].freno!=='Zapata')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].freno==='Zapata'), "text-slate-300":(fichas[i].freno!=='Zapata')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Disco Rueda</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos en rueda'), "text-slate-300":(fichas[i].freno!=='Discos en rueda')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].freno==='Discos en rueda'), "text-slate-300":(fichas[i].freno!=='Discos en rueda')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">Discos Eje</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].freno==='Discos centrales'), "text-slate-300":(fichas[i].freno!=='Discos centrales')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].freno==='Discos centrales'), "text-slate-300":(fichas[i].freno!=='Discos centrales')})}/>
                   </div>
                 </div>
               </div>
@@ -267,15 +267,15 @@ export default async function FTEAVM({id_EAVM, tipo, id_tipo, version}) {
                 <div className="flex flex-col items-start gap-1 self-stretch">
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">16 ton</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='16 ton'), "text-slate-300":(fichas[i].freno!=='16 ton')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].carga_max==='16 ton'), "text-slate-300":(fichas[i].freno!=='16 ton')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">22,5 ton</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='22.5 ton'), "text-slate-300":(fichas[i].freno!=='22.5 ton')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].carga_max==='22.5 ton'), "text-slate-300":(fichas[i].freno!=='22.5 ton')})}/>
                   </div>
                   <div className="flex justify-between items-start self-stretch">
                     <p className="font-semibold">25 ton</p>
-                    <CheckCircleIcon className={clsx("w-6 h-6 shadow-md", {"text-green-500":(fichas[i].carga_max==='25 ton'), "text-slate-300":(fichas[i].freno!=='25 ton')})}/>
+                    <CheckCircleIcon className={clsx("w-6 h-6", {"text-green-500":(fichas[i].carga_max==='25 ton'), "text-slate-300":(fichas[i].freno!=='25 ton')})}/>
                   </div>
                 </div>
               </div>

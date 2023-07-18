@@ -275,9 +275,9 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
       </div>
       {/* MANTENIMIENTO */}
-      <div className="flex flex-col lg:w-[570px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+      <div className="flex flex-col items-start gap-2 lg:gap-3 mt-4 mx-2 mb-5">
         <div className="text-slate-500">Mantenimiento</div>
-        <div className="p-4 bg-white rounded-lg shadow-sm">
+        <div className="p-4 bg-white rounded-lg shadow-sm lg:w-[1142px]">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>
