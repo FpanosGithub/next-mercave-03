@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function ListaEjes ({ejes, hover, onHover}:{ejes:EAVMBasico[], hover:number, onHover:Function}) {
   return(
   <div className='w-full px-4 pb-8'>
-    <div className='w-full rounded-lg bg-white border shadow-md h-[390px] overflow-y-auto'>
+    <div className='w-full rounded-lg bg-white border shadow-sm h-[390px] overflow-y-auto'>
       <table className="min-w-full">
         <thead className='bg-slate-100 border-b sticky top-0 z-10'>
           <tr className=''>
