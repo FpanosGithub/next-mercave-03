@@ -20,22 +20,22 @@ export default function PanelBanco ({datos_banco, totales}:{datos_banco:DatosBan
   <div className='w-full flex flex-col p-4 gap-3'>
 
     <div className='flex items-center flex-wrap gap-2 rounded-md  bg-white shadow p-1'>
-      <div className=' rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-2 pb-2'>
+      <div className=' rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-1 pb-2'>
         <span className='text-gray-500 font-medium text-sm'>DESCERROJAMIENTO</span>
-        <div className='flex gap-3'>
-          <div className='w-[120px] py-1 flex flex-col justify-between pr-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+        <div className='flex'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fmaxdes).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>
-            <div className='text-gray-500 font-medium text-sm'>F. MAX</div>
+            <div className='text-gray-500 font-medium text-sm text-center'>F. MAX</div>
           </div>
-          <div className='w-[120px] py-1 flex flex-col justify-between px-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fmeddes).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>
-            <div className='text-gray-500 font-medium text-sm'>F. MED</div>
+            <div className='text-gray-500 font-medium text-sm text-center'>F. MED</div>
           </div>
           <BarraComparacion
             valor = {datos_banco.fmeddes}
@@ -46,22 +46,22 @@ export default function PanelBanco ({datos_banco, totales}:{datos_banco:DatosBan
         </div>
       </div>
 
-      <div className='rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-2 pb-2'>
+      <div className='rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-1 pb-2'>
         <span className='text-gray-500 font-medium text-sm'>CAMBIO</span>
-        <div className='flex gap-3'>
-          <div className='w-[120px] py-1 flex flex-col justify-between pr-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+        <div className='flex'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fmaxcamb).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>
-            <div className='text-gray-500 font-medium text-sm'>F. MAX</div>
+            <div className='text-gray-500 font-medium text-sm text-center'>F. MAX</div>
           </div>
-          <div className='w-[120px] py-1 flex flex-col justify-between px-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fmedcamb).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>
-            <div className='text-gray-500 font-medium text-sm'>F. MED</div>
+            <div className='text-gray-500 font-medium text-sm text-center'>F. MED</div>
           </div>
           <BarraComparacion
             valor = {datos_banco.fmedcamb}
@@ -72,18 +72,18 @@ export default function PanelBanco ({datos_banco, totales}:{datos_banco:DatosBan
         </div>
       </div>
 
-      <div className='rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-2 pb-2'>
+      <div className='rounded-md bg-white shadow flex flex-col gap-2 min-w-[380px] border-r border-gray-300 px-1 pb-2'>
         <span className='text-gray-500 font-medium text-sm'>ENCERROJAMIENTO</span>
-        <div className='flex gap-3'>
-          <div className='w-[120px] py-1 flex flex-col justify-between pr-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+        <div className='flex'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fminenc).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>
             <div className='text-gray-500 font-medium text-sm'>F. MIN</div>
           </div>
-          <div className='w-[120px] py-1 flex flex-col justify-between px-2 border-r border-gray-200'>
-            <div className='mt-1.5 truncate flex gap-2'>
+          <div className='p-2 flex flex-col justify-between border-r border-gray-200'>
+            <div className='mt-1.5 truncate flex gap-1 justify-center'>
               <span className='text-2xl'>{Math.round(datos_banco.fmedenc).toLocaleString('es-ES')}</span>
               <span className='text-sm mt-2'>N</span>
             </div>

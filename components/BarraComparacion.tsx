@@ -22,9 +22,9 @@ export default function BarraComparacion({
   else if (ratio >= 0.25) {color = 'text-emerald-200'} 
 
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex justify-center gap-2 px-2">
       <div className={`flex flex-col text-sm`}>
-        <span className="text-center">{texto_valor}</span>
+        <span className="text-center line-clamp-2">{texto_valor}</span>
         <span className={`text-center ${color}`}>{Math.round(valor)} {unidades}</span>
       </div>
       <div className="flex flex-col justify-center h-[60px] w-8 border border-gray-300 rounded">
@@ -37,7 +37,7 @@ export default function BarraComparacion({
 
       </div>
       <div className="flex flex-col text-sm text-gray-600">
-        <span className="text-center">{texto_referencia}</span>
+        <span className="text-center line-clamp-2">{texto_referencia}</span>
         <span className="text-center text-blue-800">{Math.round(referencia)} {unidades}</span>
       </div>
     </div>
