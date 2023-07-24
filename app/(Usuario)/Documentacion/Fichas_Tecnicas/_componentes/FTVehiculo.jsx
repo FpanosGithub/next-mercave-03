@@ -66,7 +66,7 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
               <p>{fichas[i].descripcion}</p>
               <p className="text-slate-500 text-xl">{clase}</p>
             </div>
-            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 hover:cursor-pointer mx-4 md:mx-8 my-2">
+            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 mx-4 md:mx-8 my-2 opacity-50">
               <p className="text-slate-200"> Expediente AESF</p>
             </div>
           </div>
@@ -275,9 +275,9 @@ export default async function FTVehiculo({id_vehiculo, tipo, id_tipo, version}) 
         </div>
       </div>
       {/* MANTENIMIENTO */}
-      <div className="flex flex-col lg:w-[570px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+      <div className="flex flex-col items-start gap-2 lg:gap-3 mt-4 mx-2 mb-5">
         <div className="text-slate-500">Mantenimiento</div>
-        <div className="p-4 bg-white rounded-lg shadow-sm">
+        <div className="p-4 bg-white rounded-lg shadow-sm lg:w-[1142px]">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>

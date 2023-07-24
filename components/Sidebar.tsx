@@ -25,26 +25,20 @@ export default function Sidebar({open}:{open:Boolean}) {
           <CogIcon className="w-6 h-6"/>
           Ejes EAVM
         </Link>
-        <p className="font-light tracking-wider text-sm pt-4">CAMBIADORES</p>
-        <Link href={'/'} className={selectedLink === 'link4' ? active : nonactive} onClick={() => setSelectedLink('link4')}>
-          <ClipboardDocumentListIcon className="w-6 h-6"/>
-          Operaciones
-        </Link>
         <p className="font-light tracking-wider text-sm pt-4">GESTIÓN ADIF</p>
-        <Link href={'/Documentacion/General'} className={selectedLink === 'link5' ? active : nonactive} onClick={() => setSelectedLink('link5')}>
+        <Link href={'/Documentacion/General'} className={selectedLink === 'link4' ? active : nonactive} onClick={() => setSelectedLink('link4')}>
           <DocumentIcon className="w-6 h-6"/>
           Documentación
         </Link>
-        <Link href={'/gestor_documentacion'} className={selectedLink === 'link6' ? active : nonactive} onClick={() => setSelectedLink('link6')}>
+        <Link href={'/gestor_documentacion'} className={selectedLink === 'link5' ? active : nonactive} onClick={() => setSelectedLink('link5')}>
           <ComputerDesktopIcon className="w-6 h-6"/>
           Gestor Doc.
         </Link>
       </div>
-      <div className="mb-16 py-4  flex space-x-4 text-sm justify-center border-t border-gray-600">
+      <div className="mb-10 py-4  flex space-x-4 text-sm justify-center border-t border-gray-600">
         <p className="">Creado por </p>
         <Image src={triaWhite} width = {66} height={21} alt='logo adif' priority/>
       </div>
-      
     </div>
   )
 }

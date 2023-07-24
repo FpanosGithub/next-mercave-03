@@ -6,16 +6,17 @@ const segmentos = {
 }
 
 export default function loading() {
+  const columns = [1, 2, 3, 4]
   return (
     <div className='h-full w-full bg-gray-100'>
       {/* Cabecera */}
-      <div className="pb-2 mb-3 shadow bg-white">
+      <div className="flex flex-col items-start gap-4 self-stretch shadow bg-white">
         <BreadNav segmentos = {segmentos}/>
         <p className="ml-4 my-4 text-2xl font-semibold">Ejes de Ancho Variable de Mercancías</p>
       </div>
       <div className="rounded-lg shadow m-4 p-2 bg-white grid gap-2 grid-rows-2 sm:flex sm:h-[21rem]">
-        <div className="animate-pulse flex items-center h-[20rem] sm:flex-auto">
-          <img className="mx-auto animate-bounce" width="18" alt="Google Maps pin" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Google_Maps_pin.svg/16px-Google_Maps_pin.svg.png" />
+        <div className="animate-pulse flex items-center bg-left-bottom bg-cover h-[20rem] sm:flex-auto" style={{backgroundImage: 'url("/imagenes/varios/blankmap.png")'}}>
+          <img className="mx-auto animate-bounce" width="18" alt="Google Maps pin" src="/imagenes/varios/mappin.png" />
         </div>
         <div className='rounded-lg shadow h-[20rem] w-56 mx-auto animate-pulse'>
           <div>
@@ -36,7 +37,7 @@ export default function loading() {
         </div>
       </div>
       <div className='w-full px-4 pb-8'>
-        <div className='w-full rounded-xl bg-white border shadow-md h-[100px] overflow-y-auto'>
+        <div className='w-full rounded-xl bg-white border shadow-md overflow-y-auto'>
           <table className="min-w-full">
             <thead className=''>
               <tr className=''>
@@ -59,22 +60,24 @@ export default function loading() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 bg-white">
-              <tr className="animate-pulse">
-                <td className="w-full max-w-0 py-4 pl-4 pr-3 text-gray-700 truncate sm:w-auto sm:max-w-none">
-                  <div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div> 
-                  <dl className="font-normal xl:hidden">
-                    <dt className="sr-only">Versión</dt>
-                    <dd className="mt-1 truncate text-gray-400"></dd>
-                  </dl>
-                </td>
-                <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div></td>
-                <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div></td>
-                <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-2 ml-auto"></div></td>
-                <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-2 ml-auto"></div></td>
-                <td className="hidden px-3 py-4 text-gray-700 sm:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20 ml-3"></div></td>
-                <td className="w-8 mx-auto mt-4"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-6 mx-auto"></div></td>
-                <td className="py-4 pl-3 pr-4 text-sm sm:pr-0"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-14 mx-auto"></div></td>
-              </tr>
+              {columns.map((number:any) => (
+                <tr className="animate-pulse">
+                  <td className="w-full max-w-0 py-4 pl-4 pr-3 text-gray-700 truncate sm:w-auto sm:max-w-none">
+                    <div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div> 
+                    <dl className="font-normal xl:hidden">
+                      <dt className="sr-only">Versión</dt>
+                      <dd className="mt-1 truncate text-gray-400"></dd>
+                    </dl>
+                  </td>
+                  <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div></td>
+                  <td className="hidden px-3 py-4 text-gray-700 xl:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20"></div></td>
+                  <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-2 ml-auto"></div></td>
+                  <td className="hidden px-3 py-4 text-gray-700 text-right lg:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-2 ml-auto"></div></td>
+                  <td className="hidden px-3 py-4 text-gray-700 sm:table-cell"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-20 ml-3"></div></td>
+                  <td className="w-8 mx-auto mt-4"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-6 mx-auto"></div></td>
+                  <td className="py-4 pl-3 pr-4 text-sm sm:pr-0"><div className="h-1 bg-gray-500 rounded-full mb-2.5 w-14 mx-auto"></div></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

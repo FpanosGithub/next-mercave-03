@@ -1,10 +1,13 @@
 'use client'
-import { XMarkIcon, HomeIcon, TruckIcon, CogIcon, ClipboardDocumentListIcon, DocumentIcon, ComputerDesktopIcon, ArrowPathIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/outline"
+import { XMarkIcon, HomeIcon, TruckIcon, CogIcon, DocumentIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import Image from "next/image"
 import triaWhite from  '@/public/logos/triaWhite.png'
+import { useState } from "react"
 
-export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Function}) {
+export default function Modalbar({open, setOpen, selectedLink, setSelectedLink}:{open: Boolean, setOpen:Function, selectedLink: String, setSelectedLink: Function}) {
+  const active = "flex gap-4 text-lg text-white"
+  const nonactive = "flex gap-4 text-lg hover:text-gray-300"
   return (
     <div 
     onClick={()=>{setOpen(!open)}}
@@ -16,39 +19,25 @@ export default function Modalbar({open, setOpen}:{open: Boolean, setOpen:Functio
           <div className="flex justify-end">
             <XMarkIcon className='w-6 h-6' onClick={()=>{setOpen(!open)}}/>
           </div>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/'} onClick={()=>{setOpen(!open); setSelectedLink('link1')}} className={selectedLink === 'link1' ? active : nonactive}>
             <HomeIcon className="w-6 h-6"/>
             Home
           </Link>
           <p className="font-light tracking-wider text-sm pt-4">MATERIAL RODANTE</p>
-          <Link href={'/Vehiculos'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/Vehiculos'} onClick={()=>{setOpen(!open); setSelectedLink('link2')}} className={selectedLink === 'link2' ? active : nonactive}>
             <TruckIcon className="w-6 h-6"/>
             Vehículos
           </Link>
-          <Link href={'/EAVMs'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/EAVMs'} onClick={()=>{setOpen(!open); setSelectedLink('link3')}} className={selectedLink === 'link3' ? active : nonactive}>
             <CogIcon className="w-6 h-6"/>
             Ejes EAVM
           </Link>
-          <p className="font-light tracking-wider text-sm pt-4">CAMBIADORES</p>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
-            <ClipboardDocumentListIcon className="w-6 h-6"/>
-            Operaciones
-          </Link>
-          <p className="font-light tracking-wider text-sm pt-4">BANCO ENSAYOS</p>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
-            <ArrowPathIcon className="w-6 h-6"/>
-            Ensayos x Eje
-          </Link>
-          <Link href={'/'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
-            <ArrowTrendingUpIcon className="w-6 h-6"/>
-            Resumen
-          </Link>
-            <p className="font-light tracking-wider text-sm pt-4">GESTIÓN ADIF</p>
-          <Link href={'/Documentacion/General'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <p className="font-light tracking-wider text-sm pt-4">GESTIÓN ADIF</p>
+          <Link href={'/Documentacion/General'} onClick={()=>{setOpen(!open); setSelectedLink('link4')}} className={selectedLink === 'link4' ? active : nonactive}>
             <DocumentIcon className="w-6 h-6"/>
             Documentación
           </Link>
-          <Link href={'/gestor_documentacion'} onClick={()=>{setOpen(!open)}} className="flex gap-4 text-lg hover:text-gray-300">
+          <Link href={'/gestor_documentacion'} onClick={()=>{setOpen(!open); setSelectedLink('link5')}} className={selectedLink === 'link5' ? active : nonactive}>
             <ComputerDesktopIcon className="w-6 h-6"/>
             Gestor Doc.
           </Link>

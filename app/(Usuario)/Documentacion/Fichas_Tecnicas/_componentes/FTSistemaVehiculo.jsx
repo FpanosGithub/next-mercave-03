@@ -55,7 +55,7 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
               <p className="text-slate-300 text-xl mr-4 truncate">{sistema}</p>
               <p className="text-slate-300 text-xl mr-4 truncate">{fichas[i].descripcion}</p>
             </div>
-            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 hover:cursor-pointer mx-4 md:mx-8 my-4">
+            <div className= "flex justify-center border shadow p-2 rounded-md bg-gray-800 mx-4 md:mx-8 my-4 opacity-50">
               <p className="text-slate-200"> Expediente AESF</p>
             </div>
           </div>
@@ -91,54 +91,91 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
         </div>
       </div>
       {/* AUTORES */}
-      <div className="mx-2 mt-2 flex flex-wrap border border-slate-600 rounded">
-        <div className="my-1 flex p-3 space-x-6 ml-1 border-r">
-        <div className="text-slate-500">Elaborado: </div>
-          <div className="">
-            <p>{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].realizado.cargo}</p>
+      <div className="flex flex-col lg:flex-row items-start gap-5 self-stretch mx-2 mt-3">
+        <div className="flex flex-col items-start gap-4 grow w-[395px] md:w-[565px]">
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Elaborado </p>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-4 lg:p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
+                  <Image 
+                  className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                  src = {urlFor(fichas[i].realizado.imagen).url()}
+                  alt= 'avatar'
+                  width={82}
+                  height = {88}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex flex-col md:flex-row md:justify-between items-end lg:items-center gap-2 self-stretch">
+                    <div className="flex flex-col items-start lg:gap-2 self-stretch">
+                      <p className="text-lg lg:text-xl font-bold">{fichas[i].realizado.nombre} {fichas[i].realizado.apellido}</p>
+                      <p className="text-sm lg:text-base text-gray-500">{fichas[i].realizado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].realizado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <p className="text-gray-500">Supervisado </p>
+            <div className="flex flex-col bg-white border rounded-lg shadow-sm items-start p-4 lg:p-6 self-stretch">
+              <div className="flex justify-center items-start gap-4 self-stretch">
+                <div className="flex flex-col justify-center items-center self-stretch">
+                  <Image 
+                  className="rounded shadow-md shadow-slate-600 w-20 h-20 overflow-hidden"
+                  src = {urlFor(fichas[i].supervisado.imagen).url()}
+                  alt= 'avatar'
+                  width={82}
+                  height = {82}/>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-4 grow self-stretch">
+                  <div className="flex flex-col md:flex-row md:justify-between items-end lg:items-center gap-2 self-stretch">
+                    <div className="flex flex-col items-start lg:gap-2 self-stretch">
+                      <p className="text-lg lg:text-xl font-bold">{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
+                      <p className="text-sm lg:text-base text-gray-500">{fichas[i].supervisado.cargo}</p>
+                    </div>
+                    <button className="rounded-lg text-green-500 border p-2 border-green-500">Curriculum vitae</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
         </div>
-        <div className="my-1 flex p-3 space-x-6 border-r">
-          <div className="text-slate-500">Supervisado: </div>
-          <div className="">
-            <p>{fichas[i].supervisado.nombre} {fichas[i].supervisado.apellido}</p>
-            <p className="text-slate-500">{fichas[i].supervisado.cargo}</p>
+        {/* CABECERA */}
+        <div className="flex flex-col items-start gap-2 lg:gap-3 lg:grow self-stretch">
+          <p className="text-gray-500">Sistema</p>
+          <div className="flex flex-col w-[395px] md:w-[565px] justify-center lg:justify-end items-center lg:gap-[91px] grow">
+            {fichas[i].imagen &&
+            <Image 
+                className="object-cover h-[285px] lg:h-[310px] rounded-md border shadow-sm shadow-slate-600"
+                src = {urlFor(fichas[i].imagen).url()}
+                alt= 'imagen'
+                width={565}
+                height = {400}/>}
           </div>
-          <Image 
-            className="rounded-full shadow-md shadow-slate-600 m-l-8 w-12 h-12 overflow-hidden"
-            src = {urlFor(fichas[i].supervisado.imagen).url()}
-            alt= 'avatar'
-            width={10}
-            height = {10}/>
-        </div> 
-      </div>
-      {/* CABECERA */}
-      <div className="mx-2 my-2 p-4 border  border-slate-600 rounded">
-        {fichas[i].imagen &&
-        <Image 
-            className="object-cover object-left h-auto mx-auto rounded-md border shadow-md shadow-slate-600"
-            src = {urlFor(fichas[i].imagen).url()}
-            alt= 'imagen'
-            width={1000}
-            height = {400}/>}
+        </div>
       </div>
       {/* CONJUNTOS DEL SISTEMA */}
-      <div className="m-2 mt-4 border border-slate-600 rounded">
-        <div className="p-2 w-full border border-slate-600">
-          <div className="text-2xl font-extralight">Composición del Sistema</div>
-          <div className="text-lg font-extralight flex px-2 pt-2">
-            <div className="border-l border-l-blue-500 px-2">Conjuntos</div>
-            <div className="border-l border-l-emerald-500 pl-2">Componentes</div>
+      <div className="flex flex-col items-end gap-4 self-stretch mt-4 mx-2">
+        <div className="flex flex-col items-start gap-4 self-stretch">
+          <div className="flex flex-col md:flex-row justify-between md:items-center self-stretch">
+            <p className="mb-2 lg:mb-0 text-gray-500">Composición del sistema</p>
+            <div className="flex flex-col bg-white rounded-lg shadow-sm py-2 px-4 items-start gap-2.5">
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseOrange.svg" alt="elipse" />
+                  <p className="text-sm text-orange-600">Conjuntos</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/imagenes/elipses/EllipseTeal.svg" alt="elipse" />
+                  <p className="text-sm text-teal-600">Componentes</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="p-8 text-slate-400">
+        <div className="flex flex-col items-end gap-2">
           {fichas[i].conjuntos && fichas[i].conjuntos.map((conjunto)=>{return(
             (conjunto?
               <NavegadorConjunto 
@@ -155,27 +192,23 @@ export default async function FTSistemaVehiculo({material, id, tipo, id_tipo, si
         </div>
       </div>
       {/* DESCRIPCIÓN TÉCNICA */}
-      <div className="m-2 mt-4 border border-slate-600">
-        <div className="text-2xl font-extralight p-2 w-full border border-slate-600">
-          Descripción Técnica del sistema
-        </div>
-        <div className="p-4">
+      <div className="flex flex-col lg:w-[1142px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Descripción Técnica del sistema</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].detalle}
               components = {RichTextComponents}/>
         </div>
       </div>
       {/* MANTENIMIENTO */}
-      <div className="m-2 mt-4 border border-slate-600">
-        <div className="text-2xl font-extralight p-2 w-full border border-slate-600">
-          Mantenimiento
-        </div>
-        <div className="p-8">
+      <div className="flex flex-col lg:w-[570px] items-start gap-2 lg:gap-3 mt-4 mx-2">
+        <div className="text-slate-500">Mantenimiento</div>
+        <div className="p-4 bg-white rounded-lg shadow-sm">
           <PortableText
               value={fichas[i].mantenimiento}
               components = {RichTextComponents}/>
         </div>
-      </div> 
+      </div>
     </div>
   )
 }
